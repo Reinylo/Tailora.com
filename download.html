@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Early Access Download</title>
+    <style>
+        #downloadPage {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: linear-gradient(to right, #5ab56b, #4f9993);
+            padding: 2rem;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 0.5em;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 0.5em 0;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        button {
+            margin-top: 1em;
+            width: 95%;
+            padding: 12px;
+            background: #00c9ff;
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:disabled {
+            background: #888;
+            cursor: not-allowed;
+        }
+
+        .footer {
+            margin-top: 2em;
+            font-size: 0.9em;
+            color: #323548;
+        }
+    </style>
+</head>
+
+<body id="downloadPage">
+    <div class="container">
+        <h1>Early Access</h1>
+        <p>Sign up to recive an email when app get published</p>
+        <input type="text" id="name" placeholder="Your Name" />
+        <input type="email" id="email" placeholder="Your Email" />
+        <button id="downloadBtn" disabled>Sign up for early access</button>
+        <div class="footer">
+            © 2025 Sosen. powered by ice peach tea.
+        </div>
+    </div>
+
+    <script>
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        function validateForm() {
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            downloadBtn.disabled = !(name && email.includes('@') && email.includes('.'));
+        }
+
+        nameInput.addEventListener('input', validateForm);
+        emailInput.addEventListener('input', validateForm);
+
+        downloadBtn.addEventListener('click', () => {
+            alert('🎊 Thanks for signing up! Download will begin soon...');
+            // You could trigger a file download here if needed
+            // window.location.href = 'yourfile.zip';
+        });
+    </script>
+</body>
+
+</html>

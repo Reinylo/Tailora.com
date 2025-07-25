@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailora</title>
+    <link rel="icon" href="images/logoIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="navBar">
+        <div id="topperLogo">
+            <img id="MiniLogo" src="images/logo.svg" alt="Tailora Logo">
+        </div>
+        <div id="navlinks">
+            <a class="navlin" href="index.html">
+                <h4>Home</h4>
+            </a>
+            <div id="AbtCon" class="navMenu">
+                <a class="navlin">
+                    <h4>About</h4>
+                </a>
+            </div>
+            <a class="navlin" href="premium.html">
+                <h4>Premium</h4>
+            </a>
+            <a class="navlin" href="tailoraFinder.html">
+                <h4>Finder</h4>
+            </a>
+            <a class="navlin" href="contact.html">
+                <h4>Contact</h4>
+            </a>
+            <div id="MoreCon" class="navMenu">
+                <a class="navlin">
+                    <h4>More</h4>
+                </a>
+            </div>
+        </div>
+        <div id="startBtnCon">
+            <button id="startBtn">Get Started</button>
+        </div>
+    </div>
+
+    <div id="header">
+        <!--<img id="PhoneShadow" src="images/PhoneShdow .png" alt="demo shadow">-->
+        <!--<img id="PhoneFloat" src="images/PhoneFloat.png" alt="demo">-->
+        <img id="Logo" src="images/logoWhite.svg" alt="Tailora Logo">
+        <h4 id="abstract">The only app that gathers tailors, suppliers and customers.
+            allowing to customize your outfits in a game-like interface</h4>
+        <div class="button-container">
+            <button id="dwnldBtn" class="button">Download</button>
+            <button id="previewBtn" class="button">Preview app</button>
+        </div>
+    </div>
+    <video id="VideoDemo" autoplay muted loop>
+        <source src="images/adVid.mp4" type="video/mp4">
+    </video>
+
+    <div id="mainContent">
+        <h1 id="featuresTitle" class="normal hidden">App Features</h1>
+
+        <!--the top wave SVG-->
+        <svg width="100%" height="100%" id="svgWave" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="5%" stop-color="#466e5a"></stop>
+                    <stop offset="95%" stop-color="#46636e"></stop>
+                </linearGradient>
+            </defs>
+            <path
+                d="M 0,600 L 0,225 C 164.66666666666663,161.26666666666665 329.33333333333326,97.53333333333333 494,124 C 658.6666666666667,150.46666666666667 823.3333333333335,267.1333333333333 981,299 C 1138.6666666666665,330.8666666666667 1289.3333333333333,277.93333333333334 1440,225 L 1440,600 L 0,600 Z"
+                stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1" transform="rotate(-180 720 300)">
+            </path>
+        </svg>
+
+
+        <!--the first feature-->
+        <div id="fturOne" class="fturContainer normal hidden">
+            <img id="mapFtur" class="fturimg" src="images/map.gif">
+            <h2 id="mapFturText" class="fturTitle normal hidden">Find local tailors near you</h2>
+            <h4 id="mapFturText2" class="fturText normal hidden">Tailora helps you find the
+                best local tailors in yourarea, soyou can get your
+                clothes tailored quickly and conveniently.</h4>
+        </div>
+
+        <!--the second feature-->
+        <div id="fturTwo" class="fturContainer normal hidden">
+            <img id="ARftur" class="fturimg" src="images/AR.gif">
+            <h2 id="ARfturText" class="fturTitle normal hidden">Try on clothes virtually</h2>
+            <h4 id="ARfturText2" class="fturText normal hidden">Tailora's AR feature allows you to try on clothes
+                virtually,
+                so you can see how your designs look on you before finalizing.</h4>
+        </div>
+
+        <!--the third feature-->
+        <div id="fturThree" class="fturContainer normal hidden">
+            <img id="Crtftur" class="fturimg" src="images/Create.gif">
+            <h2 id="CrtfturText" class="fturTitle normal hidden">We'll create your designs!</h2>
+            <h4 id="CrtfturText2" class="fturText normal hidden">Tailora helps you contact with actual tailors
+                who will recive your design, info then create the fit you designed!</h4>
+        </div>
+
+        <h1 id="TitleCustomerRev">Customer Reviews</h1>
+
+        <div class="CustomerRevContainer">
+            <div class="CustomerRevs animate" id="reviewlayout">
+
+                <!-- Reviews start -->
+                <div class="reviewCard">
+                    <div class="review-header">
+                        <img src="images/icons .png" class="Rev-pfp">
+                        <div>
+                            <div class="review-name">Alice</div>
+                            <div class="stars">⭐⭐⭐⭐⭐ 5.0</div>
+                        </div>
+                    </div>
+                    <div class="review-text">“Absolutely love this service. Fast and smooth!”</div>
+                </div>
+
+                <div class="reviewCard">
+                    <div class="review-header">
+                        <img src="images/icons .png" class="Rev-pfp">
+                        <div>
+                            <div class="review-name">John</div>
+                            <div class="stars">⭐⭐⭐⭐ 4.0</div>
+                        </div>
+                    </div>
+                    <div class="review-text">“Great value for money. Highly recommend.”</div>
+                </div>
+
+                <div class="reviewCard">
+                    <div class="review-header">
+                        <img src="images/icons .png" class="Rev-pfp">
+                        <div>
+                            <div class="review-name">Chen Hao</div>
+                            <div class="stars">⭐⭐⭐ 3.5</div>
+                        </div>
+                    </div>
+                    <div class="review-text">“App works smoothly. very fun and easy to use”</div>
+                </div>
+
+                <div class="reviewCard">
+                    <div class="review-header">
+                        <img src="images/icons .png" class="Rev-pfp">
+                        <div>
+                            <div class="review-name">Mia</div>
+                            <div class="stars">⭐⭐⭐⭐ 4.0</div>
+                        </div>
+                    </div>
+                    <div class="review-text">“Absolutely love this !!! tailor was quick and responsive!”</div>
+                </div>
+
+                <!--repeat the reviews-->
+                <div class="reviewCard">
+                    <div class="review-header">
+                        <img src="images/icons .png" class="Rev-pfp">
+                        <div>
+                            <div class="review-name">Alice</div>
+                            <div class="stars">⭐⭐⭐⭐⭐ 5.0</div>
+                        </div>
+                    </div>
+                    <div class="review-text">“Absolutely love this service. Fast and smooth!”</div>
+                </div>
+
+                <div class="reviewCard">
+                    <div class="review-header">
+                        <img src="images/icons .png" class="Rev-pfp">
+                        <div>
+                            <div class="review-name">John</div>
+                            <div class="stars">⭐⭐⭐⭐ 4.0</div>
+                        </div>
+                    </div>
+                    <div class="review-text">“Great value for money. Highly recommend.”</div>
+                </div>
+
+                <div class="reviewCard">
+                    <div class="review-header">
+                        <img src="images/icons .png" class="Rev-pfp">
+                        <div>
+                            <div class="review-name">Chen Hao</div>
+                            <div class="stars">⭐⭐⭐ 3.5</div>
+                        </div>
+                    </div>
+                    <div class="review-text">“App works smoothly. very fun and easy to use”</div>
+                </div>
+
+                <div class="reviewCard">
+                    <div class="review-header">
+                        <img src="images/icons .png" class="Rev-pfp">
+                        <div>
+                            <div class="review-name">Mia</div>
+                            <div class="stars">⭐⭐⭐⭐ 4.0</div>
+                        </div>
+                    </div>
+                    <div class="review-text">“Absolutely love this !!! tailor was quick and responsive!”</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="stopButton">
+            <button id="stop">❚❚</button>
+        </div>
+
+        <!--the bottom wave SVG-->
+        <svg width="100%" height="100%" id="BottomSVGwave" viewBox="0 0 1440 690" xmlns="http://www.w3.org/2000/svg"
+            class="transition duration-300 ease-in-out delay-150">
+            <defs>
+                <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="5%" stop-color="#466e5a"></stop>
+                    <stop offset="95%" stop-color="#46636e"></stop>
+                </linearGradient>
+            </defs>
+            <path
+                d="M 0,700 L 0,175 C 94.07142857142858,187.46428571428572 188.14285714285717,199.92857142857142 299,180 C 409.85714285714283,160.07142857142858 537.5,107.75000000000001 673,108 C 808.5,108.24999999999999 951.8571428571429,161.07142857142856 1081,181 C 1210.142857142857,200.92857142857144 1325.0714285714284,187.96428571428572 1440,175 L 1440,700 L 0,700 Z"
+                stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="0.53"
+                class="transition-all duration-300 ease-in-out delay-150 path-4"></path>
+            <defs>
+                <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="5%" stop-color="#466e5a"></stop>
+                    <stop offset="95%" stop-color="#46636e"></stop>
+                </linearGradient>
+            </defs>
+            <path
+                d="M 0,700 L 0,408 C 97.5,448.67857142857144 195,489.35714285714283 319,477 C 443,464.64285714285717 593.4999999999999,399.25 733,365 C 872.5000000000001,330.75 1001,327.6428571428571 1117,340 C 1233,352.3571428571429 1336.5,380.17857142857144 1440,408 L 1440,700 L 0,700 Z"
+                stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1"
+                class="transition-all duration-300 ease-in-out delay-150 path-5"></path>
+        </svg>
+
+        <!--FAQ Part-->
+        <div id="FAQbackgound">
+            <div id="FAQ-container">
+                <div id="FAQTitle">
+                    <h1 id="FAQTitleText">Frequently Asked Question</h1>
+                </div>
+                <div id="QnA-container">
+
+                    <div id="FAQcard">
+                        <div id="Que1-Text" class="QuestionFAQ">
+                            <h3>Can I use more than one fabric type in one piece?</h3>
+                        </div>
+                        <div id="Ans1-Text" Class="AnswerFAQ">
+                            <h3>Yes. you can adjust the fabric type for each
+                                part of your design individually</h3>
+                        </div>
+                    </div>
+
+                    <div id="FAQcard">
+                        <div id="Que2-Text" class="QuestionFAQ">
+                            <h3>Can I ask to use my own fabric?</h3>
+                        </div>
+                        <div id="Ans2-Text" class="AnswerFAQ">
+                            <h3>Yes. you may chat with the tailor to use your own fabric</h3>
+                        </div>
+                    </div>
+
+                    <div id="FAQcard">
+                        <div id="Que3-Text" class="QuestionFAQ">
+                            <h3>What is the main use for the AI assistant?</h3>
+                        </div>
+                        <div id="Ans3-Text" class="AnswerFAQ">
+                            <h3>AI assistant suggest you design ideas based on your preferance,
+                                trends and Occasion. As well as suitable fabrics. Can also make you a full design
+                                with a single prompt. and even more!
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div id="FAQcard">
+                        <div id="Que4-Text" class="QuestionFAQ">
+                            <h3>What happens if a tailor cancels my order?</h3>
+                        </div>
+                        <div id="Ans4-Text" class="AnswerFAQ">
+                            <h3>In the event of a cancellation by a tailor,
+                                you will receive a full refund.
+                                Our team will also assist you in finding an
+                                alternative tailor that suits your preferences.</h3>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div id="FooterWave">
+            <svg width="100%" height="100%" id="footerWave" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg"
+                class="transition duration-300 ease-in-out delay-150">
+                <path
+                    d="M 0,600 L 0,150 C 90.86124401913872,175.79904306220095 181.72248803827745,201.59808612440193 281,180 C 380.27751196172255,158.40191387559807 487.97129186602876,89.40669856459331 591,78 C 694.0287081339712,66.59330143540669 792.3923444976076,112.77511961722487 871,132 C 949.6076555023924,151.22488038277513 1008.4593301435407,143.4928229665072 1100,142 C 1191.5406698564593,140.5071770334928 1315.7703349282297,145.2535885167464 1440,150 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="0.53"
+                    class="transition-all duration-300 ease-in-out delay-150 path-0"></path>
+                <path
+                    d="M 0,600 L 0,350 C 95.87559808612443,355.0526315789474 191.75119617224885,360.10526315789474 273,355 C 354.24880382775115,349.89473684210526 420.87081339712915,334.6315789473684 525,353 C 629.1291866028708,371.3684210526316 770.7655502392344,423.3684210526316 888,415 C 1005.2344497607656,406.6315789473684 1098.066985645933,337.89473684210526 1186,317 C 1273.933014354067,296.10526315789474 1356.9665071770335,323.0526315789474 1440,350 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="1"
+                    class="transition-all duration-300 ease-in-out delay-150 path-1"></path>
+            </svg>
+        </div>
+
+        <div id="FooterSection">
+            <div id="footerMenus">
+
+                <div id="footNavLinks1">
+                    <a href="index.html">
+                        <h4 id="footNavHome" class="footNavs">Home</h4>
+                    </a>
+                    <a href="Team.html">
+                        <h4 id="footNavTeam" class="footNavs">Our team</h4>
+                    </a>
+                    <a href="ourLogo.html">
+                        <h4 id="footNavLogo" class="footNavs">Our Logo</h4>
+                    </a>
+                    <a href="tailoraFinder.html">
+                        <h4 id="footNavVision" class="footNavs">Finder</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="premium.html">
+                        <h4 id="footNavPro" class="footNavs">Premium</h4>
+                    </a>
+                    <a href="news.html">
+                        <h4 id="footNavNews" class="footNavs">news</h4>
+                    </a>
+                    <a href="preview.html">
+                        <h4 id="footNavPreview" class="footNavs">Preview</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="logIn.html">
+                        <h4 id="footNavPro" class="footNavs">LogIn</h4>
+                    </a>
+                    <a href="download.html">
+                        <h4 id="footNavNews" class="footNavs">Download</h4>
+                    </a>
+                    <a href="index.html">
+                        <h4 id="footNavPreview" class="footNavs">FAQ</h4>
+                    </a>
+                    <a href="contact.html">
+                        <h4 id="footNavContact" class="footNavs">Contact</h4>
+                    </a>
+                </div>
+
+            </div>
+
+            <div id="footerChara">
+                <div id="charaText">
+
+                    <div id="ThinkShape" class="bright">
+                        <div id="popMsg">
+                            <h2> Follow Us ! </h2>
+                        </div>
+                        <h2 id="thinking"> </h2>
+                        <h2 id="thinking2"> </h2>
+                    </div>
+
+                    <div id="contacts">
+                        <div id="icons" class="bright">
+                            <img class="ContIcons" src="images/insta.svg">
+                            <img class="ContIcons" src="images/linkedin.svg">
+                        </div>
+                        <div id="accounts">
+                            <a href="">
+                                <h4>@Tailora._</h4>
+                            </a>
+                            <a href="">
+                                <h4>@TailorA</h4>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <img id="OraiChara" class="bright" src="images/chara.png">
+            </div>
+        </div>
+        <div id="copyrights">
+            <h6>© 2025 Sawsan Abdullatif. powered by ice peach tea.</h6>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
