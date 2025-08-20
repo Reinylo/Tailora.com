@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Size Guide - Tailora</title>
+    <link rel="icon" href="images/logoIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        #navBar {
+            zoom: 86%;
+        }
+
+        #mainContentSizeGuide {
+            zoom: 86%;
+            position: relative;
+            top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+            background-color: #466e5aff;
+        }
+
+        .size-header {
+            text-align: center;
+            color: white;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .size-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .size-section {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            margin: 2rem;
+            max-width: 1000px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            position: relative;
+        }
+
+        .size-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .size-tab {
+            padding: 1rem 2rem;
+            border: 2px solid #466e5a;
+            border-radius: 25px;
+            background: white;
+            color: #466e5a;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .size-tab:hover,
+        .size-tab.active {
+            background: #466e5a;
+            color: white;
+        }
+
+        .size-table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        .size-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .size-table th,
+        .size-table td {
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .size-table th {
+            background: #466e5a;
+            color: white;
+            font-weight: 600;
+        }
+
+        .size-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .size-table tr:hover {
+            background: #f0f8f5;
+        }
+
+        .measurement-guide {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .measurement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .measurement-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 15px;
+            border-left: 4px solid #466e5a;
+        }
+
+        .measurement-icon {
+            width: 50px;
+            height: 50px;
+            background: #466e5a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .measurement-info h4 {
+            color: #466e5a;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .measurement-info p {
+            color: #666;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .calculator-section {
+            background: #466e5a;
+            color: white;
+            border-radius: 25px;
+            padding: 3rem;
+            margin: 2rem;
+            max-width: 1000px;
+            z-index: 1000;
+            position: relative;
+        }
+
+        .calculator-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .calculate-btn {
+            grid-column: 1 / -1;
+            background: #c461a8;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .calculate-btn:hover {
+            background: #b055a0;
+        }
+
+        .size-result {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            display: none;
+        }
+
+        .tips-section {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            margin: 2rem;
+            max-width: 1000px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            position: relative;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tip-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid #c461a8;
+        }
+
+        .tip-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .tip-card h3 {
+            color: #466e5a;
+            margin-bottom: 1rem;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (max-width: 913px) {
+            .size-header h1 {
+                font-size: 2rem;
+            }
+
+            .size-section,
+            .calculator-section,
+            .tips-section {
+                margin: 1rem;
+                padding: 2rem;
+            }
+
+            .size-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .size-tab {
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .calculator-form {
+                grid-template-columns: 1fr;
+            }
+
+            .measurement-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navBar">
+        <div id="topperLogo">
+            <img id="MiniLogo" src="images/logo.svg" alt="Tailora Logo">
+        </div>
+        <div id="navlinks">
+            <a class="navlin" href="index.html">
+                <h4>Home</h4>
+            </a>
+            <div id="AbtCon" class="navMenu">
+                <a class="navlin" href="about.html">
+                    <h4>About</h4>
+                </a>
+            </div>
+            <a class="navlin" href="premium.html">
+                <h4>Pricing</h4>
+            </a>
+            <a class="navlin" href="tailoraFinder.html">
+                <h4>Finder</h4>
+            </a>
+            <a class="navlin" href="contact.html">
+                <h4>Contact</h4>
+            </a>
+            <div id="MoreCon" class="navMenu">
+                <a class="navlin">
+                    <h4>More</h4>
+                </a>
+            </div>
+        </div>
+        <div id="startBtnCon">
+            <button id="startBtn">Get Started</button>
+        </div>
+    </div>
+
+    <div id="mainContentSizeGuide" style="background: white;">
+        <div class="size-header" style="padding: 3rem 2rem;">
+            <h1 style="color: #743c7c;">Size Guide</h1>
+            <p style="font-size: 1.2rem; color: #46636e;">Find your perfect fit with our comprehensive sizing guide</p>
+        </div>
+
+        <div class="size-section">
+            <div class="size-tabs">
+                <button class="size-tab active" data-tab="men">Men's Clothing</button>
+                <button class="size-tab" data-tab="women">Women's Clothing</button>
+                <button class="size-tab" data-tab="international">International Sizes</button>
+            </div>
+
+            <!-- Men's Size Chart -->
+            <div id="men-tab" class="tab-content active">
+                <h2 style="color: #466e5a; text-align: center;">Men's Size Chart</h2>
+                <div class="size-table-container">
+                    <table class="size-table">
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>Chest (inches)</th>
+                                <th>Waist (inches)</th>
+                                <th>Hip (inches)</th>
+                                <th>Shoulder (inches)</th>
+                                <th>Sleeve (inches)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>XS</strong></td>
+                                <td>34-36</td>
+                                <td>28-30</td>
+                                <td>34-36</td>
+                                <td>16.5</td>
+                                <td>32</td>
+                            </tr>
+                            <tr>
+                                <td><strong>S</strong></td>
+                                <td>36-38</td>
+                                <td>30-32</td>
+                                <td>36-38</td>
+                                <td>17</td>
+                                <td>33</td>
+                            </tr>
+                            <tr>
+                                <td><strong>M</strong></td>
+                                <td>38-40</td>
+                                <td>32-34</td>
+                                <td>38-40</td>
+                                <td>17.5</td>
+                                <td>34</td>
+                            </tr>
+                            <tr>
+                                <td><strong>L</strong></td>
+                                <td>40-42</td>
+                                <td>34-36</td>
+                                <td>40-42</td>
+                                <td>18</td>
+                                <td>35</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XL</strong></td>
+                                <td>42-44</td>
+                                <td>36-38</td>
+                                <td>42-44</td>
+                                <td>18.5</td>
+                                <td>36</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XXL</strong></td>
+                                <td>44-46</td>
+                                <td>38-40</td>
+                                <td>44-46</td>
+                                <td>19</td>
+                                <td>37</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Women's Size Chart -->
+            <div id="women-tab" class="tab-content">
+                <h2 style="color: #466e5a; text-align: center;">Women's Size Chart</h2>
+                <div class="size-table-container">
+                    <table class="size-table">
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>Bust (inches)</th>
+                                <th>Waist (inches)</th>
+                                <th>Hip (inches)</th>
+                                <th>Shoulder (inches)</th>
+                                <th>Sleeve (inches)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>XS</strong></td>
+                                <td>32-34</td>
+                                <td>24-26</td>
+                                <td>34-36</td>
+                                <td>14</td>
+                                <td>29</td>
+                            </tr>
+                            <tr>
+                                <td><strong>S</strong></td>
+                                <td>34-36</td>
+                                <td>26-28</td>
+                                <td>36-38</td>
+                                <td>14.5</td>
+                                <td>30</td>
+                            </tr>
+                            <tr>
+                                <td><strong>M</strong></td>
+                                <td>36-38</td>
+                                <td>28-30</td>
+                                <td>38-40</td>
+                                <td>15</td>
+                                <td>31</td>
+                            </tr>
+                            <tr>
+                                <td><strong>L</strong></td>
+                                <td>38-40</td>
+                                <td>30-32</td>
+                                <td>40-42</td>
+                                <td>15.5</td>
+                                <td>32</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XL</strong></td>
+                                <td>40-42</td>
+                                <td>32-34</td>
+                                <td>42-44</td>
+                                <td>16</td>
+                                <td>33</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XXL</strong></td>
+                                <td>42-44</td>
+                                <td>34-36</td>
+                                <td>44-46</td>
+                                <td>16.5</td>
+                                <td>34</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- International Sizes -->
+            <div id="international-tab" class="tab-content">
+                <h2 style="color: #466e5a; text-align: center;">International Size Conversion</h2>
+                <div class="size-table-container">
+                    <table class="size-table">
+                        <thead>
+                            <tr>
+                                <th>US/UK</th>
+                                <th>European</th>
+                                <th>Italian</th>
+                                <th>French</th>
+                                <th>Japanese</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>XS</strong></td>
+                                <td>32</td>
+                                <td>38</td>
+                                <td>34</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>S</strong></td>
+                                <td>34</td>
+                                <td>40</td>
+                                <td>36</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td><strong>M</strong></td>
+                                <td>36</td>
+                                <td>42</td>
+                                <td>38</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td><strong>L</strong></td>
+                                <td>38</td>
+                                <td>44</td>
+                                <td>40</td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XL</strong></td>
+                                <td>40</td>
+                                <td>46</td>
+                                <td>42</td>
+                                <td>13</td>
+                            </tr>
+                            <tr>
+                                <td><strong>XXL</strong></td>
+                                <td>42</td>
+                                <td>48</td>
+                                <td>44</td>
+                                <td>15</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="size-section">
+            <h2 style="color: #466e5a; text-align: center; margin-bottom: 2rem;">How to Measure Yourself</h2>
+            <div class="measurement-guide">
+                <div class="measurement-grid">
+                    <div class="measurement-item">
+                        <div class="measurement-icon">📏</div>
+                        <div class="measurement-info">
+                            <h4>Chest/Bust</h4>
+                            <p>Measure around the fullest part of your chest, keeping the tape parallel to the floor.</p>
+                        </div>
+                    </div>
+
+                    <div class="measurement-item">
+                        <div class="measurement-icon">⚡</div>
+                        <div class="measurement-info">
+                            <h4>Waist</h4>
+                            <p>Measure around your natural waistline, which is the narrowest part of your torso.</p>
+                        </div>
+                    </div>
+
+                    <div class="measurement-item">
+                        <div class="measurement-icon">🎯</div>
+                        <div class="measurement-info">
+                            <h4>Hip</h4>
+                            <p>Measure around the fullest part of your hips, about 7-9 inches below your waist.</p>
+                        </div>
+                    </div>
+
+                    <div class="measurement-item">
+                        <div class="measurement-icon">👔</div>
+                        <div class="measurement-info">
+                            <h4>Shoulder</h4>
+                            <p>Measure from the edge of one shoulder to the edge of the other shoulder across your back.</p>
+                        </div>
+                    </div>
+
+                    <div class="measurement-item">
+                        <div class="measurement-icon">💪</div>
+                        <div class="measurement-info">
+                            <h4>Sleeve</h4>
+                            <p>Measure from your shoulder point down to your wrist, with your arm slightly bent.</p>
+                        </div>
+                    </div>
+
+                    <div class="measurement-item">
+                        <div class="measurement-icon">📐</div>
+                        <div class="measurement-info">
+                            <h4>Inseam</h4>
+                            <p>Measure from your crotch down to your ankle, along the inside of your leg.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="calculator-section">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Size Calculator</h2>
+            <p style="text-align: center; opacity: 0.9; margin-bottom: 2rem;">Enter your measurements to find your perfect size</p>
+            
+            <div class="calculator-form">
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender">
+                        <option value="men">Men</option>
+                        <option value="women">Women</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="chest">Chest/Bust (inches)</label>
+                    <input type="number" id="chest" placeholder="e.g., 38">
+                </div>
+                
+                <div class="form-group">
+                    <label for="waist">Waist (inches)</label>
+                    <input type="number" id="waist" placeholder="e.g., 32">
+                </div>
+                
+                <div class="form-group">
+                    <label for="hip">Hip (inches)</label>
+                    <input type="number" id="hip" placeholder="e.g., 40">
+                </div>
+                
+                <button class="calculate-btn" id="calculate-size">Calculate My Size</button>
+            </div>
+            
+            <div class="size-result" id="size-result">
+                <h3>Your Recommended Size: <span id="recommended-size">-</span></h3>
+                <p>Based on your measurements, we recommend this size for the best fit.</p>
+            </div>
+        </div>
+
+        <div class="tips-section">
+            <h2 style="color: #466e5a; text-align: center; margin-bottom: 1rem;">Fitting Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">📊</div>
+                    <h3>Accurate Measurements</h3>
+                    <p>Use a flexible measuring tape and have someone help you for the most accurate measurements.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">👕</div>
+                    <h3>Consider Fit Preference</h3>
+                    <p>Decide if you prefer a relaxed, regular, or slim fit and adjust your size accordingly.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">📞</div>
+                    <h3>Consult Your Tailor</h3>
+                    <p>When in doubt, discuss your measurements and preferences directly with your chosen tailor.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Wave -->
+        <div id="FooterWave">
+            <svg width="100%" height="100%" id="footerWave" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg"
+                class="transition duration-300 ease-in-out delay-150">
+                <path
+                    d="M 0,600 L 0,150 C 90.86124401913872,175.79904306220095 181.72248803827745,201.59808612440193 281,180 C 380.27751196172255,158.40191387559807 487.97129186602876,89.40669856459331 591,78 C 694.0287081339712,66.59330143540669 792.3923444976076,112.77511961722487 871,132 C 949.6076555023924,151.22488038277513 1008.4593301435407,143.4928229665072 1100,142 C 1191.5406698564593,140.5071770334928 1315.7703349282297,145.2535885167464 1440,150 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="0.53"></path>
+                <path
+                    d="M 0,600 L 0,350 C 95.87559808612443,355.0526315789474 191.75119617224885,360.10526315789474 273,355 C 354.24880382775115,349.89473684210526 420.87081339712915,334.6315789473684 525,353 C 629.1291866028708,371.3684210526316 770.7655502392344,423.3684210526316 888,415 C 1005.2344497607656,406.6315789473684 1098.066985645933,337.89473684210526 1186,317 C 1273.933014354067,296.10526315789474 1356.9665071770335,323.0526315789474 1440,350 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="1"></path>
+            </svg>
+        </div>
+
+        <!-- Footer Section -->
+        <div id="FooterSection">
+            <div id="footerMenus">
+                <div id="footNavLinks1">
+                    <a href="index.html">
+                        <h4 id="footNavHome" class="footNavs">Home</h4>
+                    </a>
+                    <a href="Team.html">
+                        <h4 id="footNavTeam" class="footNavs">Our team</h4>
+                    </a>
+                    <a href="ourLogo.html">
+                        <h4 id="footNavLogo" class="footNavs">Our Logo</h4>
+                    </a>
+                    <a href="tailoraFinder.html">
+                        <h4 id="footNavVision" class="footNavs">Finder</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="premium.html">
+                        <h4 id="footNavPro" class="footNavs">Pricing</h4>
+                    </a>
+                    <a href="news.html">
+                        <h4 id="footNavNews" class="footNavs">news</h4>
+                    </a>
+                    <a href="preview.html">
+                        <h4 id="footNavPreview" class="footNavs">Preview</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="logIn.html">
+                        <h4 id="footNavPro" class="footNavs">LogIn</h4>
+                    </a>
+                    <a href="download.html">
+                        <h4 id="footNavNews" class="footNavs">Download</h4>
+                    </a>
+                    <a href="index.html">
+                        <h4 id="footNavPreview" class="footNavs">FAQ</h4>
+                    </a>
+                    <a href="contact.html">
+                        <h4 id="footNavContact" class="footNavs">Contact</h4>
+                    </a>
+                </div>
+            </div>
+
+            <div id="footerChara">
+                <div id="charaText">
+                    <div id="ThinkShape" class="bright">
+                        <div id="popMsg">
+                            <h2> Follow Us ! </h2>
+                        </div>
+                        <h2 id="thinking"> </h2>
+                        <h2 id="thinking2"> </h2>
+                    </div>
+
+                    <div id="contacts">
+                        <div id="icons" class="bright">
+                            <img class="ContIcons" src="images/insta.svg">
+                            <img class="ContIcons" src="images/linkedin.svg">
+                        </div>
+                        <div id="accounts">
+                            <a href="">
+                                <h4>@Tailora._</h4>
+                            </a>
+                            <a href="">
+                                <h4>@TailorA</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <img id="OraiChara" class="bright" src="images/chara.png">
+            </div>
+        </div>
+
+        <div id="copyrights">
+            <h6>© 2025 Sawsan Abdullatif. powered by ice peach tea.</h6>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Size Guide functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const sizeTabs = document.querySelectorAll('.size-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const calculateBtn = document.getElementById('calculate-size');
+
+            // Tab functionality
+            sizeTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    sizeTabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    const tabId = this.dataset.tab + '-tab';
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Size calculator
+            calculateBtn.addEventListener('click', function() {
+                const gender = document.getElementById('gender').value;
+                const chest = parseInt(document.getElementById('chest').value);
+                const waist = parseInt(document.getElementById('waist').value);
+                const hip = parseInt(document.getElementById('hip').value);
+
+                if (!chest || !waist || !hip) {
+                    alert('Please fill in all measurement fields.');
+                    return;
+                }
+
+                let size = 'M'; // Default
+
+                if (gender === 'men') {
+                    if (chest <= 36 && waist <= 30) size = 'XS';
+                    else if (chest <= 38 && waist <= 32) size = 'S';
+                    else if (chest <= 40 && waist <= 34) size = 'M';
+                    else if (chest <= 42 && waist <= 36) size = 'L';
+                    else if (chest <= 44 && waist <= 38) size = 'XL';
+                    else size = 'XXL';
+                } else {
+                    if (chest <= 34 && waist <= 26) size = 'XS';
+                    else if (chest <= 36 && waist <= 28) size = 'S';
+                    else if (chest <= 38 && waist <= 30) size = 'M';
+                    else if (chest <= 40 && waist <= 32) size = 'L';
+                    else if (chest <= 42 && waist <= 34) size = 'XL';
+                    else size = 'XXL';
+                }
+
+                document.getElementById('recommended-size').textContent = size;
+                document.getElementById('size-result').style.display = 'block';
+            });
+        });
+    </script>
+</body>
+
+</html>
