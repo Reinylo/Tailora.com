@@ -4,11 +4,522 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Our Team - Tailora</title>
+    <link rel="icon" href="images/logoIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        #navBar {
+            zoom: 86%;
+        }
+
+        #mainContentTeam {
+            zoom: 86%;
+            position: relative;
+            top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+            background-color: #466e5aff;
+        }
+
+        .team-header {
+            text-align: center;
+            color: white;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .team-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            z-index: 1000;
+            position: relative;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 25px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #466e5a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .team-name {
+            color: #466e5a;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            color: #c461a8;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-tag {
+            background: #f0f8f5;
+            color: #466e5a;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #466e5a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #c461a8;
+        }
+
+        .leadership-section {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            margin: 2rem;
+            max-width: 1000px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            position: relative;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .leader-card {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 20px;
+        }
+
+        .leader-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #466e5a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .leader-info h3 {
+            color: #466e5a;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .leader-role {
+            color: #c461a8;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .leader-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 913px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .team-header h1 {
+                font-size: 2rem;
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leader-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .leadership-section {
+                margin: 1rem;
+                padding: 2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>this is the news page</h1>
+    <div id="navBar">
+        <div id="topperLogo">
+            <img id="MiniLogo" src="images/logo.svg" alt="Tailora Logo">
+        </div>
+        <div id="navlinks">
+            <a class="navlin" href="index.html">
+                <h4>Home</h4>
+            </a>
+            <div id="AbtCon" class="navMenu">
+                <a class="navlin" href="about.html">
+                    <h4>About</h4>
+                </a>
+            </div>
+            <a class="navlin" href="premium.html">
+                <h4>Pricing</h4>
+            </a>
+            <a class="navlin" href="tailoraFinder.html">
+                <h4>Finder</h4>
+            </a>
+            <a class="navlin" href="contact.html">
+                <h4>Contact</h4>
+            </a>
+            <div id="MoreCon" class="navMenu">
+                <a class="navlin">
+                    <h4>More</h4>
+                </a>
+            </div>
+        </div>
+        <div id="startBtnCon">
+            <button id="startBtn">Get Started</button>
+        </div>
+    </div>
+
+    <div id="mainContentTeam" style="background: white;">
+        <div class="team-header" style="padding: 3rem 2rem;">
+            <h1 style="color: #743c7c;">Meet Our Team</h1>
+            <p style="font-size: 1.2rem; color: #46636e;">The passionate people behind Tailora's success</p>
+        </div>
+
+        <div class="leadership-section">
+            <h2 style="color: #466e5a; text-align: center; margin-bottom: 1rem;">Leadership Team</h2>
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-avatar">SA</div>
+                    <div class="leader-info">
+                        <h3>Sarah Ahmed</h3>
+                        <div class="leader-role">CEO & Co-Founder</div>
+                        <p class="leader-description">Former fashion executive with 15+ years of experience. Sarah leads Tailora's vision of revolutionizing the tailoring industry through technology.</p>
+                    </div>
+                </div>
+
+                <div class="leader-card">
+                    <div class="leader-avatar">MK</div>
+                    <div class="leader-info">
+                        <h3>Michael Kim</h3>
+                        <div class="leader-role">CTO & Co-Founder</div>
+                        <p class="leader-description">Tech innovator specializing in AI and AR. Michael drives the technical excellence that makes Tailora's cutting-edge features possible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-grid">
+            <!-- Development Team -->
+            <div class="team-card">
+                <div class="team-avatar">RP</div>
+                <h3 class="team-name">Rajesh Patel</h3>
+                <div class="team-role">Lead Full-Stack Developer</div>
+                <p class="team-bio">Expert in building scalable applications with expertise in React, Node.js, and cloud architecture. Leads our development team in creating seamless user experiences.</p>
+                <div class="team-skills">
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">MongoDB</span>
+                </div>
+                <div class="team-social">
+                    <a href="#" class="social-link">💼</a>
+                    <a href="#" class="social-link">🐦</a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-avatar">EJ</div>
+                <h3 class="team-name">Emily Johnson</h3>
+                <div class="team-role">AI/ML Engineer</div>
+                <p class="team-bio">Specializes in computer vision and machine learning. Emily develops the AI algorithms that power our design assistant and AR try-on features.</p>
+                <div class="team-skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">Computer Vision</span>
+                    <span class="skill-tag">AR/VR</span>
+                </div>
+                <div class="team-social">
+                    <a href="#" class="social-link">💼</a>
+                    <a href="#" class="social-link">📧</a>
+                </div>
+            </div>
+
+            <!-- Design Team -->
+            <div class="team-card">
+                <div class="team-avatar">AM</div>
+                <h3 class="team-name">Alex Martinez</h3>
+                <div class="team-role">Senior UX/UI Designer</div>
+                <p class="team-bio">Passionate about creating intuitive and beautiful interfaces. Alex ensures that Tailora's design is both functional and delightful to use.</p>
+                <div class="team-skills">
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">User Research</span>
+                    <span class="skill-tag">Prototyping</span>
+                    <span class="skill-tag">Design Systems</span>
+                </div>
+                <div class="team-social">
+                    <a href="#" class="social-link">🎨</a>
+                    <a href="#" class="social-link">💼</a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-avatar">LW</div>
+                <h3 class="team-name">Lisa Wang</h3>
+                <div class="team-role">Fashion Design Consultant</div>
+                <p class="team-bio">Fashion industry veteran with expertise in pattern making and garment construction. Lisa guides our fashion-related features and partnerships.</p>
+                <div class="team-skills">
+                    <span class="skill-tag">Pattern Making</span>
+                    <span class="skill-tag">Fashion Design</span>
+                    <span class="skill-tag">Textile Knowledge</span>
+                    <span class="skill-tag">Quality Assurance</span>
+                </div>
+                <div class="team-social">
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">💼</a>
+                </div>
+            </div>
+
+            <!-- Business Team -->
+            <div class="team-card">
+                <div class="team-avatar">JD</div>
+                <h3 class="team-name">James Davis</h3>
+                <div class="team-role">Business Development Manager</div>
+                <p class="team-bio">Focuses on building relationships with tailors and expanding our network. James ensures we onboard the best talent in the tailoring community.</p>
+                <div class="team-skills">
+                    <span class="skill-tag">Partnership Development</span>
+                    <span class="skill-tag">Sales Strategy</span>
+                    <span class="skill-tag">Market Analysis</span>
+                    <span class="skill-tag">Relationship Building</span>
+                </div>
+                <div class="team-social">
+                    <a href="#" class="social-link">💼</a>
+                    <a href="#" class="social-link">🤝</a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-avatar">MR</div>
+                <h3 class="team-name">Maya Rodriguez</h3>
+                <div class="team-role">Customer Success Manager</div>
+                <p class="team-bio">Dedicated to ensuring exceptional customer experiences. Maya leads our support team and works to continuously improve customer satisfaction.</p>
+                <div class="team-skills">
+                    <span class="skill-tag">Customer Support</span>
+                    <span class="skill-tag">Process Improvement</span>
+                    <span class="skill-tag">Training</span>
+                    <span class="skill-tag">Analytics</span>
+                </div>
+                <div class="team-social">
+                    <a href="#" class="social-link">💬</a>
+                    <a href="#" class="social-link">💼</a>
+                </div>
+            </div>
+
+            <!-- Marketing Team -->
+            <div class="team-card">
+                <div class="team-avatar">TR</div>
+                <h3 class="team-name">Tom Roberts</h3>
+                <div class="team-role">Digital Marketing Specialist</div>
+                <p class="team-bio">Creative marketer with a passion for storytelling. Tom develops campaigns that showcase the artistry and innovation behind Tailora.</p>
+                <div class="team-skills">
+                    <span class="skill-tag">Digital Marketing</span>
+                    <span class="skill-tag">Content Creation</span>
+                    <span class="skill-tag">Social Media</span>
+                    <span class="skill-tag">SEO</span>
+                </div>
+                <div class="team-social">
+                    <a href="#" class="social-link">📱</a>
+                    <a href="#" class="social-link">💼</a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-avatar">AN</div>
+                <h3 class="team-name">Anna Nguyen</h3>
+                <div class="team-role">Content & Community Manager</div>
+                <p class="team-bio">Builds and nurtures our community of tailors and fashion enthusiasts. Anna creates engaging content and manages our social media presence.</p>
+                <div class="team-skills">
+                    <span class="skill-tag">Community Building</span>
+                    <span class="skill-tag">Content Strategy</span>
+                    <span class="skill-tag">Social Media</span>
+                    <span class="skill-tag">Event Planning</span>
+                </div>
+                <div class="team-social">
+                    <a href="#" class="social-link">📝</a>
+                    <a href="#" class="social-link">💼</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Wave -->
+        <div id="FooterWave">
+            <svg width="100%" height="100%" id="footerWave" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg"
+                class="transition duration-300 ease-in-out delay-150">
+                <path
+                    d="M 0,600 L 0,150 C 90.86124401913872,175.79904306220095 181.72248803827745,201.59808612440193 281,180 C 380.27751196172255,158.40191387559807 487.97129186602876,89.40669856459331 591,78 C 694.0287081339712,66.59330143540669 792.3923444976076,112.77511961722487 871,132 C 949.6076555023924,151.22488038277513 1008.4593301435407,143.4928229665072 1100,142 C 1191.5406698564593,140.5071770334928 1315.7703349282297,145.2535885167464 1440,150 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="0.53"></path>
+                <path
+                    d="M 0,600 L 0,350 C 95.87559808612443,355.0526315789474 191.75119617224885,360.10526315789474 273,355 C 354.24880382775115,349.89473684210526 420.87081339712915,334.6315789473684 525,353 C 629.1291866028708,371.3684210526316 770.7655502392344,423.3684210526316 888,415 C 1005.2344497607656,406.6315789473684 1098.066985645933,337.89473684210526 1186,317 C 1273.933014354067,296.10526315789474 1356.9665071770335,323.0526315789474 1440,350 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="1"></path>
+            </svg>
+        </div>
+
+        <!-- Footer Section -->
+        <div id="FooterSection">
+            <div id="footerMenus">
+                <div id="footNavLinks1">
+                    <a href="index.html">
+                        <h4 id="footNavHome" class="footNavs">Home</h4>
+                    </a>
+                    <a href="Team.html">
+                        <h4 id="footNavTeam" class="footNavs">Our team</h4>
+                    </a>
+                    <a href="ourLogo.html">
+                        <h4 id="footNavLogo" class="footNavs">Our Logo</h4>
+                    </a>
+                    <a href="tailoraFinder.html">
+                        <h4 id="footNavVision" class="footNavs">Finder</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="premium.html">
+                        <h4 id="footNavPro" class="footNavs">Pricing</h4>
+                    </a>
+                    <a href="news.html">
+                        <h4 id="footNavNews" class="footNavs">news</h4>
+                    </a>
+                    <a href="preview.html">
+                        <h4 id="footNavPreview" class="footNavs">Preview</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="logIn.html">
+                        <h4 id="footNavPro" class="footNavs">LogIn</h4>
+                    </a>
+                    <a href="download.html">
+                        <h4 id="footNavNews" class="footNavs">Download</h4>
+                    </a>
+                    <a href="index.html">
+                        <h4 id="footNavPreview" class="footNavs">FAQ</h4>
+                    </a>
+                    <a href="contact.html">
+                        <h4 id="footNavContact" class="footNavs">Contact</h4>
+                    </a>
+                </div>
+            </div>
+
+            <div id="footerChara">
+                <div id="charaText">
+                    <div id="ThinkShape" class="bright">
+                        <div id="popMsg">
+                            <h2> Follow Us ! </h2>
+                        </div>
+                        <h2 id="thinking"> </h2>
+                        <h2 id="thinking2"> </h2>
+                    </div>
+
+                    <div id="contacts">
+                        <div id="icons" class="bright">
+                            <img class="ContIcons" src="images/insta.svg">
+                            <img class="ContIcons" src="images/linkedin.svg">
+                        </div>
+                        <div id="accounts">
+                            <a href="">
+                                <h4>@Tailora._</h4>
+                            </a>
+                            <a href="">
+                                <h4>@TailorA</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <img id="OraiChara" class="bright" src="images/chara.png">
+            </div>
+        </div>
+
+        <div id="copyrights">
+            <h6>© 2025 Sawsan Abdullatif. powered by ice peach tea.</h6>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
