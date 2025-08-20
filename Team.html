@@ -11,6 +11,133 @@
 
 </head>
 
+<style>
+    #mainBody {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        zoom: 80%;
+    }
+
+    #teamMembers {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 2rem;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 50px;
+    }
+
+    #teamMembers2 {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 2rem;
+        padding: 2rem;
+        max-width: 1200px;
+        margin-top: -50px;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 50px;
+    }
+
+    .teamMember {
+        background-color: #fff;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        width: 300px;
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .teamMember:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px #e370d768;
+        border: 1px solid #872b89ef;
+        cursor: pointer;
+        flex: 2.8;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .details {
+        margin-top: 1rem;
+        padding: 0;
+    }
+
+    .details h3 {
+        color: #333a7aef;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .teamMember:hover .details h3 {
+        color: #872b89ef;
+    }
+
+    .teamMember:hover .pfp {
+        transform: scale(1.2);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .details p {
+        color: #666;
+        font-size: 1rem;
+        margin: 0;
+        font-weight: 400;
+    }
+
+    .pfp {
+        width: 120px;
+        height: 120px;
+        overflow: hidden;
+        border-radius: 50%;
+        border: 3px solid #9e4295ef;
+        flex-shrink: 0;
+    }
+
+    .pfp img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .topPart {
+        margin: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .abstract {
+        display: none;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        width: 60%;
+        text-align: left;
+        font-size: 17px;
+        line-height: 1.5rem;
+        color: #333a7aef;
+    }
+
+    .teamMember:hover .abstract {
+        display: block;
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+    }
+</style>
+
 <body id="indexBody">
     <div id="navBar">
         <div id="topperLogo">
@@ -28,8 +155,8 @@
             <a class="navlin" href="premium.html">
                 <h4>Premium</h4>
             </a>
-            <a class="navlin" href="tailoraFinder.html">
-                <h4>Finder</h4>
+            <a class="navlin" href="Gallery.html">
+                <h4>Gallery</h4>
             </a>
             <a class="navlin" href="contact.html">
                 <h4>Contact</h4>
@@ -73,6 +200,117 @@
             </a>
         </div>
     </div>
+
+    <!--Main body-->
+    <div id="mainBody">
+        <div id="teamTitle"
+            style="background-color: #333a7aef; width: 100%; text-align: center; margin: 5rem; padding: 1.5rem;">
+            <img style="width: 500px;" src="images/logoWhite.png" alt="Tailora Logo">
+        </div>
+        <h1 style="color: #333a7aef; font-size: 45px; margin-bottom: 5px;">Meet Our Team</h1>
+        <h4 style="color: #7a336def; font-size: 25px; margin-bottom: 40px; font-weight: lighter;">We are a group of
+            passionate individuals
+            dedicated to making a difference.</h4>
+
+        <div id="teamMembers">
+            <div class="teamMember">
+                <div class="topPart">
+                    <div class="pfp">
+                        <img src="images/Flower.jpg" alt="Team Member 1">
+                    </div>
+                    <p Class="abstract">Aisha is a student at Asia Pacific University (APU),
+                        specializing in Cybersecurity. As our team leader and project founder, she combines her passion
+                        for digital security with innovative thinking to drive our vision forward.</p>
+                </div>
+                <div class="details">
+                    <h3>Aisha</h3>
+                    <p>CEO & Founder</p>
+                </div>
+            </div>
+            <div class="teamMember">
+                <div class="topPart">
+                    <div class="pfp">
+                        <img src="images/Abrar.jpg" alt="Team Member 2">
+                    </div>
+                    <p Class="abstract">Abrar is pursuing her degree in Cybersecurity at Asia Pacific
+                        University (APU). With exceptional organizational skills and a natural talent for team
+                        coordination, she ensures our project stays on track and meets all deadlines.</p>
+                </div>
+                <div class="details">
+                    <h3>Abrar</h3>
+                    <p>Manager</p>
+                </div>
+            </div>
+            <div class="teamMember">
+                <div class="topPart">
+                    <div class="pfp">
+                        <img src="images/me.png" alt="Team Member 3">
+                    </div>
+                    <p Class="abstract">Sawsan is a Multimedia Technology student at Asia Pacific University (APU),
+                        focusing on full-stack development and UI/UX design. Her Programming, developing and designing
+                        skills brings our plans to real-world applications.</p>
+                </div>
+                <div class="details">
+                    <h3>Sawsan</h3>
+                    <p>Web Dev | Designer</p>
+                </div>
+            </div>
+        </div>
+        <div id="teamMembers2">
+            <div class="teamMember">
+                <div class="topPart">
+                    <div class="pfp">
+                        <img src="images/Ducky.jpg" alt="Team Member 4">
+                    </div>
+                    <p Class="abstract">Fatima is studying Cybersecurity at Asia Pacific University (APU). Her expertise
+                        in content
+                        creation and community engagement helps build our brand presence.</p>
+                </div>
+                <div class="details">
+                    <h3>Fatima Ducky</h3>
+                    <p>Social Media Manager</p>
+                </div>
+            </div>
+            <div class="teamMember">
+                <div class="topPart">
+                    <div class="pfp">
+                        <img src="images/Fatimah.jpg" alt="Team Member 1">
+                    </div>
+                    <p Class="abstract">Fatima is a Cybersecurity student at Asia Pacific University (APU),
+                        Her systematic approach and attention
+                        to detail ensure seamless execution of all our initiatives.</p>
+                </div>
+                <div class="details">
+                    <h3>Fatima</h3>
+                    <p>Organizer | Event Coordinator</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Our Team Section -->
+        <div id="aboutTeamSection"
+            style="max-width: 1000px; margin: 60px auto 40px; padding: 0 20px; text-align: center;">
+            <h2 style="color: #333a7aef; font-size: 35px; margin-bottom: 25px; font-weight: 600;">About Our Team</h2>
+            <p style="color: #666; font-size: 18px; line-height: 1.8; text-align: justify; margin-bottom: 20px;">
+                We are a passionate group of computing students from Asia Pacific University (APU), brought together by
+                our shared vision of revolutionizing the fashion and tailoring industry through technology. Our diverse
+                academic backgrounds spanning Computer Science, Software Engineering, Information Technology, and
+                Information Systems provide us with a comprehensive skill set to tackle complex challenges.
+            </p>
+            <p style="color: #666; font-size: 18px; line-height: 1.8; text-align: justify; margin-bottom: 20px;">
+                As final-year students, we've combined our classroom knowledge with real-world experience to create
+                Tailora - an innovative platform that bridges the gap between traditional tailoring and modern
+                technology. Each team member brings unique expertise, from cybersecurity and project management to
+                full-stack development and digital marketing.
+            </p>
+            <p style="color: #666; font-size: 18px; line-height: 1.8; text-align: justify;">
+                Our commitment to excellence, collaborative spirit, and shared passion for technology-driven solutions
+                make us not just classmates, but partners in innovation. Together, we're dedicated to making Tailora a
+                game-changer in the fashion industry while preparing ourselves for successful careers in the tech world.
+            </p>
+        </div>
+    </div>
+
     <!-- Footer Wave -->
     <div id="FooterWaveNEWS">
         <svg width="100%" height="100%" id="footerWave" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg"
@@ -99,8 +337,8 @@
                 <a href="ourLogo.html">
                     <h4 id="footNavLogo" class="footNavs">Our Logo</h4>
                 </a>
-                <a href="tailoraFinder.html">
-                    <h4 id="footNavVision" class="footNavs">Finder</h4>
+                <a href="Gallery.html">
+                    <h4 id="footNavVision" class="footNavs">Gallery</h4>
                 </a>
             </div>
 
@@ -166,5 +404,8 @@
     </div>
     </div>
 </body>
+
+<script>
+</script>
 
 </html>
