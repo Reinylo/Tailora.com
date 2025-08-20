@@ -1,4 +1,5 @@
 body {
+    zoom: 89%;
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
@@ -13,13 +14,13 @@ body {
     top: 10px;
     height: fit-content;
     padding: 0.4vb;
-    background-color: #ffffff;
+    background-color: #ffffffe6;
     box-shadow: -1px 4px 8px rgba(0, 0, 0, 0.3);
     margin: 10px;
     border-radius: 15px;
     z-index: 3000;
     display: flex;
-    gap: 27.5%;
+    gap: 29.8%;
     flex: 1;
     align-items: center;
     justify-content: center;
@@ -49,7 +50,7 @@ body {
     border: none;
     border-radius: 12px;
     height: fit-content;
-    width: 23vb;
+    width: 24vb;
     padding: 12px 25px;
     font-weight: 200;
     font-size: 2.3vb;
@@ -173,6 +174,7 @@ body {
 
     background-color: #466e5aff;
     transition: background-color 0.5s ease-in-out;
+    overflow-x: hidden;
 }
 
 #featuresTitle {
@@ -533,6 +535,7 @@ body {
 
 
 #FooterSection {
+    zoom: 80%;
     margin-top: 30px;
     position: relative;
     bottom: 0;
@@ -678,7 +681,7 @@ a {
         height: 30%;
         padding: 10px;
         gap: 22%;
-        zoom: 30%;
+        zoom: 35%;
     }
 
 
@@ -822,12 +825,12 @@ a {
         flex-direction: column;
         gap: 70px;
         padding: 0 20px;
-        zoom: 60%;
+        zoom: 70%;
     }
 
     #footerChara {
         justify-content: center;
-        zoom: 80%;
+        zoom: 90%;
         margin-left: 20%;
         margin-bottom: 15%;
     }

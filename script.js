@@ -3,7 +3,7 @@ window.addEventListener("scroll", () => {
     const mapFtur = document.getElementById("mapFtur");
     //any screen bigger than 913px width
     if (window.innerWidth >= 913) {
-        if (window.scrollY >= 400) {
+        if (window.scrollY >= 200) {
             mainContent.style.backgroundColor = "#ffffff";
             mapFtur.style.left = "70%";
         } else {
@@ -26,7 +26,7 @@ window.addEventListener("scroll", () => {
 window.addEventListener("scroll", () => {
     const ARftur = document.getElementById("ARftur");
     if (window.innerWidth >= 913) {
-        if (window.scrollY >= 550) {
+        if (window.scrollY >= 350) {
             ARftur.style.left = "70%";
         } else {
             ARftur.style.left = "0px";
@@ -43,7 +43,7 @@ window.addEventListener("scroll", () => {
 window.addEventListener("scroll", () => {
     const Crtftur = document.getElementById("Crtftur");
     if (window.innerWidth >= 913) {
-        if (window.scrollY >= 750) {
+        if (window.scrollY >= 550) {
             Crtftur.style.left = "70%";
         } else {
             Crtftur.style.left = "0px";
@@ -59,7 +59,7 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("scroll", () => {
     if (window.innerWidth >= 913) {
-        if (window.scrollY >= 400) {
+        if (window.scrollY >= 200) {
             document.querySelectorAll('.normal').forEach(el => {
                 el.classList.add('animate');
                 el.classList.remove('hidden');

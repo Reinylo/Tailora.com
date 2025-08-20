@@ -4,11 +4,449 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>News - Tailora</title>
+    <link rel="icon" href="images/logoIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        #navBar {
+            zoom: 86%;
+        }
+
+        #mainContentNEWS {
+            zoom: 86%;
+            position: relative;
+            top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+
+            background-color: #466e5aff;
+        }
+
+        #FooterWaveNEWS {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 50px;
+
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(70, 110, 90, 0.2);
+            box-shadow: 0 4px 15px rgba(70, 110, 90, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 2px solid #466e5a;
+        }
+
+        .news-content {
+            padding: 2rem;
+        }
+
+        .news-date {
+            color: #743c7c;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title {
+            color: #374077;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .news-abstract {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .news-tag {
+            display: relative;
+            padding: 0.3rem 0.8rem;
+            background: #466e5a;
+            color: white;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            bottom: 2%;
+        }
+
+        .news-header {
+            text-align: center;
+            color: white;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .news-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-search {
+            width: 60%;
+            margin: 2rem auto;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .news-search input {
+            width: 100%;
+            padding: 1rem 2rem;
+            border: 1px solid #466e5a;
+            border-radius: 25px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(53, 72, 100, 0.1);
+            font-size: 1rem;
+        }
+
+        .news-search input::placeholder {
+            color: #466e5a79;
+        }
+
+        .news-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 1px solid rgba(70, 110, 90, 0.2);
+            border-radius: 20px;
+            background: white;
+            color: #466e5a;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #ad4ca2;
+            color: white;
+            border-color: #ffffff;
+        }
+
+        @media (max-width: 913px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .news-header h1 {
+                font-size: 2rem;
+            }
+
+            .news-search {
+                width: 60%;
+                padding: 0rem;
+                margin-right: 28%;
+            }
+
+            .filter-btn {
+                padding: 0.3rem 0.9rem;
+                font-size: 0.7rem;
+            }
+
+            .news-filters {
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>this is the news page</h1>
+    <div id="navBar">
+        <div id="topperLogo">
+            <img id="MiniLogo" src="images/logo.svg" alt="Tailora Logo">
+        </div>
+        <div id="navlinks">
+            <a class="navlin" href="index.html">
+                <h4>Home</h4>
+            </a>
+            <div id="AbtCon" class="navMenu">
+                <a class="navlin">
+                    <h4>About</h4>
+                </a>
+            </div>
+            <a class="navlin" href="premium.html">
+                <h4>Premium</h4>
+            </a>
+            <a class="navlin" href="tailoraFinder.html">
+                <h4>Finder</h4>
+            </a>
+            <a class="navlin" href="contact.html">
+                <h4>Contact</h4>
+            </a>
+            <div id="MoreCon" class="navMenu">
+                <a class="navlin">
+                    <h4>More</h4>
+                </a>
+            </div>
+        </div>
+        <div id="startBtnCon">
+            <button id="startBtn">Get Started</button>
+        </div>
+    </div>
+
+    <div id="mainContentNEWS" style="background: white;">
+        <div class="news-header" style="padding: 3rem 2rem;">
+            <h1 style="color: #743c7c;">Tailora News & Updates</h1>
+            <p style="font-size: 1.2rem; color: #46636e;">Stay informed about the latest features, updates, and fashion
+                trends</p>
+        </div>
+
+        <div class="news-search">
+            <input type="text" placeholder="Search news and updates...">
+        </div>
+
+        <div class="news-filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">New Features</button>
+            <button class="filter-btn">Update</button>
+            <button class="filter-btn">Community</button>
+        </div>
+
+
+        <div class="news-grid">
+            <article class="news-card">
+                <img src="images/ARAI.jpg" alt="AR Feature" class="news-image">
+                <div class="news-content">
+                    <div class="news-date">August 15, 2025</div>
+                    <h3 class="news-title">Revolutionary AR Update: Try Clothes Like Never Before</h3>
+                    <p class="news-abstract">Experience our enhanced AR technology with improved body tracking and
+                        realistic fabric simulation.</p>
+                    <span class="news-tag">New Feature</span>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="images/mapnew.jpg" alt="Tailor Network" class="news-image">
+                <div class="news-content">
+                    <div class="news-date">August 12, 2025</div>
+                    <h3 class="news-title">Tailora Network Expands to 50 New Cities</h3>
+                    <p class="news-abstract">Find skilled tailors in more locations than ever before with our expanded
+                        network coverage.</p>
+                    <span class="news-tag">Network Update</span>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="images/traditional.jpg" alt="AI Assistant" class="news-image">
+                <div class="news-content">
+                    <div class="news-date">August 10, 2025</div>
+                    <h3 class="news-title">AI Assistant Now Supports Cultural Dress Styles</h3>
+                    <p class="news-abstract">Our AI can now provide recommendations for traditional and cultural
+                        clothing
+                        designs.</p>
+                    <span class="news-tag">AI Update</span>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="images/topdesigna.jpg" alt="Community Feature" class="news-image">
+                <div class="news-content">
+                    <div class="news-date">August 8, 2025</div>
+                    <h3 class="news-title">Community Showcase: Top Designs of the Month</h3>
+                    <p class="news-abstract">Check out the most innovative and popular designs from our creative
+                        community.</p>
+                    <span class="news-tag">Community</span>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="images/update.jpg" alt="App Update" class="news-image">
+                <div class="news-content">
+                    <div class="news-date">August 5, 2025</div>
+                    <h3 class="news-title">Mobile App Performance Boost</h3>
+                    <p class="news-abstract">Latest update allow you to directly chat with our experts for less
+                        misunderstandings, and better results!</p>
+                    <span class="news-tag">App Update</span>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="images/fabric.jpg" alt="Partnership" class="news-image">
+                <div class="news-content">
+                    <div class="news-date">August 1, 2025</div>
+                    <h3 class="news-title">New Fabric Partners Joined Tailora</h3>
+                    <p class="news-abstract">Explore premium fabrics from our new partnered suppliers.</p>
+                    <span class="news-tag">Partnership</span>
+                </div>
+            </article>
+        </div>
+
+        <!-- Footer Wave -->
+        <div id="FooterWaveNEWS">
+            <svg width="100%" height="100%" id="footerWave" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg"
+                class="transition duration-300 ease-in-out delay-150">
+                <path
+                    d="M 0,600 L 0,150 C 90.86124401913872,175.79904306220095 181.72248803827745,201.59808612440193 281,180 C 380.27751196172255,158.40191387559807 487.97129186602876,89.40669856459331 591,78 C 694.0287081339712,66.59330143540669 792.3923444976076,112.77511961722487 871,132 C 949.6076555023924,151.22488038277513 1008.4593301435407,143.4928229665072 1100,142 C 1191.5406698564593,140.5071770334928 1315.7703349282297,145.2535885167464 1440,150 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="0.53"></path>
+                <path
+                    d="M 0,600 L 0,350 C 95.87559808612443,355.0526315789474 191.75119617224885,360.10526315789474 273,355 C 354.24880382775115,349.89473684210526 420.87081339712915,334.6315789473684 525,353 C 629.1291866028708,371.3684210526316 770.7655502392344,423.3684210526316 888,415 C 1005.2344497607656,406.6315789473684 1098.066985645933,337.89473684210526 1186,317 C 1273.933014354067,296.10526315789474 1356.9665071770335,323.0526315789474 1440,350 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#46636e" fill-opacity="1"></path>
+            </svg>
+        </div>
+
+        <!-- Footer Section -->
+        <div id="FooterSection">
+            <div id="footerMenus">
+                <div id="footNavLinks1">
+                    <a href="index.html">
+                        <h4 id="footNavHome" class="footNavs">Home</h4>
+                    </a>
+                    <a href="Team.html">
+                        <h4 id="footNavTeam" class="footNavs">Our team</h4>
+                    </a>
+                    <a href="ourLogo.html">
+                        <h4 id="footNavLogo" class="footNavs">Our Logo</h4>
+                    </a>
+                    <a href="tailoraFinder.html">
+                        <h4 id="footNavVision" class="footNavs">Finder</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="premium.html">
+                        <h4 id="footNavPro" class="footNavs">Premium</h4>
+                    </a>
+                    <a href="news.html">
+                        <h4 id="footNavNews" class="footNavs">news</h4>
+                    </a>
+                    <a href="preview.html">
+                        <h4 id="footNavPreview" class="footNavs">Preview</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="logIn.html">
+                        <h4 id="footNavPro" class="footNavs">LogIn</h4>
+                    </a>
+                    <a href="download.html">
+                        <h4 id="footNavNews" class="footNavs">Download</h4>
+                    </a>
+                    <a href="index.html">
+                        <h4 id="footNavPreview" class="footNavs">FAQ</h4>
+                    </a>
+                    <a href="contact.html">
+                        <h4 id="footNavContact" class="footNavs">Contact</h4>
+                    </a>
+                </div>
+            </div>
+
+            <div id="footerChara">
+                <div id="charaText">
+                    <div id="ThinkShape" class="bright">
+                        <div id="popMsg">
+                            <h2> Follow Us ! </h2>
+                        </div>
+                        <h2 id="thinking"> </h2>
+                        <h2 id="thinking2"> </h2>
+                    </div>
+
+                    <div id="contacts">
+                        <div id="icons" class="bright">
+                            <img class="ContIcons" src="images/insta.svg">
+                            <img class="ContIcons" src="images/linkedin.svg">
+                        </div>
+                        <div id="accounts">
+                            <a href="">
+                                <h4>@Tailora._</h4>
+                            </a>
+                            <a href="">
+                                <h4>@TailorA</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <img id="OraiChara" class="bright" src="images/chara.png">
+            </div>
+        </div>
+
+        <div id="copyrights">
+            <h6>© 2025 Sawsan Abdullatif. powered by ice peach tea.</h6>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Add interactivity for news page
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const searchInput = document.querySelector('.news-search input');
+            const newsCards = document.querySelectorAll('.news-card');
+
+            // Filter functionality
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.textContent.toLowerCase();
+
+                    newsCards.forEach(card => {
+                        const tag = card.querySelector('.news-tag').textContent.toLowerCase();
+                        if (filter === 'all' || tag.includes(filter) || filter.includes(tag)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Search functionality
+            searchInput.addEventListener('input', (e) => {
+                const userSearch = e.target.value.toLowerCase();
+                newsCards.forEach(card => {
+                    const title = card.querySelector('.news-title').textContent.toLowerCase();
+                    const abstract = card.querySelector('.news-abstract').textContent.toLowerCase();
+                    if (title.includes(userSearch) || abstract.includes(userSearch) || userSearch.includes(title) || userSearch.includes(abstract)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
