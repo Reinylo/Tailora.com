@@ -14,7 +14,7 @@ body {
     top: 10px;
     height: fit-content;
     padding: 0.4vb;
-    background-color: #ffffffe6;
+    background-color: #fffffff3;
     box-shadow: -1px 4px 8px rgba(0, 0, 0, 0.3);
     margin: 10px;
     border-radius: 15px;
@@ -26,7 +26,27 @@ body {
     justify-content: center;
     box-sizing: border-box;
     overflow-x: hidden;
-    zoom: 80%;
+    zoom: 87%;
+}
+
+#navlinksMobileNav {
+    display: none;
+    position: absolute;
+    right: 5px;
+    left: 5px;
+    z-index: 3000;
+    position: sticky;
+    top: 65px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 
 #mobileMenuToggle {
@@ -186,15 +206,16 @@ body {
 
 #svgWave {
     position: relative;
-    top: -480px;
-    z-index: 2000;
+    top: -250px;
+    z-index: 1;
+    margin-bottom: -300px;
 }
 
 
 #mainContent {
     zoom: 86%;
     position: relative;
-    top: 80px;
+    top: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -207,7 +228,7 @@ body {
 
 #featuresTitle {
     position: relative;
-    top: -220px;
+    top: 50px;
     left: auto;
     text-align: center;
     font-size: 60px;
@@ -215,11 +236,12 @@ body {
     font-weight: 600;
     margin-bottom: 100px;
     z-index: 1000;
+    margin-bottom: 100px;
 }
 
 .fturContainer {
     position: relative;
-    top: -500px;
+    top: 80px;
     width: 1050px;
     max-width: 90%;
     height: 180px;
@@ -713,21 +735,9 @@ a {
 
     #navlinks {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-radius: 15px;
-        margin-top: 10px;
-        padding: 20px;
-        flex-direction: column;
-        gap: 1rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
-    #navlinks.active {
+    #navlinksMobileNav.active {
         display: flex;
     }
 

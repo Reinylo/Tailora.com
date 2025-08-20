@@ -1,5 +1,5 @@
 const mobileMenuToggle = document.getElementById("mobileMenuToggle");
-const navLinks = document.getElementById("navlinks");
+const navLinks = document.getElementById("navlinksMobileNav");
 
 mobileMenuToggle.addEventListener("click", () => {
     mobileMenuToggle.classList.toggle("active");
@@ -7,7 +7,7 @@ mobileMenuToggle.addEventListener("click", () => {
 });
 
 // Close menu when clicking on a link
-const navLinksItems = navLinks.querySelectorAll(".navlin");
+const navLinksItems = navLinks.querySelectorAll(".navlinMob");
 navLinksItems.forEach((link) => {
     link.addEventListener("click", () => {
         mobileMenuToggle.classList.remove("active");
