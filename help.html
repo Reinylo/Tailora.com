@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - Tailora</title>
+    <link rel="icon" href="images/logoIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        #navBar {
+            zoom: 86%;
+        }
+
+        #mainContentHelp {
+            zoom: 86%;
+            position: relative;
+            top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+            background-color: #466e5aff;
+        }
+
+        .help-header {
+            text-align: center;
+            color: white;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .help-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .search-section {
+            background: white;
+            border-radius: 25px;
+            padding: 2rem;
+            margin: 2rem;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            position: relative;
+        }
+
+        .help-search {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .help-search input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .help-search input:focus {
+            outline: none;
+            border-color: #c461a8;
+        }
+
+        .search-btn {
+            background: #c461a8;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .popular-searches {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .popular-tag {
+            background: #f0f8f5;
+            color: #466e5a;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .popular-tag:hover {
+            background: #466e5a;
+            color: white;
+        }
+
+        .help-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            z-index: 1000;
+            position: relative;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-card h3 {
+            color: #466e5a;
+            margin-bottom: 1rem;
+        }
+
+        .category-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .category-link {
+            color: #c461a8;
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .category-link:hover {
+            background: #f0f8f5;
+        }
+
+        .faq-section {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            margin: 2rem;
+            max-width: 1000px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            position: relative;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+
+        .faq-question h4 {
+            margin: 0;
+            color: #466e5a;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #666;
+        }
+
+        .faq-answer.active {
+            max-height: 200px;
+            padding: 1.5rem;
+        }
+
+        .contact-support {
+            background: #466e5a;
+            color: white;
+            border-radius: 25px;
+            padding: 3rem;
+            margin: 2rem;
+            max-width: 800px;
+            text-align: center;
+            z-index: 1000;
+            position: relative;
+        }
+
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .support-option {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .support-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .support-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 913px) {
+            .help-header h1 {
+                font-size: 2rem;
+            }
+
+            .help-categories {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .help-search {
+                flex-direction: column;
+            }
+
+            .popular-searches {
+                justify-content: center;
+            }
+
+            .faq-section,
+            .contact-support {
+                margin: 1rem;
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navBar">
+        <div id="topperLogo">
+            <img id="MiniLogo" src="images/logo.svg" alt="Tailora Logo">
+        </div>
+        <div id="navlinks">
+            <a class="navlin" href="index.html">
+                <h4>Home</h4>
+            </a>
+            <div id="AbtCon" class="navMenu">
+                <a class="navlin" href="about.html">
+                    <h4>About</h4>
+                </a>
+            </div>
+            <a class="navlin" href="premium.html">
+                <h4>Pricing</h4>
+            </a>
+            <a class="navlin" href="tailoraFinder.html">
+                <h4>Finder</h4>
+            </a>
+            <a class="navlin" href="contact.html">
+                <h4>Contact</h4>
+            </a>
+            <div id="MoreCon" class="navMenu">
+                <a class="navlin">
+                    <h4>More</h4>
+                </a>
+            </div>
+        </div>
+        <div id="startBtnCon">
+            <button id="startBtn">Get Started</button>
+        </div>
+    </div>
+
+    <div id="mainContentHelp" style="background: white;">
+        <div class="help-header" style="padding: 3rem 2rem;">
+            <h1 style="color: #743c7c;">Help Center</h1>
+            <p style="font-size: 1.2rem; color: #46636e;">Find answers to your questions and get support</p>
+        </div>
+
+        <div class="search-section">
+            <div class="help-search">
+                <input type="text" placeholder="Search for help articles..." id="help-search-input">
+                <button class="search-btn" id="help-search-btn">Search</button>
+            </div>
+            <div class="popular-searches">
+                <span style="color: #666; margin-right: 1rem;">Popular:</span>
+                <span class="popular-tag">How to order</span>
+                <span class="popular-tag">Payment methods</span>
+                <span class="popular-tag">Size guide</span>
+                <span class="popular-tag">Tailor communication</span>
+            </div>
+        </div>
+
+        <div class="help-categories">
+            <div class="category-card">
+                <div class="category-icon">🛍️</div>
+                <h3>Getting Started</h3>
+                <p>Learn how to use Tailora and place your first order</p>
+                <div class="category-links">
+                    <a href="#" class="category-link">How to create an account</a>
+                    <a href="#" class="category-link">Placing your first order</a>
+                    <a href="#" class="category-link">Understanding the process</a>
+                    <a href="#" class="category-link">Setting up your profile</a>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">👗</div>
+                <h3>Design & Customization</h3>
+                <p>Everything about creating and customizing your designs</p>
+                <div class="category-links">
+                    <a href="#" class="category-link">Using the design tool</a>
+                    <a href="#" class="category-link">AI design assistant</a>
+                    <a href="#" class="category-link">AR try-on feature</a>
+                    <a href="#" class="category-link">Fabric selection guide</a>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🤝</div>
+                <h3>Working with Tailors</h3>
+                <p>Tips for communicating and collaborating with tailors</p>
+                <div class="category-links">
+                    <a href="#" class="category-link">Finding the right tailor</a>
+                    <a href="#" class="category-link">Communication best practices</a>
+                    <a href="#" class="category-link">Providing measurements</a>
+                    <a href="#" class="category-link">Revision requests</a>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">💳</div>
+                <h3>Payments & Billing</h3>
+                <p>Information about payments, refunds, and billing</p>
+                <div class="category-links">
+                    <a href="#" class="category-link">Payment methods</a>
+                    <a href="#" class="category-link">Refund policy</a>
+                    <a href="#" class="category-link">Billing issues</a>
+                    <a href="#" class="category-link">Subscription management</a>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">📦</div>
+                <h3>Orders & Delivery</h3>
+                <p>Track your orders and understand delivery processes</p>
+                <div class="category-links">
+                    <a href="#" class="category-link">Order tracking</a>
+                    <a href="#" class="category-link">Delivery timeframes</a>
+                    <a href="#" class="category-link">Shipping options</a>
+                    <a href="#" class="category-link">Order modifications</a>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">⚙️</div>
+                <h3>Technical Support</h3>
+                <p>Troubleshooting and technical assistance</p>
+                <div class="category-links">
+                    <a href="#" class="category-link">App issues</a>
+                    <a href="#" class="category-link">Account problems</a>
+                    <a href="#" class="category-link">Feature not working</a>
+                    <a href="#" class="category-link">Browser compatibility</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2 style="color: #466e5a; text-align: center; margin-bottom: 2rem;">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>How long does it take to complete an order?</h4>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The completion time varies depending on the complexity of your design and the tailor's schedule. Most orders are completed within 1-3 weeks. You can check estimated completion times when selecting a tailor.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>What if I'm not satisfied with the final product?</h4>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer a satisfaction guarantee. If you're not happy with your order, you can request revisions or a refund within 7 days of delivery. Our customer service team will work with you and the tailor to resolve any issues.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>How accurate is the AR try-on feature?</h4>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our AR technology provides a good approximation of how garments will look and fit. However, it's a visualization tool and actual results may vary. We recommend discussing fit preferences directly with your tailor for the best results.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Can I cancel or modify my order after placing it?</h4>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You can cancel or modify your order within 24 hours of placing it, provided the tailor hasn't started working on it yet. After work begins, modifications may incur additional charges, and cancellations may only result in partial refunds.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>How do I provide my measurements?</h4>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>You can enter your measurements manually using our size guide, or upload photos/videos following our measurement instructions. Many tailors also offer in-person measurement services for an additional fee.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-support">
+            <h2>Still need help?</h2>
+            <p>Can't find what you're looking for? Our support team is here to help!</p>
+            
+            <div class="support-options">
+                <div class="support-option">
+                    <div class="support-icon">💬</div>
+                    <h4>Live Chat</h4>
+                    <p>Chat with our support team in real-time</p>
+                </div>
+                
+                <div class="support-option">
+                    <div class="support-icon">📧</div>
+                    <h4>Email Support</h4>
+                    <p>Send us an email and we'll get back to you within 24 hours</p>
+                </div>
+                
+                <div class="support-option">
+                    <div class="support-icon">📞</div>
+                    <h4>Phone Support</h4>
+                    <p>Call us during business hours for immediate assistance</p>
+                </div>
+                
+                <div class="support-option">
+                    <div class="support-icon">📚</div>
+                    <h4>Video Tutorials</h4>
+                    <p>Watch step-by-step tutorials on using Tailora</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Wave -->
+        <div id="FooterWave">
+            <svg width="100%" height="100%" id="footerWave" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg"
+                class="transition duration-300 ease-in-out delay-150">
+                <path
+                    d="M 0,600 L 0,150 C 90.86124401913872,175.79904306220095 181.72248803827745,201.59808612440193 281,180 C 380.27751196172255,158.40191387559807 487.97129186602876,89.40669856459331 591,78 C 694.0287081339712,66.59330143540669 792.3923444976076,112.77511961722487 871,132 C 949.6076555023924,151.22488038277513 1008.4593301435407,143.4928229665072 1100,142 C 1191.5406698564593,140.5071770334928 1315.7703349282297,145.2535885167464 1440,150 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="0.53"></path>
+                <path
+                    d="M 0,600 L 0,350 C 95.87559808612443,355.0526315789474 191.75119617224885,360.10526315789474 273,355 C 354.24880382775115,349.89473684210526 420.87081339712915,334.6315789473684 525,353 C 629.1291866028708,371.3684210526316 770.7655502392344,423.3684210526316 888,415 C 1005.2344497607656,406.6315789473684 1098.066985645933,337.89473684210526 1186,317 C 1273.933014354067,296.10526315789474 1356.9665071770335,323.0526315789474 1440,350 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="1"></path>
+            </svg>
+        </div>
+
+        <!-- Footer Section -->
+        <div id="FooterSection">
+            <div id="footerMenus">
+                <div id="footNavLinks1">
+                    <a href="index.html">
+                        <h4 id="footNavHome" class="footNavs">Home</h4>
+                    </a>
+                    <a href="Team.html">
+                        <h4 id="footNavTeam" class="footNavs">Our team</h4>
+                    </a>
+                    <a href="ourLogo.html">
+                        <h4 id="footNavLogo" class="footNavs">Our Logo</h4>
+                    </a>
+                    <a href="tailoraFinder.html">
+                        <h4 id="footNavVision" class="footNavs">Finder</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="premium.html">
+                        <h4 id="footNavPro" class="footNavs">Pricing</h4>
+                    </a>
+                    <a href="news.html">
+                        <h4 id="footNavNews" class="footNavs">news</h4>
+                    </a>
+                    <a href="preview.html">
+                        <h4 id="footNavPreview" class="footNavs">Preview</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="logIn.html">
+                        <h4 id="footNavPro" class="footNavs">LogIn</h4>
+                    </a>
+                    <a href="download.html">
+                        <h4 id="footNavNews" class="footNavs">Download</h4>
+                    </a>
+                    <a href="index.html">
+                        <h4 id="footNavPreview" class="footNavs">FAQ</h4>
+                    </a>
+                    <a href="contact.html">
+                        <h4 id="footNavContact" class="footNavs">Contact</h4>
+                    </a>
+                </div>
+            </div>
+
+            <div id="footerChara">
+                <div id="charaText">
+                    <div id="ThinkShape" class="bright">
+                        <div id="popMsg">
+                            <h2> Follow Us ! </h2>
+                        </div>
+                        <h2 id="thinking"> </h2>
+                        <h2 id="thinking2"> </h2>
+                    </div>
+
+                    <div id="contacts">
+                        <div id="icons" class="bright">
+                            <img class="ContIcons" src="images/insta.svg">
+                            <img class="ContIcons" src="images/linkedin.svg">
+                        </div>
+                        <div id="accounts">
+                            <a href="">
+                                <h4>@Tailora._</h4>
+                            </a>
+                            <a href="">
+                                <h4>@TailorA</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <img id="OraiChara" class="bright" src="images/chara.png">
+            </div>
+        </div>
+
+        <div id="copyrights">
+            <h6>© 2025 Sawsan Abdullatif. powered by ice peach tea.</h6>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Help Center functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            const popularTags = document.querySelectorAll('.popular-tag');
+            const searchInput = document.getElementById('help-search-input');
+            const searchBtn = document.getElementById('help-search-btn');
+
+            // FAQ functionality
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('span');
+                    
+                    answer.classList.toggle('active');
+                    icon.textContent = answer.classList.contains('active') ? '-' : '+';
+                });
+            });
+
+            // Popular tags functionality
+            popularTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    searchInput.value = this.textContent;
+                    searchBtn.click();
+                });
+            });
+
+            // Search functionality
+            searchBtn.addEventListener('click', function() {
+                const query = searchInput.value.trim();
+                if (query) {
+                    alert(`Searching for: "${query}". This would show relevant help articles.`);
+                }
+            });
+
+            // Enter key search
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchBtn.click();
+                }
+            });
+
+            // Support option clicks
+            const supportOptions = document.querySelectorAll('.support-option');
+            supportOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const type = this.querySelector('h4').textContent;
+                    alert(`Opening ${type} support. This would redirect to the appropriate support channel.`);
+                });
+            });
+
+            // Category card clicks
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('category-link')) {
+                        return; // Let the link handle the click
+                    }
+                    const category = this.querySelector('h3').textContent;
+                    alert(`Opening ${category} section. This would show all articles in this category.`);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
