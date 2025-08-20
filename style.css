@@ -29,6 +29,34 @@ body {
     zoom: 80%;
 }
 
+#mobileMenuToggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+    padding: 10px;
+}
+
+#mobileMenuToggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #466e5a;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+#mobileMenuToggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+#mobileMenuToggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+#mobileMenuToggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
 #navMenu {
     display: flex;
     flex-direction: column;
@@ -682,6 +710,14 @@ a {
         padding: 10px;
         gap: 22%;
         zoom: 35%;
+    }
+
+    #navMenuDown {
+        display: flex;
+    }
+
+    #startBtnCon {
+        display: none;
     }
 
 
