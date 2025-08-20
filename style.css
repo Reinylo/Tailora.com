@@ -15,6 +15,7 @@ body {
     height: fit-content;
     padding: 0.4vb;
     background-color: #fffffff3;
+    backdrop-filter: blur(10px);
     box-shadow: -1px 4px 8px rgba(0, 0, 0, 0.3);
     margin: 10px;
     border-radius: 15px;
@@ -39,7 +40,7 @@ body {
     top: 65px;
     margin-left: 10px;
     margin-right: 10px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.80);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 30px;
