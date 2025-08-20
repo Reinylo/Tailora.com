@@ -4,11 +4,651 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Our Team - Tailora</title>
+    <link rel="icon" href="images/logoIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        #navBar {
+            zoom: 86%;
+        }
+
+        #mainContentTeam {
+            zoom: 86%;
+            position: relative;
+            top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+            background-color: #ffffff;
+        }
+
+        .team-header {
+            text-align: center;
+            color: white;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1000;
+            background: linear-gradient(to right, #466e5a, #46636e);
+            width: 100%;
+            margin-bottom: 3rem;
+        }
+
+        .team-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .filters-section {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .role-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            background: #466e5a;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #c461a8;
+            transform: translateY(-1px);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .team-card {
+            background: linear-gradient(to bottom, rgba(234, 247, 255, 0.8), rgba(249, 234, 255, 0.8));
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 4px 4px 15px rgba(70, 110, 90, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #466e5a, #46636e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .member-name {
+            color: #743c7c;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: #466e5a;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .member-description {
+            color: #374077;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-skills {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: rgba(70, 110, 90, 0.1);
+            color: #466e5a;
+            padding: 0.25rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            margin: 0.25rem 0.25rem 0.25rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(to right, #c461a8, #743c7c);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+
+        .leadership-section {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .leadership-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .leadership-header h2 {
+            color: #743c7c;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .leadership-card {
+            background: linear-gradient(to right, rgba(186, 228, 207, 0.3), rgba(186, 228, 194, 0.1));
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 4px 4px 15px rgba(70, 110, 90, 0.2);
+        }
+
+        .leadership-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #466e5a, #46636e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .leadership-info h3 {
+            color: #743c7c;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .leadership-info .role {
+            color: #466e5a;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .leadership-info p {
+            color: #374077;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 913px) {
+            .team-header h1 {
+                font-size: 2rem;
+            }
+
+            .team-header {
+                padding: 2rem 1rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leadership-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .role-filters {
+                justify-content: center;
+            }
+
+            .filter-btn {
+                font-size: 0.9rem;
+                padding: 0.4rem 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>this is the news page</h1>
+    <div id="navBar">
+        <div id="topperLogo">
+            <img id="MiniLogo" src="images/logo.svg" alt="Tailora Logo">
+        </div>
+        <div id="navlinks">
+            <a class="navlin" href="index.html">
+                <h4>Home</h4>
+            </a>
+            <div id="AbtCon" class="navMenu">
+                <a class="navlin" href="about.html">
+                    <h4>About</h4>
+                </a>
+            </div>
+            <a class="navlin" href="pricing.html">
+                <h4>Pricing</h4>
+            </a>
+            <a class="navlin" href="tailoraFinder.html">
+                <h4>Finder</h4>
+            </a>
+            <a class="navlin" href="contact.html">
+                <h4>Contact</h4>
+            </a>
+            <div id="MoreCon" class="navMenu">
+                <a class="navlin">
+                    <h4>More</h4>
+                </a>
+            </div>
+        </div>
+        <div id="startBtnCon">
+            <button id="startBtn">Get Started</button>
+        </div>
+    </div>
+
+    <div id="mainContentTeam">
+        <div class="team-header">
+            <h1>Meet Our Team</h1>
+            <p>The passionate individuals behind Tailora who are revolutionizing the custom clothing industry</p>
+        </div>
+
+        <div class="leadership-section">
+            <div class="leadership-header">
+                <h2>Leadership Team</h2>
+                <p style="color: #374077; font-size: 1.1rem;">Visionaries leading the future of custom clothing</p>
+            </div>
+            <div class="leadership-grid">
+                <div class="leadership-card">
+                    <div class="leadership-photo">SA</div>
+                    <div class="leadership-info">
+                        <h3>Sawsan Abdullatif</h3>
+                        <div class="role">Founder & CEO</div>
+                        <p>Visionary leader with a passion for connecting talented tailors with customers worldwide. Expert in fashion technology and sustainable business practices.</p>
+                    </div>
+                </div>
+                <div class="leadership-card">
+                    <div class="leadership-photo">AR</div>
+                    <div class="leadership-info">
+                        <h3>Alex Rodriguez</h3>
+                        <div class="role">CTO & Co-Founder</div>
+                        <p>Technology innovator specializing in AR/VR applications and AI-driven design tools. Leading our technical vision and platform development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters-section">
+            <div class="role-filters">
+                <button class="filter-btn active" data-role="all">All Team</button>
+                <button class="filter-btn" data-role="engineering">Engineering</button>
+                <button class="filter-btn" data-role="design">Design</button>
+                <button class="filter-btn" data-role="marketing">Marketing</button>
+                <button class="filter-btn" data-role="operations">Operations</button>
+            </div>
+        </div>
+
+        <div class="team-grid" id="teamGrid">
+            <!-- Team members will be populated here -->
+        </div>
+
+        <!-- Footer Wave -->
+        <div id="FooterWave">
+            <svg width="100%" height="100%" id="footerWave" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg"
+                class="transition duration-300 ease-in-out delay-150">
+                <path
+                    d="M 0,600 L 0,150 C 90.86124401913872,175.79904306220095 181.72248803827745,201.59808612440193 281,180 C 380.27751196172255,158.40191387559807 487.97129186602876,89.40669856459331 591,78 C 694.0287081339712,66.59330143540669 792.3923444976076,112.77511961722487 871,132 C 949.6076555023924,151.22488038277513 1008.4593301435407,143.4928229665072 1100,142 C 1191.5406698564593,140.5071770334928 1315.7703349282297,145.2535885167464 1440,150 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="0.53"></path>
+                <path
+                    d="M 0,600 L 0,350 C 95.87559808612443,355.0526315789474 191.75119617224885,360.10526315789474 273,355 C 354.24880382775115,349.89473684210526 420.87081339712915,334.6315789473684 525,353 C 629.1291866028708,371.3684210526316 770.7655502392344,423.3684210526316 888,415 C 1005.2344497607656,406.6315789473684 1098.066985645933,337.89473684210526 1186,317 C 1273.933014354067,296.10526315789474 1356.9665071770335,323.0526315789474 1440,350 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#46636e" fill-opacity="1"></path>
+            </svg>
+        </div>
+
+        <!-- Footer Section -->
+        <div id="FooterSection">
+            <div id="footerMenus">
+                <div id="footNavLinks1">
+                    <a href="index.html">
+                        <h4 id="footNavHome" class="footNavs">Home</h4>
+                    </a>
+                    <a href="Team.html">
+                        <h4 id="footNavTeam" class="footNavs">Our team</h4>
+                    </a>
+                    <a href="ourLogo.html">
+                        <h4 id="footNavLogo" class="footNavs">Our Logo</h4>
+                    </a>
+                    <a href="tailoraFinder.html">
+                        <h4 id="footNavVision" class="footNavs">Finder</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="pricing.html">
+                        <h4 id="footNavPro" class="footNavs">Pricing</h4>
+                    </a>
+                    <a href="news.html">
+                        <h4 id="footNavNews" class="footNavs">news</h4>
+                    </a>
+                    <a href="preview.html">
+                        <h4 id="footNavPreview" class="footNavs">Preview</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="logIn.html">
+                        <h4 id="footNavPro" class="footNavs">LogIn</h4>
+                    </a>
+                    <a href="download.html">
+                        <h4 id="footNavNews" class="footNavs">Download</h4>
+                    </a>
+                    <a href="helpCenter.html">
+                        <h4 id="footNavPreview" class="footNavs">Help</h4>
+                    </a>
+                    <a href="contact.html">
+                        <h4 id="footNavContact" class="footNavs">Contact</h4>
+                    </a>
+                </div>
+            </div>
+
+            <div id="footerChara">
+                <div id="charaText">
+                    <div id="ThinkShape" class="bright">
+                        <div id="popMsg">
+                            <h2> Meet The Team! </h2>
+                        </div>
+                        <h2 id="thinking"> </h2>
+                        <h2 id="thinking2"> </h2>
+                    </div>
+
+                    <div id="contacts">
+                        <div id="icons" class="bright">
+                            <img class="ContIcons" src="images/insta.svg">
+                            <img class="ContIcons" src="images/linkedin.svg">
+                        </div>
+                        <div id="accounts">
+                            <a href="">
+                                <h4>@Tailora._</h4>
+                            </a>
+                            <a href="">
+                                <h4>@TailorA</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <img id="OraiChara" class="bright" src="images/chara.png">
+            </div>
+        </div>
+
+        <div id="copyrights">
+            <h6>© 2025 Sawsan Abdullatif. powered by ice peach tea.</h6>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Team members data
+        const teamMembers = [
+            {
+                id: 1,
+                name: "Emily Chen",
+                role: "Senior Frontend Developer",
+                department: "engineering",
+                description: "Specializes in React and modern web technologies. Passionate about creating intuitive user experiences.",
+                skills: ["React", "TypeScript", "CSS", "UI/UX"],
+                avatar: "EC",
+                social: {
+                    linkedin: "#",
+                    github: "#",
+                    twitter: "#"
+                }
+            },
+            {
+                id: 2,
+                name: "Marcus Johnson",
+                role: "AR/VR Engineer",
+                department: "engineering",
+                description: "Expert in augmented reality and 3D visualization. Leading our AR try-on feature development.",
+                skills: ["AR/VR", "Unity", "C#", "3D Graphics"],
+                avatar: "MJ",
+                social: {
+                    linkedin: "#",
+                    github: "#"
+                }
+            },
+            {
+                id: 3,
+                name: "Sofia Martinez",
+                role: "Lead UX Designer",
+                department: "design",
+                description: "Creates beautiful and functional designs that delight users. Expert in design systems and accessibility.",
+                skills: ["UI/UX", "Figma", "Design Systems", "Prototyping"],
+                avatar: "SM",
+                social: {
+                    linkedin: "#",
+                    dribbble: "#",
+                    behance: "#"
+                }
+            },
+            {
+                id: 4,
+                name: "David Kim",
+                role: "Backend Engineer",
+                department: "engineering",
+                description: "Builds scalable and reliable backend systems. Specialist in cloud architecture and APIs.",
+                skills: ["Node.js", "Python", "AWS", "Microservices"],
+                avatar: "DK",
+                social: {
+                    linkedin: "#",
+                    github: "#"
+                }
+            },
+            {
+                id: 5,
+                name: "Lisa Thompson",
+                role: "Marketing Manager",
+                department: "marketing",
+                description: "Drives growth and brand awareness. Expert in digital marketing and community building.",
+                skills: ["Digital Marketing", "SEO", "Social Media", "Analytics"],
+                avatar: "LT",
+                social: {
+                    linkedin: "#",
+                    twitter: "#",
+                    instagram: "#"
+                }
+            },
+            {
+                id: 6,
+                name: "Ahmed Hassan",
+                role: "Fashion Consultant",
+                department: "design",
+                description: "Fashion industry expert helping shape our design tools and tailor partnerships.",
+                skills: ["Fashion Design", "Trend Analysis", "Styling", "Business"],
+                avatar: "AH",
+                social: {
+                    linkedin: "#",
+                    instagram: "#"
+                }
+            },
+            {
+                id: 7,
+                name: "Rachel Green",
+                role: "Operations Manager",
+                department: "operations",
+                description: "Ensures smooth operations and excellent customer service. Expert in process optimization.",
+                skills: ["Operations", "Customer Service", "Process Improvement", "Analytics"],
+                avatar: "RG",
+                social: {
+                    linkedin: "#",
+                    twitter: "#"
+                }
+            },
+            {
+                id: 8,
+                name: "James Wilson",
+                role: "AI Engineer",
+                department: "engineering",
+                description: "Develops AI-powered features including our design assistant and recommendation engine.",
+                skills: ["Machine Learning", "Python", "TensorFlow", "NLP"],
+                avatar: "JW",
+                social: {
+                    linkedin: "#",
+                    github: "#",
+                    twitter: "#"
+                }
+            }
+        ];
+
+        // DOM elements
+        const teamGrid = document.getElementById('teamGrid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        let currentFilter = 'all';
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTeam(teamMembers);
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            // Filter functionality
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.getAttribute('data-role');
+                    filterAndRenderTeam();
+                });
+            });
+        }
+
+        function filterAndRenderTeam() {
+            let filteredMembers = teamMembers;
+
+            if (currentFilter !== 'all') {
+                filteredMembers = teamMembers.filter(member =>
+                    member.department === currentFilter
+                );
+            }
+
+            renderTeam(filteredMembers);
+        }
+
+        function renderTeam(members) {
+            teamGrid.innerHTML = members.map(member => `
+                <div class="team-card" onclick="showMemberDetails(${member.id})">
+                    <div class="member-photo">${member.avatar}</div>
+                    <div class="member-name">${member.name}</div>
+                    <div class="member-role">${member.role}</div>
+                    <div class="member-description">${member.description}</div>
+                    <div class="member-skills">
+                        ${member.skills.map(skill =>
+                            `<span class="skill-tag">${skill}</span>`
+                        ).join('')}
+                    </div>
+                    <div class="social-links">
+                        ${Object.entries(member.social).map(([platform, url]) =>
+                            `<a href="${url}" class="social-link" title="${platform}">
+                                ${getSocialIcon(platform)}
+                            </a>`
+                        ).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getSocialIcon(platform) {
+            const icons = {
+                linkedin: '💼',
+                github: '💻',
+                twitter: '🐦',
+                dribbble: '🎨',
+                behance: '🎭',
+                instagram: '📷'
+            };
+            return icons[platform] || '🔗';
+        }
+
+        function showMemberDetails(memberId) {
+            const member = teamMembers.find(m => m.id === memberId);
+            alert(`${member.name}\n${member.role}\n\n${member.description}\n\nSkills: ${member.skills.join(', ')}`);
+        }
+    </script>
 </body>
 
 </html>
