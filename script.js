@@ -1,3 +1,21 @@
+const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+const navLinks = document.getElementById("navlinks");
+
+mobileMenuToggle.addEventListener("click", () => {
+    mobileMenuToggle.classList.toggle("active");
+    navLinks.classList.toggle("active");
+});
+
+// Close menu when clicking on a link
+const navLinksItems = navLinks.querySelectorAll(".navlin");
+navLinksItems.forEach((link) => {
+    link.addEventListener("click", () => {
+        mobileMenuToggle.classList.remove("active");
+        navLinks.classList.remove("active");
+    });
+});
+
+
 window.addEventListener("scroll", () => {
     const mainContent = document.getElementById("mainContent");
     const mapFtur = document.getElementById("mapFtur");
