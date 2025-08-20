@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Tailora</title>
+    <link rel="icon" href="images/logoIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        #navBar {
+            zoom: 86%;
+        }
+
+        #mainContentPricing {
+            zoom: 86%;
+            position: relative;
+            top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+            background-color: #ffffff;
+        }
+
+        .pricing-header {
+            text-align: center;
+            color: white;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1000;
+            background: linear-gradient(to right, #466e5a, #46636e);
+            width: 100%;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .pricing-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .toggle-label {
+            color: #374077;
+            font-weight: 500;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: #466e5a;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .toggle-switch::before {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: white;
+            top: 2px;
+            left: 2px;
+            transition: 0.3s;
+        }
+
+        .toggle-switch.active {
+            background: #c461a8;
+        }
+
+        .toggle-switch.active::before {
+            left: 32px;
+        }
+
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-card {
+            background: linear-gradient(to bottom, rgba(234, 247, 255, 0.8), rgba(249, 234, 255, 0.8));
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 4px 4px 15px rgba(70, 110, 90, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid #c461a8;
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(to right, #c461a8, #743c7c);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .plan-name {
+            color: #743c7c;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .plan-price {
+            color: #466e5a;
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price .currency {
+            font-size: 1.5rem;
+        }
+
+        .plan-period {
+            color: #374077;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .plan-features li {
+            color: #374077;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #466e5a;
+            font-weight: bold;
+        }
+
+        .plan-features li.not-included {
+            opacity: 0.5;
+        }
+
+        .plan-features li.not-included::before {
+            content: '✗';
+            color: #ccc;
+        }
+
+        .plan-button {
+            background: linear-gradient(to right, #c461a8, #743c7c);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .plan-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(196, 97, 168, 0.4);
+        }
+
+        .plan-button.secondary {
+            background: linear-gradient(to right, #466e5a, #46636e);
+        }
+
+        .comparison-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 3rem 0;
+            padding: 0 2rem;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 4px 4px 15px rgba(70, 110, 90, 0.2);
+        }
+
+        .comparison-table h2 {
+            background: linear-gradient(to right, #466e5a, #46636e);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(70, 110, 90, 0.1);
+        }
+
+        .comparison-table th {
+            background: rgba(70, 110, 90, 0.1);
+            color: #743c7c;
+            font-weight: bold;
+        }
+
+        .comparison-table td {
+            color: #374077;
+        }
+
+        .feature-check {
+            color: #466e5a;
+            font-weight: bold;
+        }
+
+        .feature-cross {
+            color: #ccc;
+            font-weight: bold;
+        }
+
+        @media (max-width: 913px) {
+            .pricing-container {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .pricing-header h1 {
+                font-size: 2rem;
+            }
+
+            .pricing-header {
+                padding: 2rem 1rem;
+            }
+
+            .plan-price {
+                font-size: 2.5rem;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navBar">
+        <div id="topperLogo">
+            <img id="MiniLogo" src="images/logo.svg" alt="Tailora Logo">
+        </div>
+        <div id="navlinks">
+            <a class="navlin" href="index.html">
+                <h4>Home</h4>
+            </a>
+            <div id="AbtCon" class="navMenu">
+                <a class="navlin" href="about.html">
+                    <h4>About</h4>
+                </a>
+            </div>
+            <a class="navlin" href="pricing.html">
+                <h4>Pricing</h4>
+            </a>
+            <a class="navlin" href="tailoraFinder.html">
+                <h4>Finder</h4>
+            </a>
+            <a class="navlin" href="contact.html">
+                <h4>Contact</h4>
+            </a>
+            <div id="MoreCon" class="navMenu">
+                <a class="navlin">
+                    <h4>More</h4>
+                </a>
+            </div>
+        </div>
+        <div id="startBtnCon">
+            <button id="startBtn">Get Started</button>
+        </div>
+    </div>
+
+    <div id="mainContentPricing">
+        <div class="pricing-header">
+            <h1>Choose Your Plan</h1>
+            <p>Find the perfect plan that fits your tailoring needs and budget</p>
+        </div>
+
+        <div class="pricing-toggle">
+            <span class="toggle-label">Monthly</span>
+            <div class="toggle-switch" id="billingToggle"></div>
+            <span class="toggle-label">Yearly <small>(Save 20%)</small></span>
+        </div>
+
+        <div class="pricing-container">
+            <div class="pricing-card">
+                <h3 class="plan-name">Basic</h3>
+                <div class="plan-price">
+                    <span class="currency">$</span><span class="price-amount" data-monthly="9" data-yearly="86">9</span>
+                </div>
+                <p class="plan-period">per month</p>
+                <ul class="plan-features">
+                    <li>Find local tailors</li>
+                    <li>Basic design tools</li>
+                    <li>5 design saves</li>
+                    <li>Standard support</li>
+                    <li class="not-included">AR try-on feature</li>
+                    <li class="not-included">AI design assistant</li>
+                    <li class="not-included">Premium fabrics</li>
+                </ul>
+                <button class="plan-button secondary">Get Basic</button>
+            </div>
+
+            <div class="pricing-card popular">
+                <div class="popular-badge">Most Popular</div>
+                <h3 class="plan-name">Pro</h3>
+                <div class="plan-price">
+                    <span class="currency">$</span><span class="price-amount" data-monthly="19" data-yearly="182">19</span>
+                </div>
+                <p class="plan-period">per month</p>
+                <ul class="plan-features">
+                    <li>Find local tailors</li>
+                    <li>Advanced design tools</li>
+                    <li>Unlimited design saves</li>
+                    <li>AR try-on feature</li>
+                    <li>AI design assistant</li>
+                    <li>Priority support</li>
+                    <li class="not-included">Premium fabrics</li>
+                </ul>
+                <button class="plan-button">Get Pro</button>
+            </div>
+
+            <div class="pricing-card">
+                <h3 class="plan-name">Enterprise</h3>
+                <div class="plan-price">
+                    <span class="currency">$</span><span class="price-amount" data-monthly="39" data-yearly="374">39</span>
+                </div>
+                <p class="plan-period">per month</p>
+                <ul class="plan-features">
+                    <li>Everything in Pro</li>
+                    <li>Premium fabric access</li>
+                    <li>Bulk order discounts</li>
+                    <li>Dedicated account manager</li>
+                    <li>Custom integrations</li>
+                    <li>24/7 premium support</li>
+                    <li>White-label options</li>
+                </ul>
+                <button class="plan-button secondary">Get Enterprise</button>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <div class="comparison-table">
+                <h2>Feature Comparison</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th>Basic</th>
+                            <th>Pro</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tailor Network Access</td>
+                            <td class="feature-check">✓</td>
+                            <td class="feature-check">✓</td>
+                            <td class="feature-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Design Tools</td>
+                            <td>Basic</td>
+                            <td>Advanced</td>
+                            <td>Premium</td>
+                        </tr>
+                        <tr>
+                            <td>Design Storage</td>
+                            <td>5 designs</td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>AR Try-On</td>
+                            <td class="feature-cross">✗</td>
+                            <td class="feature-check">✓</td>
+                            <td class="feature-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>AI Assistant</td>
+                            <td class="feature-cross">✗</td>
+                            <td class="feature-check">✓</td>
+                            <td class="feature-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Premium Fabrics</td>
+                            <td class="feature-cross">✗</td>
+                            <td class="feature-cross">✗</td>
+                            <td class="feature-check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Support</td>
+                            <td>Standard</td>
+                            <td>Priority</td>
+                            <td>24/7 Premium</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Footer Wave -->
+        <div id="FooterWave">
+            <svg width="100%" height="100%" id="footerWave" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg"
+                class="transition duration-300 ease-in-out delay-150">
+                <path
+                    d="M 0,600 L 0,150 C 90.86124401913872,175.79904306220095 181.72248803827745,201.59808612440193 281,180 C 380.27751196172255,158.40191387559807 487.97129186602876,89.40669856459331 591,78 C 694.0287081339712,66.59330143540669 792.3923444976076,112.77511961722487 871,132 C 949.6076555023924,151.22488038277513 1008.4593301435407,143.4928229665072 1100,142 C 1191.5406698564593,140.5071770334928 1315.7703349282297,145.2535885167464 1440,150 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="0.53"></path>
+                <path
+                    d="M 0,600 L 0,350 C 95.87559808612443,355.0526315789474 191.75119617224885,360.10526315789474 273,355 C 354.24880382775115,349.89473684210526 420.87081339712915,334.6315789473684 525,353 C 629.1291866028708,371.3684210526316 770.7655502392344,423.3684210526316 888,415 C 1005.2344497607656,406.6315789473684 1098.066985645933,337.89473684210526 1186,317 C 1273.933014354067,296.10526315789474 1356.9665071770335,323.0526315789474 1440,350 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#46636e" fill-opacity="1"></path>
+            </svg>
+        </div>
+
+        <!-- Footer Section -->
+        <div id="FooterSection">
+            <div id="footerMenus">
+                <div id="footNavLinks1">
+                    <a href="index.html">
+                        <h4 id="footNavHome" class="footNavs">Home</h4>
+                    </a>
+                    <a href="Team.html">
+                        <h4 id="footNavTeam" class="footNavs">Our team</h4>
+                    </a>
+                    <a href="ourLogo.html">
+                        <h4 id="footNavLogo" class="footNavs">Our Logo</h4>
+                    </a>
+                    <a href="tailoraFinder.html">
+                        <h4 id="footNavVision" class="footNavs">Finder</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="pricing.html">
+                        <h4 id="footNavPro" class="footNavs">Pricing</h4>
+                    </a>
+                    <a href="news.html">
+                        <h4 id="footNavNews" class="footNavs">news</h4>
+                    </a>
+                    <a href="preview.html">
+                        <h4 id="footNavPreview" class="footNavs">Preview</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="logIn.html">
+                        <h4 id="footNavPro" class="footNavs">LogIn</h4>
+                    </a>
+                    <a href="download.html">
+                        <h4 id="footNavNews" class="footNavs">Download</h4>
+                    </a>
+                    <a href="helpCenter.html">
+                        <h4 id="footNavPreview" class="footNavs">Help</h4>
+                    </a>
+                    <a href="contact.html">
+                        <h4 id="footNavContact" class="footNavs">Contact</h4>
+                    </a>
+                </div>
+            </div>
+
+            <div id="footerChara">
+                <div id="charaText">
+                    <div id="ThinkShape" class="bright">
+                        <div id="popMsg">
+                            <h2> Choose Your Plan! </h2>
+                        </div>
+                        <h2 id="thinking"> </h2>
+                        <h2 id="thinking2"> </h2>
+                    </div>
+
+                    <div id="contacts">
+                        <div id="icons" class="bright">
+                            <img class="ContIcons" src="images/insta.svg">
+                            <img class="ContIcons" src="images/linkedin.svg">
+                        </div>
+                        <div id="accounts">
+                            <a href="">
+                                <h4>@Tailora._</h4>
+                            </a>
+                            <a href="">
+                                <h4>@TailorA</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <img id="OraiChara" class="bright" src="images/chara.png">
+            </div>
+        </div>
+
+        <div id="copyrights">
+            <h6>© 2025 Sawsan Abdullatif. powered by ice peach tea.</h6>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Pricing toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const billingToggle = document.getElementById('billingToggle');
+            const priceAmounts = document.querySelectorAll('.price-amount');
+            const planPeriods = document.querySelectorAll('.plan-period');
+            let isYearly = false;
+
+            billingToggle.addEventListener('click', function() {
+                isYearly = !isYearly;
+                billingToggle.classList.toggle('active');
+
+                priceAmounts.forEach(amount => {
+                    const monthlyPrice = amount.getAttribute('data-monthly');
+                    const yearlyPrice = amount.getAttribute('data-yearly');
+                    amount.textContent = isYearly ? yearlyPrice : monthlyPrice;
+                });
+
+                planPeriods.forEach(period => {
+                    period.textContent = isYearly ? 'per year' : 'per month';
+                });
+            });
+
+            // Plan button functionality
+            const planButtons = document.querySelectorAll('.plan-button');
+            planButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const planName = this.closest('.pricing-card').querySelector('.plan-name').textContent;
+                    alert(`You selected the ${planName} plan! Redirecting to checkout...`);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
