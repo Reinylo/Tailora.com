@@ -1,8 +1,38 @@
+// Mobile menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navlinks');
+
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        const navLinksItems = navLinks.querySelectorAll('.navlin');
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuToggle.contains(event.target) && !navLinks.contains(event.target)) {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
+});
+
 window.addEventListener("scroll", () => {
     const mainContent = document.getElementById("mainContent");
     const mapFtur = document.getElementById("mapFtur");
-    //any screen bigger than 913px width
-    if (window.innerWidth >= 913) {
+    //any screen bigger than 768px width (updated from 913px)
+    if (window.innerWidth >= 768) {
         if (window.scrollY >= 200) {
             mainContent.style.backgroundColor = "#ffffff";
             mapFtur.style.left = "70%";
@@ -25,7 +55,7 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("scroll", () => {
     const ARftur = document.getElementById("ARftur");
-    if (window.innerWidth >= 913) {
+    if (window.innerWidth >= 768) {
         if (window.scrollY >= 350) {
             ARftur.style.left = "70%";
         } else {
@@ -42,7 +72,7 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("scroll", () => {
     const Crtftur = document.getElementById("Crtftur");
-    if (window.innerWidth >= 913) {
+    if (window.innerWidth >= 768) {
         if (window.scrollY >= 550) {
             Crtftur.style.left = "70%";
         } else {
