@@ -99,6 +99,7 @@ body {
     cursor: pointer;
     gap: 4px;
     padding: 10px;
+
 }
 
 #mobileMenuToggle span {
@@ -110,7 +111,7 @@ body {
 }
 
 #mobileMenuToggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+    transform: rotate(35deg) translate(5px, 5px);
 }
 
 #mobileMenuToggle.active span:nth-child(2) {
@@ -118,11 +119,11 @@ body {
 }
 
 #mobileMenuToggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+    transform: rotate(-35deg) translate(5px, -5px);
 }
 
 #startBtn {
-    background: linear-gradient(135deg, #c461a8, #743c7c);
+    background-color: #8b4695;
     color: white;
     border: none;
     border-radius: 12px;
@@ -142,6 +143,7 @@ body {
 
 #startBtnCon {
     flex-shrink: 0;
+    margin-left: auto;
 }
 
 
@@ -184,6 +186,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -567,7 +570,13 @@ body {
     cursor: pointer;
 }
 
-.AnswerFAQ {\n    margin: 6px 6px 6px 18px;\n    line-height: 30px;\n    color: #743c7c;\n    transition: 1s ease-in-out;\n    display: none;\n}
+.AnswerFAQ {
+    margin: 6px 6px 6px 18px;
+    line-height: 30px;
+    color: #743c7c;
+    transition: 1s ease-in-out;
+    display: none;
+}
 
 #FAQcard {
     display: flex;
@@ -816,6 +825,7 @@ a {
         padding: 8px 15px;
         margin: 5px;
         border-radius: 15px;
+        justify-content: space-between;
     }
 
     #navlinks {
@@ -840,6 +850,16 @@ a {
 
     #mobileMenuToggle {
         display: flex;
+        order: 3;
+    }
+
+    #startBtnCon {
+        order: 2;
+        margin-right: 10px;
+    }
+
+    #topperLogo {
+        order: 1;
     }
 
     #startBtn {
