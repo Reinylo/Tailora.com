@@ -166,17 +166,55 @@ Que4.addEventListener("click", () => {
 });
 
 const stopbtn = document.getElementById("stop");
-stopbtn.addEventListener("click", () => {
-    document.querySelectorAll('.CustomerRevs').forEach(el => {
-        if (el.classList.contains('animate')) {
-            el.classList.remove('animate');
-            el.classList.add('Stop');
-            stopbtn.textContent = "▶"
-        } else {
-            el.classList.remove('Stop');
-            el.classList.add('animate');
-            stopbtn.textContent = "❚❚"
+if (stopbtn) {
+    stopbtn.addEventListener("click", () => {
+        document.querySelectorAll('.CustomerRevs').forEach(el => {
+            if (el.classList.contains('animate')) {
+                el.classList.remove('animate');
+                el.classList.add('Stop');
+                stopbtn.textContent = "▶"
+            } else {
+                el.classList.remove('Stop');
+                el.classList.add('animate');
+                stopbtn.textContent = "❚❚"
 
+            }
+        });
+    });
+}
+
+// Dropdown menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const navMenus = document.querySelectorAll('.navMenu');
+    
+    navMenus.forEach(menu => {
+        const dropdown = menu.querySelector('.dropdown-menu');
+        
+        if (dropdown) {
+            // Show dropdown on hover
+            menu.addEventListener('mouseenter', () => {
+                dropdown.style.opacity = '1';
+                dropdown.style.visibility = 'visible';
+                dropdown.style.transform = 'translateY(0)';
+            });
+            
+            // Hide dropdown when mouse leaves
+            menu.addEventListener('mouseleave', () => {
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.transform = 'translateY(-10px)';
+            });
+        }
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navMenu')) {
+            document.querySelectorAll('.dropdown-menu').forEach(dropdown => {
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.transform = 'translateY(-10px)';
+            });
         }
     });
 });

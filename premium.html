@@ -86,11 +86,11 @@
             border-radius: 50%;
         }
 
-        input:checked + .slider {
+        input:checked+.slider {
             background-color: #c461a8;
         }
 
-        input:checked + .slider:before {
+        input:checked+.slider:before {
             transform: translateX(30px);
         }
 
@@ -335,7 +335,8 @@
                 <input type="checkbox" id="billing-toggle">
                 <span class="slider"></span>
             </label>
-            <span style="color: white; font-weight: 600;">Yearly <small style="color: #c461a8;">(Save 20%)</small></span>
+            <span style="color: white; font-weight: 600;">Yearly <small style="color: #c461a8;">(Save
+                    20%)</small></span>
         </div>
 
         <div class="pricing-container">
@@ -403,14 +404,15 @@
 
         <div class="faq-section">
             <h2>Frequently Asked Questions</h2>
-            
+
             <div class="faq-item">
                 <div class="faq-question">
                     <h3>Can I change my plan anytime?</h3>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle.</p>
+                    <p>Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next
+                        billing cycle.</p>
                 </div>
             </div>
 
@@ -440,7 +442,8 @@
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Yes, you can cancel your subscription at any time. You'll continue to have access until the end of your billing period.</p>
+                    <p>Yes, you can cancel your subscription at any time. You'll continue to have access until the end
+                        of your billing period.</p>
                 </div>
             </div>
         </div>
@@ -541,13 +544,13 @@
     <script src="script.js"></script>
     <script>
         // Pricing page functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const billingToggle = document.getElementById('billing-toggle');
             const monthlyPrices = document.querySelectorAll('.monthly-price');
             const yearlyPrices = document.querySelectorAll('.yearly-price');
-            
+
             // Toggle between monthly and yearly pricing
-            billingToggle.addEventListener('change', function() {
+            billingToggle.addEventListener('change', function () {
                 if (this.checked) {
                     monthlyPrices.forEach(price => price.style.display = 'none');
                     yearlyPrices.forEach(price => price.style.display = 'inline');
@@ -559,12 +562,12 @@
 
             // FAQ functionality
             const faqQuestions = document.querySelectorAll('.faq-question');
-            
+
             faqQuestions.forEach(question => {
-                question.addEventListener('click', function() {
+                question.addEventListener('click', function () {
                     const answer = this.nextElementSibling;
                     const icon = this.querySelector('span');
-                    
+
                     answer.classList.toggle('active');
                     icon.textContent = answer.classList.contains('active') ? '-' : '+';
                 });
@@ -573,7 +576,7 @@
             // Plan button functionality
             const planButtons = document.querySelectorAll('.plan-button');
             planButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     const planName = this.closest('.pricing-card').querySelector('.plan-name').textContent;
                     alert(`You selected the ${planName} plan! Redirecting to checkout...`);
                 });

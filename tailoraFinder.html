@@ -303,7 +303,8 @@
         <div class="search-section">
             <div class="search-form">
                 <input type="text" class="search-input" placeholder="Enter your location" id="location-input">
-                <input type="text" class="search-input" placeholder="Service type (e.g., alterations)" id="service-input">
+                <input type="text" class="search-input" placeholder="Service type (e.g., alterations)"
+                    id="service-input">
                 <button class="search-btn" id="search-btn">Search Tailors</button>
             </div>
 
@@ -550,7 +551,7 @@
     <script src="script.js"></script>
     <script>
         // Tailor Finder functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const tailorCards = document.querySelectorAll('.tailor-card');
             const searchBtn = document.getElementById('search-btn');
@@ -559,12 +560,12 @@
 
             // Filter functionality
             filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     filterBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
-                    
+
                     const filter = this.dataset.filter;
-                    
+
                     tailorCards.forEach(card => {
                         if (filter === 'all') {
                             card.style.display = 'block';
@@ -581,37 +582,37 @@
             });
 
             // Search functionality
-            searchBtn.addEventListener('click', function() {
+            searchBtn.addEventListener('click', function () {
                 const location = locationInput.value.trim();
                 const service = serviceInput.value.trim().toLowerCase();
-                
+
                 if (!location && !service) {
                     alert('Please enter a location or service type to search.');
                     return;
                 }
-                
+
                 tailorCards.forEach(card => {
                     const cardLocation = card.querySelector('.tailor-location').textContent.toLowerCase();
                     const cardSpecialties = card.dataset.specialty.toLowerCase();
-                    
+
                     let showCard = false;
-                    
+
                     if (location && cardLocation.includes(location.toLowerCase())) {
                         showCard = true;
                     }
-                    
+
                     if (service && cardSpecialties.includes(service)) {
                         showCard = true;
                     }
-                    
+
                     if (!location && service && cardSpecialties.includes(service)) {
                         showCard = true;
                     }
-                    
+
                     if (!service && location && cardLocation.includes(location.toLowerCase())) {
                         showCard = true;
                     }
-                    
+
                     card.style.display = showCard ? 'block' : 'none';
                 });
             });
@@ -619,7 +620,7 @@
             // Contact tailor functionality
             const contactBtns = document.querySelectorAll('.contact-tailor-btn');
             contactBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     const tailorName = this.closest('.tailor-card').querySelector('h3').textContent;
                     alert(`Connecting you with ${tailorName}... This will open the messaging interface.`);
                 });
@@ -627,7 +628,7 @@
 
             // Enter key search
             [locationInput, serviceInput].forEach(input => {
-                input.addEventListener('keypress', function(e) {
+                input.addEventListener('keypress', function (e) {
                     if (e.key === 'Enter') {
                         searchBtn.click();
                     }
