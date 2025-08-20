@@ -10,250 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
 
 </head>
-<style>
-    #galleryMain {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 60px 30px;
-        min-height: 80vh;
-        background: linear-gradient(135deg, #fafbfc, #f8f9fa);
-        zoom: 80%;
-    }
-
-    #galleryHeader {
-        text-align: center;
-        margin-bottom: 80px;
-    }
-
-    #galleryHeader h1 {
-        color: #333a7aef;
-        font-size: 3rem;
-        margin-bottom: 20px;
-        font-weight: 300;
-        letter-spacing: 1px;
-    }
-
-    #galleryHeader p {
-        color: #666;
-        font-size: 1.1rem;
-        max-width: 500px;
-        margin: 0 auto;
-        line-height: 1.7;
-        font-weight: 300;
-    }
-
-    #filterButtons {
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-        margin-bottom: 70px;
-        flex-wrap: wrap;
-    }
-
-    .filter-btn {
-        background: transparent;
-        border: 1px solid rgba(51, 58, 122, 0.3);
-        color: #333a7aef;
-        padding: 15px 30px;
-        border-radius: 30px;
-        cursor: pointer;
-        font-weight: 400;
-        transition: all 0.4s ease;
-        font-size: 0.95rem;
-        letter-spacing: 0.5px;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-        background: rgba(51, 58, 122, 0.1);
-        border-color: #333a7aef;
-        transform: translateY(-1px);
-        box-shadow: 0 8px 25px rgba(51, 58, 122, 0.15);
-    }
-
-    #galleryGrid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 40px;
-        margin-bottom: 100px;
-        padding: 0 20px;
-    }
-
-    .gallery-item {
-        position: relative;
-        border-radius: 20px;
-        overflow: hidden;
-        cursor: pointer;
-        transition: all 0.4s ease;
-        background: white;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-    }
-
-    .gallery-item:hover {
-        transform: translateY(-12px);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-    }
-
-    .gallery-item img {
-        width: 100%;
-        height: 280px;
-        object-fit: cover;
-        transition: all 0.4s ease;
-        opacity: 0.85;
-        filter: grayscale(20%) brightness(0.5);
-    }
-
-    .gallery-item:hover img {
-        opacity: 1;
-        filter: grayscale(0%) brightness(0.8);
-        transform: scale(1.02);
-    }
-
-    .gallery-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
-        color: white;
-        padding: 40px 25px 25px;
-        transform: translateY(100%);
-        transition: all 0.4s ease;
-    }
-
-    .gallery-item:hover .gallery-overlay {
-        transform: translateY(0);
-    }
-
-    .gallery-overlay h3 {
-        font-size: 1.4rem;
-        margin-bottom: 8px;
-        font-weight: 400;
-        letter-spacing: 0.5px;
-    }
-
-    .gallery-overlay p {
-        font-size: 0.9rem;
-        opacity: 0.85;
-        margin: 0;
-        font-weight: 300;
-        line-height: 1.4;
-    }
-
-    #galleryStats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 40px;
-        background: linear-gradient(135deg, rgba(51, 58, 122, 0.95), rgba(122, 51, 109, 0.95));
-        border-radius: 25px;
-        padding: 60px 40px;
-        color: white;
-        text-align: center;
-        backdrop-filter: blur(10px);
-    }
-
-    .stat-item h3 {
-        font-size: 2.8rem;
-        margin-bottom: 12px;
-        font-weight: 300;
-        letter-spacing: 1px;
-    }
-
-    .stat-item p {
-        font-size: 1rem;
-        opacity: 0.9;
-        margin: 0;
-        font-weight: 300;
-        letter-spacing: 0.5px;
-    }
-
-    /* Modal Styles */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 9999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-    }
-
-    .modal-content {
-        margin: auto;
-        display: block;
-        width: 80%;
-        max-width: 900px;
-        max-height: 80%;
-        object-fit: contain;
-        border-radius: 10px;
-    }
-
-    .close {
-        position: absolute;
-        top: 30px;
-        right: 45px;
-        color: #f1f1f1;
-        font-size: 40px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .close:hover {
-        color: #bbb;
-    }
-
-    .modal-caption {
-        margin: auto;
-        display: block;
-        width: 80%;
-        max-width: 700px;
-        text-align: center;
-        color: #ccc;
-        padding: 10px 0;
-        font-size: 1.2rem;
-    }
-
-    /* Filter Animation */
-    .gallery-item.hide {
-        opacity: 0;
-        transform: scale(0.8);
-        transition: all 0.3s ease;
-    }
-
-    .gallery-item.show {
-        opacity: 1;
-        transform: scale(1);
-        transition: all 0.3s ease;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        #galleryHeader h1 {
-            font-size: 2.5rem;
-        }
-
-        #galleryGrid {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .filter-btn {
-            padding: 10px 20px;
-            font-size: 0.9rem;
-        }
-
-        #galleryStats {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            padding: 30px 20px;
-        }
-
-        .stat-item h3 {
-            font-size: 2rem;
-        }
-    }
-</style>
 
 <body id="indexBody">
     <div id="navBar">
@@ -321,115 +77,235 @@
     <!-- Main Gallery Content -->
     <div id="galleryMain">
         <div id="galleryHeader">
-            <h1>Our Gallery</h1>
-            <p>Explore our collection of designs, creations, and moments that define Tailora</p>
-        </div>
-
-        <!-- Filter Buttons -->
-        <div id="filterButtons">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="designs">Designs</button>
-            <button class="filter-btn" data-filter="traditional">Traditional</button>
-            <button class="filter-btn" data-filter="modern">Modern</button>
-            <button class="filter-btn" data-filter="process">Process</button>
+            <h1 style="color: #333a7aef; font-size: 45px; margin-bottom: 15px;">Our Gallery</h1>
+            <p
+                style="color: #666; font-size: 1.1rem; margin-bottom: 35px; max-width: 900px; margin-left: auto; margin-right: auto;">
+                Discover amazing designs from our talented community of tailors and designers</p>
         </div>
 
         <!-- Gallery Grid -->
         <div id="galleryGrid">
-            <div class="gallery-item" data-category="designs modern">
-                <img src="images/topdesigna.jpg" alt="Modern Top Design" loading="lazy">
-                <div class="gallery-overlay">
+            <div class="gallery-item">
+                <img src="images/topdesigna.jpg" alt="Modern Top Design">
+                <div class="gallery-info">
                     <h3>Modern Top Design</h3>
-                    <p>Contemporary styling with elegant finishes</p>
+                    <p>Contemporary styling</p>
+                    <div class="publisher-info">
+                        <div class="publisher-avatar">
+                            <img src="images/Sawsan.jpg" alt="Designer">
+                        </div>
+                        <div class="publisher-details">
+                            <span class="publisher-name">@Sawsan_Designer</span>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="designs modern">
-                <img src="images/tops.jpg" alt="Stylish Tops Collection" loading="lazy">
-                <div class="gallery-overlay">
+            <div class="gallery-item">
+                <img src="images/tops.jpg" alt="Stylish Tops Collection">
+                <div class="gallery-info">
                     <h3>Stylish Tops</h3>
-                    <p>Trendy and comfortable everyday wear</p>
+                    <p>Trendy everyday wear</p>
+                    <div class="publisher-info">
+                        <div class="publisher-avatar">
+                            <img src="images/Abrar.jpg" alt="Designer">
+                        </div>
+                        <div class="publisher-details">
+                            <span class="publisher-name">@Abrar_Tailoring</span>
+                            <div class="rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.5</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="traditional designs">
-                <img src="images/traditional.jpg" alt="Traditional Wear" loading="lazy">
-                <div class="gallery-overlay">
+            <div class="gallery-item">
+                <img src="images/traditional.jpg" alt="Traditional Wear">
+                <div class="gallery-info">
                     <h3>Traditional Collection</h3>
-                    <p>Honoring cultural heritage with modern comfort</p>
+                    <p>Cultural heritage designs</p>
+                    <div class="publisher-info">
+                        <div class="publisher-avatar">
+                            <img src="images/Flower.jpg" alt="Designer">
+                        </div>
+                        <div class="publisher-details">
+                            <span class="publisher-name">@Aisha_Heritage</span>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="gallery-item" data-category="designs modern">
-                <img src="images/fabric.jpg" alt="Premium Fabrics" loading="lazy">
-                <div class="gallery-overlay">
+            <div class="gallery-item">
+                <img src="images/fabric.jpg" alt="Premium Fabrics">
+                <div class="gallery-info">
                     <h3>Premium Fabrics</h3>
-                    <p>Quality materials for exceptional garments</p>
+                    <p>Quality materials</p>
+                    <div class="publisher-info">
+                        <div class="publisher-avatar">
+                            <img src="images/Ducky.jpg" alt="Designer">
+                        </div>
+                        <div class="publisher-details">
+                            <span class="publisher-name">@Fatima_Fabrics</span>
+                            <div class="rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.6</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-
-            <div class="gallery-item" data-category="process">
-                <img src="images/ARAI.jpg" alt="AR Technology" loading="lazy">
-                <div class="gallery-overlay">
-                    <h3>AR Technology</h3>
-                    <p>Virtual try-on experience</p>
-                </div>
-            </div>
-
-            <div class="gallery-item" data-category="designs">
-                <img src="images/update.jpg" alt="Latest Updates" loading="lazy">
-                <div class="gallery-overlay">
+            <div class="gallery-item">
+                <img src="images/update.jpg" alt="Latest Updates">
+                <div class="gallery-info">
                     <h3>Latest Collection</h3>
-                    <p>Our newest designs and styles</p>
+                    <p>Our newest designs</p>
+                    <div class="publisher-info">
+                        <div class="publisher-avatar">
+                            <img src="images/me.png" alt="Designer">
+                        </div>
+                        <div class="publisher-details">
+                            <span class="publisher-name">@Tailora_Official</span>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">5.0</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="gallery-item" data-category="designs modern">
-                <img src="images/d9a6b58893502ba0d5351e0c1b342eb1.jpg" alt="Fashion Design" loading="lazy">
-                <div class="gallery-overlay">
-                    <h3>Fashion Forward</h3>
-                    <p>Bold designs for the modern wardrobe</p>
-                </div>
-            </div>
-
-            <div class="gallery-item" data-category="designs modern">
-                <img src="images/c972047d8fc5c39cc1f8b0ad44748941.jpg" alt="Elegant Design" loading="lazy">
-                <div class="gallery-overlay">
-                    <h3>Elegant Styling</h3>
-                    <p>Sophisticated designs for special occasions</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Gallery Stats -->
-        <div id="galleryStats">
-            <div class="stat-item">
-                <h3>500+</h3>
-                <p>Designs Created</p>
-            </div>
-            <div class="stat-item">
-                <h3>1000+</h3>
-                <p>Happy Customers</p>
-            </div>
-            <div class="stat-item">
-                <h3>50+</h3>
-                <p>Skilled Tailors</p>
-            </div>
-            <div class="stat-item">
-                <h3>24/7</h3>
-                <p>Support Available</p>
             </div>
         </div>
     </div>
 
-    <!-- Image Modal -->
-    <div id="imageModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImg">
-        <div class="modal-caption"></div>
-    </div>
+    <style>
+        #galleryMain {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 70vh;
+        }
 
+        #galleryHeader {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        #galleryGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .gallery-info {
+            padding: 1.5rem;
+        }
+
+        .gallery-info h3 {
+            color: #374077;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .gallery-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0 0 1rem 0;
+        }
+
+        .publisher-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .publisher-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .publisher-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .publisher-details {
+            flex: 1;
+        }
+
+        .publisher-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #333a7aef;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 0.9rem;
+        }
+
+        .rating-text {
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            #galleryGrid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            #galleryHeader h1 {
+                font-size: 35px;
+            }
+        }
+    </style>
 
     <!-- Footer Wave -->
     <div id="FooterWaveNEWS">
@@ -524,58 +400,5 @@
     </div>
     </div>
 </body>
-<script>
-    // Filter functionality
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            btn.classList.add('active');
-
-            const filter = btn.getAttribute('data-filter');
-            const items = document.querySelectorAll('.gallery-item');
-
-            items.forEach(item => {
-                if (filter === 'all' || item.getAttribute('data-category').includes(filter)) {
-                    item.style.display = 'block';
-                    setTimeout(() => item.classList.add('show'), 10);
-                } else {
-                    item.classList.remove('show');
-                    setTimeout(() => item.style.display = 'none', 300);
-                }
-            });
-        });
-    });
-
-    // Modal functionality
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImg');
-    const modalCaption = document.querySelector('.modal-caption');
-    const close = document.querySelector('.close');
-
-    document.querySelectorAll('.gallery-item img').forEach(img => {
-        img.addEventListener('click', function () {
-            modal.style.display = 'block';
-            modalImg.src = this.src;
-            modalCaption.textContent = this.alt;
-        });
-    });
-
-    close.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-
-    // Initialize - show all items
-    document.querySelectorAll('.gallery-item').forEach(item => {
-        item.classList.add('show');
-    });
-</script>
 
 </html>
