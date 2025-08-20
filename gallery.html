@@ -697,7 +697,7 @@
 
             // Apply category filter
             if (currentCategory !== 'all') {
-                filteredDesigns = designs.filter(design => 
+                filteredDesigns = designs.filter(design =>
                     design.category === currentCategory
                 );
             }
@@ -724,7 +724,7 @@
                         <p class="design-creator">By ${design.creator}</p>
                         <p class="design-description">${design.description}</p>
                         <div class="design-tags">
-                            ${design.tags.map(tag => 
+                            ${design.tags.map(tag =>
                                 `<span class="design-tag">${tag}</span>`
                             ).join('')}
                         </div>
@@ -757,7 +757,7 @@
             document.getElementById('modalCreator').textContent = `By ${design.creator}`;
             document.getElementById('modalImage').textContent = design.icon;
             document.getElementById('modalDescription').textContent = design.description;
-            document.getElementById('modalTags').innerHTML = design.tags.map(tag => 
+            document.getElementById('modalTags').innerHTML = design.tags.map(tag =>
                 `<span class="design-tag">${tag}</span>`
             ).join('');
 

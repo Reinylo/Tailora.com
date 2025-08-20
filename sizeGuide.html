@@ -416,7 +416,7 @@
                 <div class="calculator-section">
                     <div class="measurement-form">
                         <h3>📏 Enter Your Measurements</h3>
-                        
+
                         <div class="form-group">
                             <label for="clothingType">Clothing Type:</label>
                             <select id="clothingType">
@@ -477,7 +477,7 @@
             <!-- Size Charts Tab -->
             <div class="tab-content" id="charts">
                 <h3>📊 Standard Size Charts</h3>
-                
+
                 <div class="size-chart-table">
                     <h4 style="padding: 1rem; color: #743c7c; margin: 0;">Women's Clothing</h4>
                     <table>
@@ -527,7 +527,7 @@
             <div class="tab-content" id="tips">
                 <div class="measurement-tips">
                     <h3>📐 How to Measure Accurately</h3>
-                    
+
                     <div class="tip-item">
                         <div class="tip-icon">👕</div>
                         <div class="tip-content">
@@ -573,7 +573,7 @@
             <!-- Visual Guide Tab -->
             <div class="tab-content" id="visual">
                 <h3>👁️ Visual Measurement Guide</h3>
-                
+
                 <div class="visual-guide">
                     <div class="guide-item">
                         <div class="guide-illustration">📐</div>
@@ -744,11 +744,11 @@
             tabBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const targetTab = this.getAttribute('data-tab');
-                    
+
                     // Remove active class from all tabs and buttons
                     tabBtns.forEach(b => b.classList.remove('active'));
                     tabContents.forEach(content => content.classList.remove('active'));
-                    
+
                     // Add active class to clicked button and corresponding content
                     this.classList.add('active');
                     document.getElementById(targetTab).classList.add('active');
@@ -758,7 +758,7 @@
 
         function setupUnitToggle() {
             const unitBtns = document.querySelectorAll('.unit-btn');
-            
+
             unitBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     unitBtns.forEach(b => b.classList.remove('active'));
@@ -772,7 +772,7 @@
         function updatePlaceholders() {
             const inputs = document.querySelectorAll('#calculator input[type="number"]');
             const suffix = currentUnit === 'cm' ? 'cm' : 'inches';
-            
+
             inputs.forEach(input => {
                 input.placeholder = `Enter measurement (${suffix})`;
             });
