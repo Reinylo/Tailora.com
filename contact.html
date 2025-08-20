@@ -11,6 +11,86 @@
 
 </head>
 
+<style>
+    #mainBody {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 100px;
+    }
+
+    #contactForm {
+        background: linear-gradient(to bottom right, #f5f8ff3e, #ffffff37);
+        backdrop-filter: blur(2px);
+        padding: 3rem;
+        border-radius: 25px;
+        box-shadow: 0 4px 15px rgba(45, 29, 77, 0.2);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: left;
+        width: 40%;
+
+        position: relative;
+        z-index: 1;
+        margin-bottom: -90px;
+        top: 100px;
+
+        font-weight: bold;
+        color: #374077ba;
+    }
+
+    .formInput {
+        border-radius: 8px;
+        border: solid 2px #3740779e;
+        font-size: large;
+        padding: 0.5rem;
+        background: linear-gradient(to bottom right, #f5f8ff3e, #ffffff37);
+        backdrop-filter: blur(2px);
+    }
+
+    .formInput:focus {
+        outline: none;
+        border-color: #901189c8;
+    }
+
+    button {
+        font-size: large;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        color: #ffffff;
+        background-color: #3740779e;
+        border: none;
+    }
+
+    button:hover {
+        background-color: #bc75b8;
+        cursor: pointer;
+
+    }
+
+    #FooterSection {
+        zoom: 60%;
+    }
+
+    @media (max-width: 913px) {
+        #mainBody {
+            zoom: 60%;
+        }
+
+        #contactForm {
+            width: 70%;
+            margin-bottom: 100px;
+        }
+
+        #FooterSection {
+            justify-content: center;
+            left: -50px;
+        }
+    }
+</style>
+
 <body id="indexBody">
     <div id="navBar">
         <div id="topperLogo">
@@ -73,6 +153,25 @@
             </a>
         </div>
     </div>
+
+    <!-- Main body-->
+    <div id="mainBody">
+        <h1 style="color: #46636e; font-size: 45px; margin-bottom: -50px;">Contact Us</h1>
+        <form id="contactForm" style="background-color: #ffffff9c;">
+            <label for="name">Name:</label>
+            <input class="formInput" type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input class="formInput" type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="message">Message:</label>
+            <textarea class="formInput" id="message" name="message" rows="5" placeholder="Enter your message"
+                required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
     <!-- Footer Wave -->
     <div id="FooterWaveNEWS">
         <svg width="100%" height="100%" id="footerWave" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg"
@@ -165,6 +264,25 @@
         <h6>© 2025 Sawsan Abdullatif. powered by ice peach tea.</h6>
     </div>
     </div>
+
+    <script>
+        const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+        const navLinks = document.getElementById("navlinksMobileNav");
+
+        mobileMenuToggle.addEventListener("click", () => {
+            mobileMenuToggle.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+
+        // Close menu when clicking on a link
+        const navLinksItems = navLinks.querySelectorAll(".navlinMob");
+        navLinksItems.forEach((link) => {
+            link.addEventListener("click", () => {
+                mobileMenuToggle.classList.remove("active");
+                navLinks.classList.remove("active");
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -789,11 +789,11 @@ a {
 
 
     #svgWave {
-        top: -200px;
+        top: -80px;
     }
 
     #featuresTitle {
-        top: -40px;
+        top: 225px;
         font-size: 27px;
     }
 
@@ -813,7 +813,7 @@ a {
     }
 
     .fturContainer {
-        top: 0px;
+        top: 120px;
         padding: 20px;
         display: flex;
         flex-direction: column;
