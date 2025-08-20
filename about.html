@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Tailora</title>
+    <link rel="icon" href="images/logoIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        #navBar {
+            zoom: 86%;
+        }
+
+        #mainContentAbout {
+            zoom: 86%;
+            position: relative;
+            top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+            background-color: #466e5aff;
+        }
+
+        .about-header {
+            text-align: center;
+            color: white;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .about-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .about-section {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            margin: 2rem;
+            max-width: 1000px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            position: relative;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .mission, .vision {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 20px;
+            border-top: 4px solid #466e5a;
+        }
+
+        .mission h3, .vision h3 {
+            color: #466e5a;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-content {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .about-content h2 {
+            color: #466e5a;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .stats-section {
+            background: #466e5a;
+            border-radius: 25px;
+            padding: 3rem;
+            margin: 2rem;
+            max-width: 1000px;
+            z-index: 1000;
+            position: relative;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #c461a8;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .values-section {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            margin: 2rem;
+            max-width: 1000px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            position: relative;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-item h3 {
+            color: #466e5a;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-section {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            margin: 2rem;
+            max-width: 1000px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #466e5a;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            width: 45%;
+            position: relative;
+        }
+
+        .timeline-date {
+            background: #466e5a;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .timeline-content h4 {
+            color: #466e5a;
+            margin: 0 0 0.5rem 0;
+        }
+
+        @media (max-width: 913px) {
+            .mission-vision {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-header h1 {
+                font-size: 2rem;
+            }
+
+            .about-section,
+            .stats-section,
+            .values-section,
+            .timeline-section {
+                margin: 1rem;
+                padding: 2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 40px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-date {
+                left: 20px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navBar">
+        <div id="topperLogo">
+            <img id="MiniLogo" src="images/logo.svg" alt="Tailora Logo">
+        </div>
+        <div id="navlinks">
+            <a class="navlin" href="index.html">
+                <h4>Home</h4>
+            </a>
+            <div id="AbtCon" class="navMenu">
+                <a class="navlin" href="about.html">
+                    <h4>About</h4>
+                </a>
+            </div>
+            <a class="navlin" href="premium.html">
+                <h4>Pricing</h4>
+            </a>
+            <a class="navlin" href="tailoraFinder.html">
+                <h4>Finder</h4>
+            </a>
+            <a class="navlin" href="contact.html">
+                <h4>Contact</h4>
+            </a>
+            <div id="MoreCon" class="navMenu">
+                <a class="navlin">
+                    <h4>More</h4>
+                </a>
+            </div>
+        </div>
+        <div id="startBtnCon">
+            <button id="startBtn">Get Started</button>
+        </div>
+    </div>
+
+    <div id="mainContentAbout" style="background: white;">
+        <div class="about-header" style="padding: 3rem 2rem;">
+            <h1 style="color: #743c7c;">About Tailora</h1>
+            <p style="font-size: 1.2rem; color: #46636e;">Revolutionizing the tailoring industry through technology</p>
+        </div>
+
+        <div class="about-section">
+            <div class="about-content">
+                <h2>Our Story</h2>
+                <p>Founded in 2023, Tailora emerged from a simple yet powerful vision: to bridge the gap between traditional craftsmanship and modern technology. Our founders, passionate about both fashion and innovation, recognized that the tailoring industry needed a digital transformation that would benefit both artisans and customers alike.</p>
+                
+                <p>What started as a small startup has grown into a comprehensive platform that connects skilled tailors with customers worldwide, offering everything from simple alterations to bespoke creations. We've revolutionized the way people think about custom clothing by making it accessible, transparent, and enjoyable.</p>
+
+                <div class="mission-vision">
+                    <div class="mission">
+                        <h3>🎯 Our Mission</h3>
+                        <p>To democratize access to quality tailoring services while empowering skilled artisans with modern tools and a global marketplace.</p>
+                    </div>
+                    <div class="vision">
+                        <h3>🔮 Our Vision</h3>
+                        <p>A world where everyone can access personalized, perfectly-fitted clothing while supporting local craftsmanship and sustainable fashion.</p>
+                    </div>
+                </div>
+
+                <h2>What We Do</h2>
+                <p>Tailora is more than just an app – it's a complete ecosystem for custom clothing. We provide:</p>
+                <ul style="margin-left: 2rem;">
+                    <li><strong>AI-Powered Design Tools:</strong> Create and visualize your designs with our intelligent assistant</li>
+                    <li><strong>AR Try-On Technology:</strong> See how your clothes will look before they're made</li>
+                    <li><strong>Tailor Network:</strong> Connect with verified, skilled tailors in your area</li>
+                    <li><strong>Quality Assurance:</strong> Every project is monitored for excellence</li>
+                    <li><strong>Sustainable Practices:</strong> Supporting eco-friendly materials and local businesses</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <h2 style="color: white; text-align: center; margin-bottom: 2rem;">Tailora by the Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2,500+</span>
+                    <span class="stat-label">Verified Tailors</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100K+</span>
+                    <span class="stat-label">Designs Created</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Satisfaction Rate</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="values-section">
+            <h2 style="color: #466e5a; text-align: center;">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">🎨</div>
+                    <h3>Craftsmanship</h3>
+                    <p>We celebrate the art of tailoring and support skilled artisans in preserving traditional techniques while embracing innovation.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🌱</div>
+                    <h3>Sustainability</h3>
+                    <p>Promoting slow fashion and sustainable practices by encouraging quality, long-lasting garments over fast fashion.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <h3>Community</h3>
+                    <p>Building strong connections between customers and local tailors, fostering relationships that go beyond transactions.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">💡</div>
+                    <h3>Innovation</h3>
+                    <p>Constantly pushing boundaries with AI, AR, and other technologies to enhance the custom clothing experience.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-section">
+            <h2 style="color: #466e5a; text-align: center; margin-bottom: 2rem;">Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>The Beginning</h4>
+                        <p>Tailora was founded with the vision of connecting customers with local tailors through technology.</p>
+                    </div>
+                    <div class="timeline-date">2023</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>First 100 Tailors</h4>
+                        <p>Reached our first milestone of 100 verified tailors on the platform across major cities.</p>
+                    </div>
+                    <div class="timeline-date">Early 2024</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>AR Feature Launch</h4>
+                        <p>Introduced revolutionary AR try-on technology, allowing customers to visualize their designs.</p>
+                    </div>
+                    <div class="timeline-date">Mid 2024</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>AI Assistant</h4>
+                        <p>Launched our intelligent design assistant to help customers create perfect designs effortlessly.</p>
+                    </div>
+                    <div class="timeline-date">Late 2024</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>Global Expansion</h4>
+                        <p>Expanded to 50 cities worldwide with over 2,500 verified tailors and 50,000 happy customers.</p>
+                    </div>
+                    <div class="timeline-date">2025</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Wave -->
+        <div id="FooterWave">
+            <svg width="100%" height="100%" id="footerWave" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg"
+                class="transition duration-300 ease-in-out delay-150">
+                <path
+                    d="M 0,600 L 0,150 C 90.86124401913872,175.79904306220095 181.72248803827745,201.59808612440193 281,180 C 380.27751196172255,158.40191387559807 487.97129186602876,89.40669856459331 591,78 C 694.0287081339712,66.59330143540669 792.3923444976076,112.77511961722487 871,132 C 949.6076555023924,151.22488038277513 1008.4593301435407,143.4928229665072 1100,142 C 1191.5406698564593,140.5071770334928 1315.7703349282297,145.2535885167464 1440,150 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="0.53"></path>
+                <path
+                    d="M 0,600 L 0,350 C 95.87559808612443,355.0526315789474 191.75119617224885,360.10526315789474 273,355 C 354.24880382775115,349.89473684210526 420.87081339712915,334.6315789473684 525,353 C 629.1291866028708,371.3684210526316 770.7655502392344,423.3684210526316 888,415 C 1005.2344497607656,406.6315789473684 1098.066985645933,337.89473684210526 1186,317 C 1273.933014354067,296.10526315789474 1356.9665071770335,323.0526315789474 1440,350 L 1440,600 L 0,600 Z"
+                    stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="1"></path>
+            </svg>
+        </div>
+
+        <!-- Footer Section -->
+        <div id="FooterSection">
+            <div id="footerMenus">
+                <div id="footNavLinks1">
+                    <a href="index.html">
+                        <h4 id="footNavHome" class="footNavs">Home</h4>
+                    </a>
+                    <a href="Team.html">
+                        <h4 id="footNavTeam" class="footNavs">Our team</h4>
+                    </a>
+                    <a href="ourLogo.html">
+                        <h4 id="footNavLogo" class="footNavs">Our Logo</h4>
+                    </a>
+                    <a href="tailoraFinder.html">
+                        <h4 id="footNavVision" class="footNavs">Finder</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="premium.html">
+                        <h4 id="footNavPro" class="footNavs">Pricing</h4>
+                    </a>
+                    <a href="news.html">
+                        <h4 id="footNavNews" class="footNavs">news</h4>
+                    </a>
+                    <a href="preview.html">
+                        <h4 id="footNavPreview" class="footNavs">Preview</h4>
+                    </a>
+                </div>
+
+                <div id="footNavLinks2">
+                    <a href="logIn.html">
+                        <h4 id="footNavPro" class="footNavs">LogIn</h4>
+                    </a>
+                    <a href="download.html">
+                        <h4 id="footNavNews" class="footNavs">Download</h4>
+                    </a>
+                    <a href="index.html">
+                        <h4 id="footNavPreview" class="footNavs">FAQ</h4>
+                    </a>
+                    <a href="contact.html">
+                        <h4 id="footNavContact" class="footNavs">Contact</h4>
+                    </a>
+                </div>
+            </div>
+
+            <div id="footerChara">
+                <div id="charaText">
+                    <div id="ThinkShape" class="bright">
+                        <div id="popMsg">
+                            <h2> Follow Us ! </h2>
+                        </div>
+                        <h2 id="thinking"> </h2>
+                        <h2 id="thinking2"> </h2>
+                    </div>
+
+                    <div id="contacts">
+                        <div id="icons" class="bright">
+                            <img class="ContIcons" src="images/insta.svg">
+                            <img class="ContIcons" src="images/linkedin.svg">
+                        </div>
+                        <div id="accounts">
+                            <a href="">
+                                <h4>@Tailora._</h4>
+                            </a>
+                            <a href="">
+                                <h4>@TailorA</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <img id="OraiChara" class="bright" src="images/chara.png">
+            </div>
+        </div>
+
+        <div id="copyrights">
+            <h6>© 2025 Sawsan Abdullatif. powered by ice peach tea.</h6>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
