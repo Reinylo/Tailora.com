@@ -137,6 +137,10 @@
         transition: all 0.3s ease-in-out;
     }
 
+    #FooterSection {
+        zoom: 78%;
+    }
+
     @media (max-width: 913px) {
         #mainBody {
             zoom: 30%;
@@ -211,6 +215,27 @@
             <h4>log in</h4>
         </a>
     </div>
+
+    <!--About Dropdown-->
+    <div id="DropAbout" class="dropdownList">
+        <a class="SubMenu" href="Team.html">
+            <h4>Our Team</h4>
+        </a>
+        <a class="SubMenu" href="ourLogo.html">
+            <h4>Our Logo</h4>
+        </a>
+    </div>
+    <!--More Dropdown-->
+    <div id="DropMore" class="dropdownList">
+        <a class="SubMenu" href="news.html">
+            <h4>News</h4>
+        </a>
+        <a class="SubMenu" href="preview.html">
+            <h4>Preview</h4>
+        </a>
+        <a class="SubMenu" href="logIn.html">
+            <h4>Log in</h4>
+        </a>
     </div>
 
     <!--Main body-->
@@ -433,6 +458,22 @@
             mobileMenuToggle.classList.remove("active");
             navLinks.classList.remove("active");
         });
+    });
+
+    const AbtCon = document.getElementById("AbtCon");
+    const MoreCon = document.getElementById("MoreCon");
+    const DropAbout = document.getElementById("DropAbout");
+    const DropMore = document.getElementById("DropMore");
+
+    AbtCon.addEventListener("click", () => {
+        DropAbout.classList.toggle("active");
+        DropMore.classList.remove("active");
+    });
+
+    MoreCon.addEventListener("click", () => {
+        DropMore.classList.toggle("active");
+        DropAbout.classList.remove("active");
+
     });
 </script>
 

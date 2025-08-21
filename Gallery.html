@@ -118,6 +118,10 @@
         font-weight: 600;
     }
 
+    #FooterSection {
+        zoom: 78%;
+    }
+
     @media (max-width: 768px) {
         #galleryGrid {
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -130,39 +134,34 @@
     }
 </style>
 
-<body id="indexBody">
+<body>
     <div id="navBar">
         <div id="topperLogo">
             <img id="MiniLogo" src="images/logo.svg" alt="Tailora Logo">
         </div>
         <div id="navlinks">
-            <a class="navlinMob" href="index.html">
+            <a class="navlin" href="index.html">
                 <h4>Home</h4>
             </a>
-            <a class="navlinMob" href="Team.html">
-                <h4>Our Team</h4>
-            </a>
-            <a class="navlinMob" href="ourLogo.html">
-                <h4>Our Logo</h4>
-            </a>
-            <a class="navlinMob" href="premium.html">
+            <div id="AbtCon" class="navMenu">
+                <a class="navlin">
+                    <h4>About</h4>
+                </a>
+            </div>
+            <a class="navlin" href="premium.html">
                 <h4>Premium</h4>
             </a>
-            <a class="navlinMob" href="Gallery.html">
-                <h4>Gallery</h4>
+            <a class="navlin" href="tailoraFinder.html">
+                <h4>Finder</h4>
             </a>
-            <a class="navlinMob" href="contact.html">
+            <a class="navlin" href="contact.html">
                 <h4>Contact</h4>
             </a>
-            <a class="navlinMob" href="news.html">
-                <h4>Preview</h4>
-            </a>
-            <a class="navlinMob" href="preview.html">
-                <h4>Preview</h4>
-            </a>
-            <a class="navlinMob" href="logIn.html">
-                <h4>log in</h4>
-            </a>
+            <div id="MoreCon" class="navMenu">
+                <a class="navlin">
+                    <h4>More</h4>
+                </a>
+            </div>
         </div>
         <div id="mobileMenuToggle">
             <span></span>
@@ -177,25 +176,52 @@
         <a class="navlinMob" href="index.html">
             <h4>Home</h4>
         </a>
-        <div id="AbtCon" class="navMenu">
-            <a class="navlinMob">
-                <h4>About</h4>
-            </a>
-        </div>
+        <a class="navlinMob" href="Team.html">
+            <h4>Our Team</h4>
+        </a>
+        <a class="navlinMob" href="ourLogo.html">
+            <h4>Our Logo</h4>
+        </a>
         <a class="navlinMob" href="premium.html">
             <h4>Premium</h4>
         </a>
-        <a class="navlinMob" href="tailoraFinder.html">
-            <h4>Finder</h4>
+        <a class="navlinMob" href="Gallery.html">
+            <h4>Gallery</h4>
         </a>
         <a class="navlinMob" href="contact.html">
             <h4>Contact</h4>
         </a>
-        <div id="MoreCon" class="navMenu">
-            <a class="navlinMob">
-                <h4>More</h4>
-            </a>
-        </div>
+        <a class="navlinMob" href="news.html">
+            <h4>Preview</h4>
+        </a>
+        <a class="navlinMob" href="preview.html">
+            <h4>Preview</h4>
+        </a>
+        <a class="navlinMob" href="logIn.html">
+            <h4>log in</h4>
+        </a>
+    </div>
+
+    <!--About Dropdown-->
+    <div id="DropAbout" class="dropdownList">
+        <a class="SubMenu" href="Team.html">
+            <h4>Our Team</h4>
+        </a>
+        <a class="SubMenu" href="ourLogo.html">
+            <h4>Our Logo</h4>
+        </a>
+    </div>
+    <!--More Dropdown-->
+    <div id="DropMore" class="dropdownList">
+        <a class="SubMenu" href="news.html">
+            <h4>News</h4>
+        </a>
+        <a class="SubMenu" href="preview.html">
+            <h4>Preview</h4>
+        </a>
+        <a class="SubMenu" href="logIn.html">
+            <h4>Log in</h4>
+        </a>
     </div>
 
     <!-- Main Gallery Content -->
@@ -421,6 +447,22 @@
             mobileMenuToggle.classList.remove("active");
             navLinks.classList.remove("active");
         });
+    });
+
+    const AbtCon = document.getElementById("AbtCon");
+    const MoreCon = document.getElementById("MoreCon");
+    const DropAbout = document.getElementById("DropAbout");
+    const DropMore = document.getElementById("DropMore");
+
+    AbtCon.addEventListener("click", () => {
+        DropAbout.classList.toggle("active");
+        DropMore.classList.remove("active");
+    });
+
+    MoreCon.addEventListener("click", () => {
+        DropMore.classList.toggle("active");
+        DropAbout.classList.remove("active");
+
     });
 </script>
 

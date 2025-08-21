@@ -10,12 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
 
     <style>
-        #navBar {
-            zoom: 86%;
-        }
-
         #mainContentNEWS {
-            zoom: 86%;
             position: relative;
             top: 80px;
             display: flex;
@@ -164,6 +159,10 @@
             border-color: #ffffff;
         }
 
+        #FooterSection {
+            zoom: 78%;
+        }
+
         @media (max-width: 913px) {
             .news-grid {
                 grid-template-columns: 1fr;
@@ -257,6 +256,28 @@
         </a>
         <a class="navlinMob" href="logIn.html">
             <h4>log in</h4>
+        </a>
+    </div>
+
+    <!--About Dropdown-->
+    <div id="DropAbout" class="dropdownList">
+        <a class="SubMenu" href="Team.html">
+            <h4>Our Team</h4>
+        </a>
+        <a class="SubMenu" href="ourLogo.html">
+            <h4>Our Logo</h4>
+        </a>
+    </div>
+    <!--More Dropdown-->
+    <div id="DropMore" class="dropdownList">
+        <a class="SubMenu" href="news.html">
+            <h4>News</h4>
+        </a>
+        <a class="SubMenu" href="preview.html">
+            <h4>Preview</h4>
+        </a>
+        <a class="SubMenu" href="logIn.html">
+            <h4>Log in</h4>
         </a>
     </div>
 
@@ -479,6 +500,39 @@
                     }
                 });
             });
+        });
+
+        const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+        const navLinks = document.getElementById("navlinksMobileNav");
+
+        mobileMenuToggle.addEventListener("click", () => {
+            mobileMenuToggle.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+
+        // Close menu when clicking on a link
+        const navLinksItems = navLinks.querySelectorAll(".navlinMob");
+        navLinksItems.forEach((link) => {
+            link.addEventListener("click", () => {
+                mobileMenuToggle.classList.remove("active");
+                navLinks.classList.remove("active");
+            });
+        });
+
+        const AbtCon = document.getElementById("AbtCon");
+        const MoreCon = document.getElementById("MoreCon");
+        const DropAbout = document.getElementById("DropAbout");
+        const DropMore = document.getElementById("DropMore");
+
+        AbtCon.addEventListener("click", () => {
+            DropAbout.classList.toggle("active");
+            DropMore.classList.remove("active");
+        });
+
+        MoreCon.addEventListener("click", () => {
+            DropMore.classList.toggle("active");
+            DropAbout.classList.remove("active");
+
         });
     </script>
 </body>

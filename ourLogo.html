@@ -53,26 +53,54 @@
         <a class="navlinMob" href="index.html">
             <h4>Home</h4>
         </a>
-        <div id="AbtCon" class="navMenu">
-            <a class="navlinMob">
-                <h4>About</h4>
-            </a>
-        </div>
+        <a class="navlinMob" href="Team.html">
+            <h4>Our Team</h4>
+        </a>
+        <a class="navlinMob" href="ourLogo.html">
+            <h4>Our Logo</h4>
+        </a>
         <a class="navlinMob" href="premium.html">
             <h4>Premium</h4>
         </a>
-        <a class="navlinMob" href="tailoraFinder.html">
-            <h4>Finder</h4>
+        <a class="navlinMob" href="Gallery.html">
+            <h4>Gallery</h4>
         </a>
         <a class="navlinMob" href="contact.html">
             <h4>Contact</h4>
         </a>
-        <div id="MoreCon" class="navMenu">
-            <a class="navlinMob">
-                <h4>More</h4>
-            </a>
-        </div>
+        <a class="navlinMob" href="news.html">
+            <h4>Preview</h4>
+        </a>
+        <a class="navlinMob" href="preview.html">
+            <h4>Preview</h4>
+        </a>
+        <a class="navlinMob" href="logIn.html">
+            <h4>log in</h4>
+        </a>
     </div>
+
+    <!--About Dropdown-->
+    <div id="DropAbout" class="dropdownList">
+        <a class="SubMenu" href="Team.html">
+            <h4>Our Team</h4>
+        </a>
+        <a class="SubMenu" href="ourLogo.html">
+            <h4>Our Logo</h4>
+        </a>
+    </div>
+    <!--More Dropdown-->
+    <div id="DropMore" class="dropdownList">
+        <a class="SubMenu" href="news.html">
+            <h4>News</h4>
+        </a>
+        <a class="SubMenu" href="preview.html">
+            <h4>Preview</h4>
+        </a>
+        <a class="SubMenu" href="logIn.html">
+            <h4>Log in</h4>
+        </a>
+    </div>
+
     <!-- Footer Wave -->
     <div id="FooterWaveNEWS">
         <svg width="100%" height="100%" id="footerWave" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg"
@@ -165,6 +193,41 @@
         <h6>© 2025 Sawsan Abdullatif. powered by ice peach tea.</h6>
     </div>
     </div>
+
+    <script>
+        const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+        const navLinks = document.getElementById("navlinksMobileNav");
+
+        mobileMenuToggle.addEventListener("click", () => {
+            mobileMenuToggle.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+
+        // Close menu when clicking on a link
+        const navLinksItems = navLinks.querySelectorAll(".navlinMob");
+        navLinksItems.forEach((link) => {
+            link.addEventListener("click", () => {
+                mobileMenuToggle.classList.remove("active");
+                navLinks.classList.remove("active");
+            });
+        });
+
+        const AbtCon = document.getElementById("AbtCon");
+        const MoreCon = document.getElementById("MoreCon");
+        const DropAbout = document.getElementById("DropAbout");
+        const DropMore = document.getElementById("DropMore");
+
+        AbtCon.addEventListener("click", () => {
+            DropAbout.classList.toggle("active");
+            DropMore.classList.remove("active");
+        });
+
+        MoreCon.addEventListener("click", () => {
+            DropMore.classList.toggle("active");
+            DropAbout.classList.remove("active");
+
+        });
+    </script>
 </body>
 
 </html>
