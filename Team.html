@@ -136,6 +136,12 @@
         opacity: 1;
         transition: all 0.3s ease-in-out;
     }
+
+    @media (max-width: 913px) {
+        #mainBody {
+            zoom: 30%;
+        }
+    }
 </style>
 
 <body id="indexBody">
@@ -188,8 +194,8 @@
         <a class="navlinMob" href="premium.html">
             <h4>Premium</h4>
         </a>
-        <a class="navlinMob" href="tailoraFinder.html">
-            <h4>Finder</h4>
+        <a class="navlinMob" href="Gallery.html">
+            <h4>Gallery</h4>
         </a>
         <a class="navlinMob" href="contact.html">
             <h4>Contact</h4>
@@ -406,6 +412,22 @@
 </body>
 
 <script>
+    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+    const navLinks = document.getElementById("navlinksMobileNav");
+
+    mobileMenuToggle.addEventListener("click", () => {
+        mobileMenuToggle.classList.toggle("active");
+        navLinks.classList.toggle("active");
+    });
+
+    // Close menu when clicking on a link
+    const navLinksItems = navLinks.querySelectorAll(".navlinMob");
+    navLinksItems.forEach((link) => {
+        link.addEventListener("click", () => {
+            mobileMenuToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+        });
+    });
 </script>
 
 </html>
