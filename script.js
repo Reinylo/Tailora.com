@@ -16,6 +16,22 @@ navLinksItems.forEach((link) => {
 });
 
 
+const AbtCon = document.getElementById("AbtCon");
+const MoreCon = document.getElementById("MoreCon");
+const DropAbout = document.getElementById("DropAbout");
+const DropMore = document.getElementById("DropMore");
+
+AbtCon.addEventListener("click", () => {
+    DropAbout.classList.toggle("active");
+    DropMore.classList.remove("active");
+});
+
+MoreCon.addEventListener("click", () => {
+    DropMore.classList.toggle("active");
+    DropAbout.classList.remove("active");
+
+});
+
 window.addEventListener("scroll", () => {
     const mainContent = document.getElementById("mainContent");
     const mapFtur = document.getElementById("mapFtur");
