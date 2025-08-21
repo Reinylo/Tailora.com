@@ -763,6 +763,7 @@ a {
         height: 30%;
         padding: 10px;
         gap: 60%;
+        zoom: 90%;
     }
 
     #navlinks {
