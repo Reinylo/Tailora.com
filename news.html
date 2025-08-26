@@ -249,7 +249,7 @@
             <h4>Contact</h4>
         </a>
         <a class="navlinMob" href="news.html">
-            <h4>Preview</h4>
+            <h4>News</h4>
         </a>
         <a class="navlinMob" href="preview.html">
             <h4>Preview</h4>
@@ -533,6 +533,11 @@
             DropMore.classList.toggle("active");
             DropAbout.classList.remove("active");
 
+        });
+
+        const startBtn = document.getElementById("startBtn");
+        startBtn.addEventListener("click", () => {
+            window.location.href = "logIn.html";
         });
     </script>
 </body>

@@ -4,197 +4,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailora</title>
+    <title>Tailora-Gallery</title>
     <link rel="icon" href="images/logoIcon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
 
 </head>
-
 <style>
-    #mainBody {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        zoom: 80%;
-    }
-
-    #teamMembers {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-
-        gap: 2rem;
-        padding: 2rem;
+    #galleryMain {
         max-width: 1200px;
         margin: 0 auto;
-        position: relative;
-        z-index: 1;
-        margin-bottom: 20px;
+        padding: 40px 20px;
+        min-height: 70vh;
     }
 
-    #teamMembers2 {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-
-        gap: 2rem;
-        padding: 2rem;
-        max-width: 1200px;
-        margin-top: -50px;
-        position: relative;
-        z-index: 1;
+    #galleryHeader {
+        text-align: center;
         margin-bottom: 50px;
     }
 
-    .teamMember {
-        background-color: #fff;
+    #galleryGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .gallery-item {
+        background: white;
         border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem;
-        border: 1px solid #e0e0e0;
+        overflow: hidden;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        text-align: center;
-        width: 300px;
-        flex: 1;
-        overflow: hidden;
     }
 
-    .teamMember:hover {
+    .gallery-item:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 25px #e370d768;
-        border: 1px solid #872b89ef;
-        cursor: pointer;
-        flex: 2.8;
-        transition: all 0.3s ease-in-out;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     }
 
-    .details {
-        margin-top: 1rem;
-        padding: 0;
+    .gallery-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
     }
 
-    .details h3 {
-        color: #333a7aef;
-        font-size: 1.5rem;
+    .gallery-info {
+        padding: 1.5rem;
+    }
+
+    .gallery-info h3 {
+        color: #374077;
+        font-size: 1.2rem;
         margin-bottom: 0.5rem;
         font-weight: 600;
     }
 
-    .teamMember:hover .details h3 {
-        color: #872b89ef;
-    }
-
-    .teamMember:hover .pfp {
-        transform: scale(1.2);
-        transition: all 0.3s ease-in-out;
-    }
-
-    .details p {
+    .gallery-info p {
         color: #666;
-        font-size: 1rem;
-        margin: 0;
-        font-weight: 400;
+        font-size: 0.9rem;
+        margin: 0 0 1rem 0;
     }
 
-    .pfp {
-        width: 120px;
-        height: 120px;
-        overflow: hidden;
+    .publisher-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+    }
+
+    .publisher-avatar {
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        border: 3px solid #9e4295ef;
+        overflow: hidden;
         flex-shrink: 0;
     }
 
-    .pfp img {
+    .publisher-avatar img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    .topPart {
-        margin: 2rem;
+    .publisher-details {
+        flex: 1;
+    }
+
+    .publisher-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #333a7aef;
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .rating {
         display: flex;
         align-items: center;
-        gap: 3rem;
+        gap: 6px;
     }
 
-    .abstract {
-        display: none;
-        opacity: 0;
-        transition: all 0.3s ease-in-out;
-        width: 60%;
-        text-align: left;
-        font-size: 17px;
-        line-height: 1.5rem;
-        color: #333a7aef;
+    .stars {
+        color: #ffc107;
+        font-size: 0.9rem;
     }
 
-    .teamMember:hover .abstract {
-        display: block;
-        opacity: 1;
-        transition: all 0.3s ease-in-out;
+    .rating-text {
+        font-size: 0.8rem;
+        color: #666;
+        font-weight: 600;
     }
 
     #FooterSection {
         zoom: 78%;
     }
 
-    @media (max-width: 913px) {
-        #mainBody {
-            zoom: 98%;
-            justify-content: center;
+    @media (max-width: 768px) {
+        #galleryGrid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
         }
 
-        .head {
-            font-size: 1.5rem;
-            text-align: center;
-            zoom: 60%;
-        }
-
-        .abstract {
-            text-align: center;
-            width: 300px;
-            margin-bottom: -20px;
-        }
-
-        #aboutTeamSection {
-            zoom: 60%;
-            max-width: 600px !important;
-        }
-
-        #teamMembers {
-            flex-direction: column;
-            width: 90%;
-        }
-
-        #teamMembers2 {
-            flex-direction: column;
-            width: 90%;
-
-        }
-
-        .topPart {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        #FooterSection {
-            justify-content: center;
-            left: -50px;
-            flex-direction: column;
-            gap: 70px;
-            padding: 0 20px;
-            zoom: 70%;
+        #galleryHeader h1 {
+            font-size: 35px;
         }
     }
 </style>
 
-<body id="indexBody">
+<body>
     <div id="navBar">
         <div id="topperLogo">
             <img id="MiniLogo" src="images/logo.svg" alt="Tailora Logo">
@@ -211,8 +151,8 @@
             <a class="navlin" href="premium.html">
                 <h4>Premium</h4>
             </a>
-            <a class="navlin" href="Gallery.html">
-                <h4>Gallery</h4>
+            <a class="navlin" href="tailoraFinder.html">
+                <h4>Finder</h4>
             </a>
             <a class="navlin" href="contact.html">
                 <h4>Contact</h4>
@@ -252,7 +192,7 @@
             <h4>Contact</h4>
         </a>
         <a class="navlinMob" href="news.html">
-            <h4>News</h4>
+            <h4>Preview</h4>
         </a>
         <a class="navlinMob" href="preview.html">
             <h4>Preview</h4>
@@ -284,116 +224,119 @@
         </a>
     </div>
 
-    <!--Main body-->
-    <div id="mainBody">
-        <div class="head" id="teamTitle"
-            style="background-color: #333a7aef; width: 100%; text-align: center; margin: 5rem; padding: 1.5rem;">
-            <img style="width: 500px;" src="images/logoWhite.png" alt="Tailora Logo">
-        </div>
-        <h1 class="head" style="color: #333a7aef; font-size: 45px; margin-bottom: 5px;">Meet Our Team</h1>
-        <h4 class="head" style="color: #7a336def; font-size: 25px; margin-bottom: 40px; font-weight: lighter;">We are a
-            group of
-            passionate individuals
-            dedicated to making a difference.</h4>
-
-        <div id="teamMembers">
-            <div class="teamMember">
-                <div class="topPart">
-                    <div class="pfp">
-                        <img src="images/Flower.jpg" alt="Team Member 1">
-                    </div>
-                    <p Class="abstract">Aisha is a student at Asia Pacific University (APU),
-                        specializing in Cybersecurity. As our team leader and project founder, she combines her passion
-                        for digital security with innovative thinking to drive our vision forward.</p>
-                </div>
-                <div class="details">
-                    <h3>Aisha</h3>
-                    <p>CEO & Founder</p>
-                </div>
-            </div>
-            <div class="teamMember">
-                <div class="topPart">
-                    <div class="pfp">
-                        <img src="images/Abrar.jpg" alt="Team Member 2">
-                    </div>
-                    <p Class="abstract">Abrar is pursuing her degree in Cybersecurity at Asia Pacific
-                        University (APU). With exceptional organizational skills and a natural talent for team
-                        coordination, she ensures our project stays on track and meets all deadlines.</p>
-                </div>
-                <div class="details">
-                    <h3>Abrar</h3>
-                    <p>Manager</p>
-                </div>
-            </div>
-            <div class="teamMember">
-                <div class="topPart">
-                    <div class="pfp">
-                        <img src="images/me.png" alt="Team Member 3">
-                    </div>
-                    <p Class="abstract">Sawsan is a Multimedia Technology student at Asia Pacific University (APU),
-                        focusing on full-stack development and UI/UX design. Her Programming, developing and designing
-                        skills brings our plans to real-world applications.</p>
-                </div>
-                <div class="details">
-                    <h3>Sawsan</h3>
-                    <p>Web Dev | Designer</p>
-                </div>
-            </div>
-        </div>
-        <div id="teamMembers2">
-            <div class="teamMember">
-                <div class="topPart">
-                    <div class="pfp">
-                        <img src="images/Ducky.jpg" alt="Team Member 4">
-                    </div>
-                    <p Class="abstract">Fatima is studying Cybersecurity at Asia Pacific University (APU). Her expertise
-                        in content
-                        creation and community engagement helps build our brand presence.</p>
-                </div>
-                <div class="details">
-                    <h3>Fatima Ducky</h3>
-                    <p>Social Media Manager</p>
-                </div>
-            </div>
-            <div class="teamMember">
-                <div class="topPart">
-                    <div class="pfp">
-                        <img src="images/Fatimah.jpg" alt="Team Member 1">
-                    </div>
-                    <p Class="abstract">Fatima is a Cybersecurity student at Asia Pacific University (APU),
-                        Her systematic approach and attention
-                        to detail ensure seamless execution of all our initiatives.</p>
-                </div>
-                <div class="details">
-                    <h3>Fatima</h3>
-                    <p>Organizer | Event Coordinator</p>
-                </div>
-            </div>
+    <!-- Main Gallery Content -->
+    <div id="galleryMain">
+        <div id="galleryHeader">
+            <h1 style="color: #333a7aef; font-size: 45px; margin-bottom: 15px;">Our Gallery</h1>
+            <p
+                style="color: #666; font-size: 1.1rem; margin-bottom: 35px; max-width: 900px; margin-left: auto; margin-right: auto;">
+                Discover amazing designs from our talented community of tailors and designers</p>
         </div>
 
-        <!-- About Our Team Section -->
-        <div id="aboutTeamSection"
-            style="max-width: 1000px; margin: 60px auto 40px; padding: 0 20px; text-align: center;">
-            <h2 style="color: #333a7aef; font-size: 35px; margin-bottom: 25px; font-weight: 600;">About Our Team</h2>
-            <p style="color: #666; font-size: 18px; line-height: 1.8; text-align: justify; margin-bottom: 20px;">
-                We are a passionate group of computing students from Asia Pacific University (APU), brought together by
-                our shared vision of revolutionizing the fashion and tailoring industry through technology. Our diverse
-                academic backgrounds spanning Computer Science, Software Engineering, Information Technology, and
-                Information Systems provide us with a comprehensive skill set to tackle complex challenges.
-            </p>
-            <p style="color: #666; font-size: 18px; line-height: 1.8; text-align: justify; margin-bottom: 20px;">
-                As final-year students, we've combined our classroom knowledge with real-world experience to create
-                Tailora - an innovative platform that bridges the gap between traditional tailoring and modern
-                technology. Each team member brings unique expertise, from cybersecurity and project management to
-                full-stack development and digital marketing.
-            </p>
-            <p style="color: #666; font-size: 18px; line-height: 1.8; text-align: justify;">
-                Our commitment to excellence, collaborative spirit, and shared passion for technology-driven solutions
-                make us not just classmates, but partners in innovation. Together, we're dedicated to making Tailora a
-                game-changer in the fashion industry while preparing ourselves for successful careers in the tech world.
-            </p>
+        <!-- Gallery Grid -->
+        <div id="galleryGrid">
+            <div class="gallery-item">
+                <img src="images/topdesigna.jpg" alt="Modern Top Design">
+                <div class="gallery-info">
+                    <h3>Modern Top Design</h3>
+                    <p>Contemporary styling</p>
+                    <div class="publisher-info">
+                        <div class="publisher-avatar">
+                            <img src="images/Sawsan.jpg" alt="Designer">
+                        </div>
+                        <div class="publisher-details">
+                            <span class="publisher-name">@Sawsan_Designer</span>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/tops.jpg" alt="Stylish Tops Collection">
+                <div class="gallery-info">
+                    <h3>Stylish Tops</h3>
+                    <p>Trendy everyday wear</p>
+                    <div class="publisher-info">
+                        <div class="publisher-avatar">
+                            <img src="images/Abrar.jpg" alt="Designer">
+                        </div>
+                        <div class="publisher-details">
+                            <span class="publisher-name">@Abrar_Tailoring</span>
+                            <div class="rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/traditional.jpg" alt="Traditional Wear">
+                <div class="gallery-info">
+                    <h3>Traditional Collection</h3>
+                    <p>Cultural heritage designs</p>
+                    <div class="publisher-info">
+                        <div class="publisher-avatar">
+                            <img src="images/Flower.jpg" alt="Designer">
+                        </div>
+                        <div class="publisher-details">
+                            <span class="publisher-name">@Aisha_Heritage</span>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/fabric.jpg" alt="Premium Fabrics">
+                <div class="gallery-info">
+                    <h3>Premium Fabrics</h3>
+                    <p>Quality materials</p>
+                    <div class="publisher-info">
+                        <div class="publisher-avatar">
+                            <img src="images/Ducky.jpg" alt="Designer">
+                        </div>
+                        <div class="publisher-details">
+                            <span class="publisher-name">@Fatima_Fabrics</span>
+                            <div class="rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.6</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/update.jpg" alt="Latest Updates">
+                <div class="gallery-info">
+                    <h3>Latest Collection</h3>
+                    <p>Our newest designs</p>
+                    <div class="publisher-info">
+                        <div class="publisher-avatar">
+                            <img src="images/me.png" alt="Designer">
+                        </div>
+                        <div class="publisher-details">
+                            <span class="publisher-name">@Tailora_Official</span>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">5.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
 
     <!-- Footer Wave -->
     <div id="FooterWaveNEWS">
@@ -488,7 +431,6 @@
     </div>
     </div>
 </body>
-
 <script>
     const mobileMenuToggle = document.getElementById("mobileMenuToggle");
     const navLinks = document.getElementById("navlinksMobileNav");
@@ -521,6 +463,11 @@
         DropMore.classList.toggle("active");
         DropAbout.classList.remove("active");
 
+    });
+
+    const startBtn = document.getElementById("startBtn");
+    startBtn.addEventListener("click", () => {
+        window.location.href = "logIn.html";
     });
 </script>
 
