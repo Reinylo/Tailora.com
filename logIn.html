@@ -232,19 +232,19 @@
         </a>
     </div>
 
-    <!-- Main body-->
+    <!-- Main body____________________________________________________________________________________ -->
     <div id="mainBody">
         <h1 id="title" style="color: #bc75b8; font-size: 45px; margin-bottom: -50px;">Sign In</h1>
         <form class="UserLoginForm active" id="SignInForm" style="background-color: #ffffff9c;">
             <label style="cursor: pointer;" for="name">Email</label>
-            <input class="formInput" type="email" id="email" name="email" placeholder="Sign in using your Email"
+            <input class="formInput" type="email" id="emailIn" name="email" placeholder="Sign in using your Email"
                 required>
 
             <label style="cursor: pointer;" for="pass">Password</label>
-            <input class="formInput" type="password" id="pass" name="pass" placeholder="Enter your password" required>
-            <button style="margin-top: 20px;" type="submit">Sign In</button>
+            <input class="formInput" type="password" id="passIn" name="pass" placeholder="Enter your password" required>
+            <button id="btnSigned" style="margin-top: 20px;" type="submit">Sign In</button>
 
-            <div id="signupQue">
+            <div id="signupQue" style="margin-bottom: -6% !important;">
                 <h4 style="color: #1f3841;">Don't have an account?</h4>
                 <h4 id="signUpbtn" style="color: #3740779e;">Sign Up</h4>
             </div>
@@ -255,23 +255,26 @@
             <input class="formInput" type="text" id="Username" name="Username" placeholder="e.g. JohnDoe12_" required>
 
             <label style="cursor: pointer;" for="name">Email</label>
-            <input class="formInput" type="email" id="email" name="email" placeholder="Sign in using your Email"
+            <input class="formInput" type="email" id="emailUp" name="email" placeholder="Sign in using your Email"
                 required>
 
             <label style="cursor: pointer;" for="Pass">Password</label>
-            <input class="formInput" type="password" id="pass" name="pass" placeholder="Create a password" required>
+            <input class="formInput" type="password" id="passUp" name="pass" placeholder="Create a password" required>
 
             <label style="cursor: pointer;" for="Pass">Confirm Password</label>
-            <input class="formInput" type="password" id="pass" name="pass" placeholder="Confirm your password" required>
+            <input class="formInput" type="password" id="passUpConfirm" name="pass" placeholder="Confirm your password"
+                required>
 
-            <button style="margin-top: 20px;" type="submit">Create an account</button>
+            <button id="btnCreated" style="margin-top: 20px;" type="submit">Create an account</button>
 
-            <div id="signInQue">
+            <div id="signInQue" style="margin-bottom: -6% !important;">
                 <h4 style="color: #1f3841;">Already have an account?</h4>
                 <h4 id="signInbtn" style="color: #3740779e;">Sign In</h4>
             </div>
         </form>
     </div>
+
+    <!--______________________________________________________________________________________________________-->
 
     <!-- Footer Wave -->
     <div id="FooterWaveNEWS">
@@ -405,12 +408,25 @@
         const SignInForm = document.querySelector("#SignInForm");
         const SignUpForm = document.querySelector("#SignUpForm");
         const title = document.querySelector("#title");
+        const btnCreated = document.getElementById("btnCreated");
+        const btnSigned = document.getElementById("btnSigned");
+        const passUp = document.getElementById("passUp");
+        const passUpConfirm = document.getElementById("passUpConfirm");
 
         signInbtn.addEventListener("click", () => {
             SignInForm.classList.add("active");
             SignUpForm.classList.remove("active");
             title.textContent = "Sign In";
         });
+
+        btnCreated.addEventListener("click", () => {
+            if (FormData.length > 0) {
+                SignInForm.classList.add("active");
+                SignUpForm.classList.remove("active");
+                title.textContent = "Sign In";
+            }
+        });
+
 
         signUpbtn.addEventListener("click", () => {
             SignUpForm.classList.add("active");
@@ -421,6 +437,10 @@
         const startBtn = document.getElementById("startBtn");
         startBtn.addEventListener("click", () => {
             window.location.href = "logIn.html";
+        });
+
+        btnSigned.addEventListener("click", () => {
+            open("download.html");
         });
 
     </script>

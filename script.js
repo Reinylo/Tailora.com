@@ -220,3 +220,8 @@ const startBtn = document.getElementById("startBtn");
 startBtn.addEventListener("click", () => {
     window.location.href = "logIn.html";
 });
+
+const dwnldBtn = document.getElementById("dwnldBtn");
+dwnldBtn.addEventListener("click", () => {
+    window.location.href = "download.html";
+});

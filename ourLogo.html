@@ -11,6 +11,215 @@
 
 </head>
 
+<style>
+    /* Our Logo Page Styles */
+
+    .logo-main-title {
+        color: #46636e;
+        font-size: 45px;
+        margin-bottom: -50px;
+        margin-top: 6%;
+    }
+
+    .logo-content-wrapper {
+        max-width: 1000px;
+        margin: 80px auto;
+        padding: 0 20px;
+    }
+
+    .logo-intro-text {
+        color: #666;
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 60px;
+        line-height: 1.6;
+    }
+
+    .logo-showcase-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 60px 0;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .logo-showcase-card {
+        background: #ffffff9c;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .logo-showcase-card.large-padding {
+        padding: 30px;
+    }
+
+    .logo-showcase-card.dark-bg {
+        background: #46636e;
+    }
+
+    .logo-showcase-card img {
+        width: 35vb;
+        height: 100px;
+        margin: 18px;
+    }
+
+    .logo-showcase-card.icon-card img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+
+    .logo-showcase-card h3 {
+        color: #46636e;
+        margin-bottom: 10px;
+    }
+
+    .logo-showcase-card.dark-bg h3 {
+        color: #fff;
+    }
+
+    .logo-showcase-card p {
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .logo-showcase-card.dark-bg p {
+        color: #eae8e8;
+    }
+
+    .design-concepts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin: 50px 0;
+    }
+
+    .design-concept-card {
+        background: #ffffff9c;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 5px 20px rgba(70, 99, 110, 0.1);
+        border-left: 4px solid #ad4ca2;
+    }
+
+    .concept-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #ad4ca2, #46636e);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+        font-size: 20px;
+        color: white;
+    }
+
+    .design-concept-card h3 {
+        color: #46636e;
+        margin-bottom: 12px;
+        font-size: 1.2rem;
+    }
+
+    .design-concept-card p {
+        color: #666;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    .brand-section-card {
+        background: #ffffff9c;
+        border-radius: 20px;
+        padding: 35px;
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    .brand-section-title {
+        color: #46636e;
+        margin-bottom: 45px;
+        font-size: 1.8rem;
+    }
+
+    .brand-section-title.story {
+        margin-bottom: 20px;
+    }
+
+    .color-palette-container {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin: 30px 0;
+        flex-wrap: wrap;
+    }
+
+    .color-item {
+        text-align: center;
+    }
+
+    .color-circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
+        border: 3px solid white;
+    }
+
+    .color-circle.pink {
+        background: #ad4ca2;
+    }
+
+    .color-circle.blue-light {
+        background: #46636e;
+    }
+
+    .color-circle.blue-dark {
+        background: #2e3068;
+    }
+
+    .color-item h4 {
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+    }
+
+    .color-item h4.pink {
+        color: #ad4ca2;
+    }
+
+    .color-item h4.blue-light {
+        color: #46636e;
+    }
+
+    .color-item h4.blue-dark {
+        color: #2e3068;
+    }
+
+    .color-item p {
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .brand-philosophy-text {
+        color: #666;
+        line-height: 1.7;
+        font-size: 1.05rem;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .brand-story-text {
+        color: #666;
+        line-height: 1.7;
+        font-size: 1.05rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+</style>
+
 <body id="indexBody">
     <div id="navBar">
         <div id="topperLogo">
@@ -107,150 +316,131 @@
         </a>
     </div>
 
-    <!-- Main body-->
-    <div id="mainBody">
-        <h1 style="color: #46636e; font-size: 45px; margin-bottom: -50px;">The Story Behind Our Logo</h1>
+    <!-- Main body___________________________________________________________________________________-->
+    <div id="mainBody" class="logo-main-body">
+        <center>
+            <h1 class="logo-main-title">The Story Behind Our Logo
+            </h1>
+        </center>
 
-        <div style="max-width: 1000px; margin: 80px auto; padding: 0 20px;">
-            <p style="color: #666; font-size: 1.2rem; text-align: center; margin-bottom: 60px; line-height: 1.6;">Every
+        <div class="logo-content-wrapper">
+            <p class="logo-intro-text">Every
                 great brand starts with a symbol that represents its values, mission, and identity. Our logo is
                 more than just a visual mark—it's the embodiment of Tailora's commitment to inclusive, innovative
                 tailoring.</p>
 
             <!-- Logo Showcase -->
-            <div
-                style="display: flex; justify-content: center; align-items: center; margin: 60px 0; gap: 40px; flex-wrap: wrap;">
-                <div
-                    style="background: #ffffff9c; border-radius: 20px; padding: 30px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); text-align: center;">
-                    <img src="images/logo.svg" alt="Tailora Main Logo"
-                        style="width: 100px; height: 100px; margin-bottom: 15px;">
-                    <h3 style="color: #46636e; margin-bottom: 10px;">Main Logo</h3>
-                    <p style="color: #666; font-size: 0.9rem;">Our primary brand identity</p>
+            <div class="logo-showcase-container">
+                <div class="logo-showcase-card">
+                    <img src="images/logo.svg" alt="Tailora Main Logo">
+                    <h3>Main Logo</h3>
+                    <p>Our primary brand identity</p>
                 </div>
-                <div
-                    style="background: #ffffff9c; border-radius: 20px; padding: 30px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); text-align: center;">
-                    <img src="images/logoIcon.png" alt="Tailora Icon"
-                        style="width: 100px; height: 100px; margin-bottom: 15px;">
-                    <h3 style="color: #46636e; margin-bottom: 10px;">Icon Version</h3>
-                    <p style="color: #666; font-size: 0.9rem;">Simplified for small applications</p>
+                <div class="logo-showcase-card large-padding icon-card">
+                    <img src="images/logoIcon.png" alt="Tailora Icon">
+                    <h3>Icon Version</h3>
+                    <p>Simplified for small applications</p>
                 </div>
-                <div
-                    style="background: #ffffff9c; border-radius: 20px; padding: 30px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); text-align: center;">
-                    <img src="images/logoWhite.svg" alt="Tailora White Logo"
-                        style="width: 100px; height: 100px; margin-bottom: 15px;">
-                    <h3 style="color: #46636e; margin-bottom: 10px;">White Version</h3>
-                    <p style="color: #666; font-size: 0.9rem;">For dark backgrounds</p>
+                <div class="logo-showcase-card dark-bg">
+                    <img src="images/logoWhite.svg" alt="Tailora White Logo">
+                    <h3>White Version</h3>
+                    <p>For dark backgrounds</p>
                 </div>
             </div>
 
             <!-- Design Concepts -->
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 50px 0;">
-                <div
-                    style="background: #ffffff9c; border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(70, 99, 110, 0.1); border-left: 4px solid #ad4ca2;">
-                    <div
-                        style="width: 40px; height: 40px; background: linear-gradient(135deg, #ad4ca2, #46636e); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; font-size: 20px; color: white;">
+            <div class="design-concepts-grid">
+                <div class="design-concept-card">
+                    <div class="concept-icon">
                         ✂️</div>
-                    <h3 style="color: #46636e; margin-bottom: 12px; font-size: 1.2rem;">Scissors Symbolism</h3>
-                    <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">The logo cleverly incorporates the
+                    <h3>Scissors Symbolism</h3>
+                    <p>The logo cleverly incorporates the
                         shape of scissors, representing the fundamental tool of tailoring.
                         This subtle design element immediately communicates our connection to the craft of garment
                         creation
                         and alteration.</p>
                 </div>
 
-                <div
-                    style="background: #ffffff9c; border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(70, 99, 110, 0.1); border-left: 4px solid #ad4ca2;">
-                    <div
-                        style="width: 40px; height: 40px; background: linear-gradient(135deg, #ad4ca2, #46636e); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; font-size: 20px; color: white;">
+                <div class="design-concept-card">
+                    <div class="concept-icon">
                         👔</div>
-                    <h3 style="color: #46636e; margin-bottom: 12px; font-size: 1.2rem;">Suit Silhouette</h3>
-                    <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">Integrated within our design is the
+                    <h3>Suit Silhouette</h3>
+                    <p>Integrated within our design is the
                         silhouette of a suit, symbolizing the end goal of
                         tailoring—perfectly fitted, professional attire. This represents quality, sophistication, and
                         the
                         transformation we provide.</p>
                 </div>
 
-                <div
-                    style="background: #ffffff9c; border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(70, 99, 110, 0.1); border-left: 4px solid #ad4ca2;">
-                    <div
-                        style="width: 40px; height: 40px; background: linear-gradient(135deg, #ad4ca2, #46636e); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; font-size: 20px; color: white;">
+                <div class="design-concept-card">
+                    <div class="concept-icon">
                         🎨</div>
-                    <h3 style="color: #46636e; margin-bottom: 12px; font-size: 1.2rem;">Gender Inclusive Design</h3>
-                    <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">Our pink and blue color palette was
-                        thoughtfully chosen to represent inclusivity. These colors
-                        transcend traditional gender associations, making our brand welcoming to all customers
-                        regardless of
-                        gender identity.</p>
+                    <h3>Gender Inclusive Design</h3>
+                    <p>Our pink and blue color palette was
+                        thoughtfully chosen to represent inclusivity. These colors represent both males and females;
+                        showcasing that Tailora creates clothes for both genders.</p>
                 </div>
 
-                <div
-                    style="background: #ffffff9c; border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(70, 99, 110, 0.1); border-left: 4px solid #ad4ca2;">
-                    <div
-                        style="width: 40px; height: 40px; background: linear-gradient(135deg, #ad4ca2, #46636e); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; font-size: 20px; color: white;">
+                <div class="design-concept-card">
+                    <div class="concept-icon">
                         🔧</div>
-                    <h3 style="color: #46636e; margin-bottom: 12px; font-size: 1.2rem;">Craftsmanship</h3>
-                    <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">The precise lines and geometric
+                    <h3>Craftsmanship</h3>
+                    <p>The precise lines and geometric
                         elements reflect the attention to detail and precision required in
                         tailoring. Every stitch, every measurement, every cut matters—just like every element in our
                         logo.</p>
                 </div>
 
-                <div
-                    style="background: #ffffff9c; border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(70, 99, 110, 0.1); border-left: 4px solid #ad4ca2;">
-                    <div
-                        style="width: 40px; height: 40px; background: linear-gradient(135deg, #ad4ca2, #46636e); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; font-size: 20px; color: white;">
+                <div class="design-concept-card">
+                    <div class="concept-icon">
                         🤝</div>
-                    <h3 style="color: #46636e; margin-bottom: 12px; font-size: 1.2rem;">Connection & Community</h3>
-                    <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">The interwoven design elements
+                    <h3>Connection & Community</h3>
+                    <p>The interwoven design elements
                         represent the connections we facilitate—between customers and tailors,
                         between vision and reality, between tradition and innovation.</p>
                 </div>
 
-                <div
-                    style="background: #ffffff9c; border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(70, 99, 110, 0.1); border-left: 4px solid #ad4ca2;">
-                    <div
-                        style="width: 40px; height: 40px; background: linear-gradient(135deg, #ad4ca2, #46636e); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; font-size: 20px; color: white;">
+                <div class="design-concept-card">
+                    <div class="concept-icon">
                         💡</div>
-                    <h3 style="color: #46636e; margin-bottom: 12px; font-size: 1.2rem;">Innovation</h3>
-                    <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">The modern, clean aesthetic represents
+                    <h3>Innovation</h3>
+                    <p>The modern, clean aesthetic represents
                         our commitment to bringing traditional tailoring into the
                         digital age through technology, AR features, and seamless user experiences.</p>
                 </div>
             </div>
 
             <!-- Color Philosophy -->
-            <div style="background: #ffffff9c; border-radius: 20px; padding: 35px; margin: 40px 0; text-align: center;">
-                <h2 style="color: #46636e; margin-bottom: 25px; font-size: 1.8rem;">Our Color Philosophy</h2>
-                <div style="display: flex; justify-content: center; gap: 50px; margin: 30px 0; flex-wrap: wrap;">
-                    <div style="text-align: center;">
-                        <div
-                            style="width: 60px; height: 60px; background: #ad4ca2; border-radius: 50%; margin: 0 auto 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); border: 3px solid white;">
-                        </div>
-                        <h4 style="color: #46636e; margin-bottom: 8px; font-size: 1.1rem;">Vibrant Pink</h4>
-                        <p style="color: #666; font-size: 0.9rem;">Creativity, passion, and breaking traditional
-                            boundaries</p>
+            <div class="brand-section-card">
+                <h2 class="brand-section-title">Our Color Philosophy</h2>
+                <div class="color-palette-container">
+                    <div class="color-item">
+                        <div class="color-circle pink"></div>
+                        <h4 class="pink">Vibrant Pink</h4>
+                        <p>Elegance and professionalism
+                        </p>
                     </div>
-                    <div style="text-align: center;">
-                        <div
-                            style="width: 60px; height: 60px; background: #46636e; border-radius: 50%; margin: 0 auto 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); border: 3px solid white;">
-                        </div>
-                        <h4 style="color: #46636e; margin-bottom: 8px; font-size: 1.1rem;">Sophisticated Blue</h4>
-                        <p style="color: #666; font-size: 0.9rem;">Trust, professionalism, and timeless elegance</p>
+                    <div class="color-item">
+                        <div class="color-circle blue-light"></div>
+                        <h4 class="blue-light">Sophisticated Blue</h4>
+                        <p>symbolizing femininity</p>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-circle blue-dark"></div>
+                        <h4 class="blue-dark">Sophisticated Blue</h4>
+                        <p>symbolizing masculinity</p>
                     </div>
                 </div>
-                <p style="color: #666; line-height: 1.7; font-size: 1.05rem; max-width: 700px; margin: 0 auto;">The
-                    combination of pink and blue creates a perfect balance—energetic yet professional, creative yet
-                    trustworthy. This duality reflects our mission to make high-quality tailoring accessible to
-                    everyone,
-                    regardless of style preference or gender identity.</p>
+                <p class="brand-philosophy-text">The
+                    combination of pink and blue symbolizes the balance between femininity and masculinity. and how
+                    tailora is here for both genders. with dark matte shades to represent elegance, sophistication, and
+                    trust.</p>
             </div>
 
             <!-- Brand Story -->
-            <div style="background: #ffffff9c; border-radius: 20px; padding: 35px; margin: 40px 0; text-align: center;">
-                <h2 style="color: #46636e; margin-bottom: 20px; font-size: 1.8rem;">More Than Just a Logo</h2>
-                <p style="color: #666; line-height: 1.7; font-size: 1.05rem; max-width: 800px; margin: 0 auto;">Our logo
+            <div class="brand-section-card">
+                <h2 class="brand-section-title story">More Than Just a Logo</h2>
+                <p class="brand-story-text">Our logo
                     represents a revolution in the tailoring industry. It's a symbol of accessibility, quality, and
                     innovation. When you see our logo, you're seeing our promise—to connect you with skilled artisans,
                     to
@@ -260,7 +450,7 @@
         </div>
     </div>
 
-    <div id="FooterWaveNEWS">
+    <div id="FooterWaveLogo">
         <svg width="100%" height="100%" id="footerWave" viewBox="0 0 1440 590" xmlns="http://www.w3.org/2000/svg"
             class="transition duration-300 ease-in-out delay-150">
             <path
