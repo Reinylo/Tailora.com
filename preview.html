@@ -14,6 +14,162 @@
     #FooterSection {
         zoom: 80%;
     }
+
+    /* Preview Page Internal Styles */
+    .preview-main-title {
+        color: #bc75b8;
+        font-size: 45px;
+        margin-bottom: -50px;
+        margin-top: 6%;
+    }
+
+    .preview-content-wrapper {
+        max-width: 1200px;
+        margin: 80px auto;
+        padding: 0 20px;
+    }
+
+    .preview-intro-text {
+        color: #666;
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 60px;
+        line-height: 1.6;
+    }
+
+    .app-screenshots-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin: 50px 0;
+    }
+
+    .app-screenshot-card {
+        background: #ffffff9c;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .app-screenshot-img {
+        width: 100%;
+        max-width: 250px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        box-shadow: 0 4px 5px rgba(74, 24, 67, 0.2);
+        border: 3px solid #343b85;
+        border-top: 7px solid #343b85;
+        border-bottom: 7px solid #343b85;
+    }
+
+    .app-screenshot-card h3 {
+        color: #46636e;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+    }
+
+    .app-screenshot-card p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .features-highlight-section {
+        background: #ffffff9c;
+        border-radius: 20px;
+        padding: 40px;
+        margin: 60px 0;
+        text-align: center;
+    }
+
+    .features-highlight-title {
+        color: #46636e;
+        margin-bottom: 30px;
+        font-size: 2rem;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+    }
+
+    .feature-item {
+        padding: 20px;
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        background: #bc75b8;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 24px;
+        color: white;
+    }
+
+    .feature-item h4 {
+        color: #46636e;
+        margin-bottom: 15px;
+    }
+
+    .feature-item p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .cta-section {
+        text-align: center;
+        margin: 50px 0;
+    }
+
+    .cta-title {
+        color: #bc75b8;
+        margin-bottom: 25px;
+    }
+
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .cta-buttons a {
+        text-decoration: none;
+    }
+
+    .download-btn {
+        background: #bc75b8;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-btn {
+        background: transparent;
+        color: #bc75b8;
+        border: 2px solid #bc75b8;
+        padding: 15px 30px;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .copyright-text {
+        font-weight: lighter;
+    }
 </style>
 
 <body id="indexBody">
@@ -31,7 +187,7 @@
                 </a>
             </div>
             <a class="navlin" href="premium.html">
-                <h4>Pricing</h4>
+                <h4>Premium</h4>
             </a>
             <a class="navlin" href="Gallery.html">
                 <h4>Gallery</h4>
@@ -104,100 +260,82 @@
         <a class="SubMenu" href="logIn.html">
             <h4>Log in</h4>
         </a>
-        <a class="SubMenu" href="tailoraFinder.html">
-            <h4>Tailora Finder</h4>
-        </a>
+
     </div>
 
     <!-- Main body___________________________________________________________________________________-->
     <div id="mainBody">
         <center>
-            <h1 style="color: #bc75b8; font-size: 45px; margin-bottom: -50px; margin-top: 6%;">App Preview</h1>
+            <h1 class="preview-main-title">App Preview</h1>
         </center>
 
-        <div style="max-width: 1200px; margin: 80px auto; padding: 0 20px;">
-            <p style="color: #666; font-size: 1.2rem; text-align: center; margin-bottom: 60px; line-height: 1.6;">
+        <div class="preview-content-wrapper">
+            <p class="preview-intro-text">
                 Get a sneak peek of the Tailora app experience! Explore our intuitive interface designed to connect
                 customers with skilled tailors, customize outfits, and revolutionize the way you think about clothing.
             </p>
 
             <!-- App Screenshots Gallery -->
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 50px 0;">
+            <div class="app-screenshots-grid">
 
-                <div
-                    style="background: #ffffff9c; border-radius: 20px; padding: 25px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); text-align: center;">
-                    <img src="images/app/Taii.png" alt="Tailor Discovery"
-                        style="border: 3px solid #343b85;border-top: 7px solid #343b85; border-bottom:7px solid #343b85;width: 100%; max-width: 250px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 5px rrgba(74, 24, 67, 0.2)">
-                    <h3 style="color: #46636e; margin-bottom: 15px; font-size: 1.3rem;">Tailor Discovery</h3>
-                    <p style="color: #666; line-height: 1.6;">Browse and connect with professional tailors in your area
+                <div class="app-screenshot-card">
+                    <img src="images/app/Taii.png" alt="Tailor Discovery" class="app-screenshot-img">
+                    <h3>Tailor Discovery</h3>
+                    <p>Browse and connect with professional tailors in your area
                         with detailed profiles and ratings.</p>
                 </div>
 
-                <div
-                    style="background: #ffffff9c; border-radius: 20px; padding: 25px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); text-align: center;">
-                    <img src="images/app/CCCC.png" alt="Customization Interface"
-                        style="border: 3px solid #343b85;border-top: 7px solid #343b85; border-bottom:7px solid #343b85; width: 100%; max-width: 250px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 5px rgba(86, 27, 87, 0.2);">
-                    <h3 style="color: #46636e; margin-bottom: 15px; font-size: 1.3rem;">Customization Hub</h3>
-                    <p style="color: #666; line-height: 1.6;">Interactive design interface where you can customize every
+                <div class="app-screenshot-card">
+                    <img src="images/app/CCCC.png" alt="Customization Interface" class="app-screenshot-img">
+                    <h3>Customization Hub</h3>
+                    <p>Interactive design interface where you can customize every
                         detail of your perfect outfit.</p>
                 </div>
 
-                <div
-                    style="background: #ffffff9c; border-radius: 20px; padding: 25px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); text-align: center;">
-                    <img src="images/app/ARRRR copy.png" alt="AR Fitting Experience"
-                        style="width: 100%; max-width: 250px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 5px rgba(80, 19, 82, 0.2);  border: 3px solid #343b85;border-top: 7px solid #343b85; border-bottom:7px solid #343b85;">
-                    <h3 style="color: #46636e; margin-bottom: 15px; font-size: 1.3rem;">AR Fitting</h3>
-                    <p style="color: #666; line-height: 1.6;">Revolutionary AR technology lets you try on clothes
+                <div class="app-screenshot-card">
+                    <img src="images/app/ARRRR copy.png" alt="AR Fitting Experience" class="app-screenshot-img">
+                    <h3>AR Fitting</h3>
+                    <p>Revolutionary AR technology lets you try on clothes
                         virtually for the perfect fit every time.</p>
                 </div>
             </div>
 
             <!-- App Features Highlight -->
-            <div style="background: #ffffff9c; border-radius: 20px; padding: 40px; margin: 60px 0; text-align: center;">
-                <h2 style="color: #46636e; margin-bottom: 30px; font-size: 2rem;">Why Choose Tailora?</h2>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0;">
-                    <div style="padding: 20px;">
-                        <div
-                            style="width: 60px; height: 60px; background: #bc75b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; color: white;">
-                            📱</div>
-                        <h4 style="color: #46636e; margin-bottom: 15px;">Game-Like Interface</h4>
-                        <p style="color: #666; line-height: 1.6;">Intuitive and fun interface that makes customizing
+            <div class="features-highlight-section">
+                <h2 class="features-highlight-title">Why Choose Tailora?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <h4>Game-Like Interface</h4>
+                        <p>Intuitive and fun interface that makes customizing
                             outfits feel like playing a game.</p>
                     </div>
-                    <div style="padding: 20px;">
-                        <div
-                            style="width: 60px; height: 60px; background: #bc75b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; color: white;">
-                            🎯</div>
-                        <h4 style="color: #46636e; margin-bottom: 15px;">Perfect Fit Guaranteed</h4>
-                        <p style="color: #666; line-height: 1.6;">Advanced AR technology and precise measurements ensure
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <h4>Perfect Fit Guaranteed</h4>
+                        <p>Advanced AR technology and precise measurements ensure
                             your clothes fit perfectly.</p>
                     </div>
-                    <div style="padding: 20px;">
-                        <div
-                            style="width: 60px; height: 60px; background: #bc75b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; color: white;">
-                            👥</div>
-                        <h4 style="color: #46636e; margin-bottom: 15px;">Community Connection</h4>
-                        <p style="color: #666; line-height: 1.6;">Connect customers, tailors, and suppliers in one
+                    <div class="feature-item">
+                        <div class="feature-icon">👥</div>
+                        <h4>Community Connection</h4>
+                        <p>Connect customers, tailors, and suppliers in one
                             seamless platform.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Call to Action -->
-            <div style="text-align: center; margin: 50px 0;">
-                <h2 style="color: #bc75b8; margin-bottom: 25px;">Ready to Experience Tailora?</h2>
-                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                    <a href="download.html" style="text-decoration: none;">
-                        <button
-                            style="background: #bc75b8; color: white; border: none; padding: 15px 30px; border-radius: 25px; font-size: 1.1rem; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+            <div class="cta-section">
+                <h2 class="cta-title">Ready to Experience Tailora?</h2>
+                <div class="cta-buttons">
+                    <a href="download.html">
+                        <button class="download-btn">
                             Download App
                         </button>
                     </a>
-                    <a href="contact.html" style="text-decoration: none;">
-                        <button
-                            style="background: transparent; color: #bc75b8; border: 2px solid #bc75b8; padding: 15px 30px; border-radius: 25px; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease;">
+                    <a href="contact.html">
+                        <button class="contact-btn">
                             Contact Us
                         </button>
                     </a>
@@ -301,7 +439,7 @@
     </div>
     <div id="copyrights">
         <center>
-            <h5 style="font-weight: lighter;">© 2025 Sawsan Abdullatif. powered by ice peach tea.</h5>
+            <h5 class="copyright-text">© 2025 Sawsan Abdullatif. powered by ice peach tea.</h5>
         </center>
     </div>
 
