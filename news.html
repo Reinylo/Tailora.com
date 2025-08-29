@@ -460,43 +460,28 @@
         </div>
 
         <div id="copyrights">
-            <h6>© 2025 Sawsan Abdullatif. powered by ice peach tea.</h6>
+            <center>
+                <h5 style="font-weight: lighter;">© 2025 Sawsan Abdullatif. powered by ice peach tea.</h5>
+            </center>
         </div>
     </div>
 
-    <script src="script.js"></script>
     <script>
         // Add interactivity for news page
-        document.addEventListener('DOMContentLoaded', function () {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const searchInput = document.querySelector('.news-search input');
-            const newsCards = document.querySelectorAll('.news-card');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const searchInput = document.querySelector('.news-search input');
+        const newsCards = document.querySelectorAll('.news-card');
 
-            // Filter functionality
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    const filter = btn.textContent.toLowerCase();
+        // Filter functionality
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.textContent.toLowerCase();
 
-                    newsCards.forEach(card => {
-                        const tag = card.querySelector('.news-tag').textContent.toLowerCase();
-                        if (filter === 'all' || tag.includes(filter) || filter.includes(tag)) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-
-            // Search functionality
-            searchInput.addEventListener('input', (e) => {
-                const userSearch = e.target.value.toLowerCase();
                 newsCards.forEach(card => {
-                    const title = card.querySelector('.news-title').textContent.toLowerCase();
-                    const abstract = card.querySelector('.news-abstract').textContent.toLowerCase();
-                    if (title.includes(userSearch) || abstract.includes(userSearch) || userSearch.includes(title) || userSearch.includes(abstract)) {
+                    const tag = card.querySelector('.news-tag').textContent.toLowerCase();
+                    if (filter === 'all' || tag.includes(filter) || filter.includes(tag)) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';
@@ -504,6 +489,21 @@
                 });
             });
         });
+
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const userSearch = e.target.value.toLowerCase();
+            newsCards.forEach(card => {
+                const title = card.querySelector('.news-title').textContent.toLowerCase();
+                const abstract = card.querySelector('.news-abstract').textContent.toLowerCase();
+                if (title.includes(userSearch) || abstract.includes(userSearch) || userSearch.includes(title) || userSearch.includes(abstract)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
 
         const mobileMenuToggle = document.getElementById("mobileMenuToggle");
         const navLinks = document.getElementById("navlinksMobileNav");

@@ -225,3 +225,8 @@ const dwnldBtn = document.getElementById("dwnldBtn");
 dwnldBtn.addEventListener("click", () => {
     window.location.href = "download.html";
 });
+
+const previewBtn = document.getElementById("previewBtn");
+previewBtn.addEventListener("click", () => {
+    window.location.href = "preview.html";
+});
