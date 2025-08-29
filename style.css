@@ -854,6 +854,11 @@ a {
         margin-bottom: 200px;
     }
 
+    #abtTailAbs {
+        zoom: 70% !important;
+        text-align: center !important;
+    }
+
     #TitleCustomerRev {
         position: relative;
         top: -100px;
